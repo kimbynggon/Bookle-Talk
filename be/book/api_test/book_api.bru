@@ -1,0 +1,15 @@
+meta {
+  name: book_api
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{localhost}}{{api}}/search?query=해리포터
+  body: none
+  auth: inherit
+}
+
+params:query {
+  query: 해리포터
+}
