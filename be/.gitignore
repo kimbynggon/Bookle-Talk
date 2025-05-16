@@ -11,3 +11,11 @@
 **/**/dist
 **/**/**/dist
 
+# AWS 배포 관련 민감 파일
+deploy.sh
+config.json
+.env
+.env.local
+*.pem
+.aws/
+aws-credentials.json

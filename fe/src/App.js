@@ -1,13 +1,23 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import SearchForm from './components/SearchForm';
 import BookReviewPage from './pages/BookReviewPage';
 
 function App() {
   return (
-    <div className="App">
-      {/* 기본적으로 BookReviewPage를 렌더링하거나, 
-          개별 컴포넌트들을 직접 구성할 수 있습니다 */}
-      <BookReviewPage />
+    <div className="app">
+      <header className="app-header">
+        <h1>Bookle-Talk</h1>
+      </header>
+
+      <main className="app-main">
+        <SearchForm title='Bookle-Talk'/>
+        <BookReviewPage />
+      </main>
+
+      <footer className="app-footer">
+        <p>북톡 - 도서 검색 서비스</p>
+      </footer>
     </div>
   );
 }

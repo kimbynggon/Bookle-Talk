@@ -1,0 +1,20 @@
+meta {
+  name: bookAPI
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://dapi.kakao.com/v3/search/book?target=title&query=해리포터
+  body: none
+  auth: inherit
+}
+
+params:query {
+  target: title
+  query: 해리포터
+}
+
+headers {
+  Authorization: 00888d17f1595a03bfdab587b6880278
+}

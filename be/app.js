@@ -1,22 +1,37 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var indexRouter = require('./routes/index'); // 추가
-const booksRouter = require('./routes/book');
-require('dotenv').config();
+var logger = require('morgan');
+
+var cors = require('cors');
+var dotenv = require('dotenv');
+
+dotenv.config();
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var searchRouter = require('./routes/search');
+// var bookRouter = require('./routes/book');
+
 var app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use('/api/book', booksRouter);
 
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter); // 추가: 기본 라우터 연결
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/api/search', searchRouter);
+// app.use('/api/books', bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -33,5 +48,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// 기본 라우트
+app.get('/', (req, res) => {
+  res.send('API 서버가 실행 중입니다.');
+});
+
 
 module.exports = app;
