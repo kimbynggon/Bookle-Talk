@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 750px;
+  margin: 120px auto
 }
 
 .App-logo {
@@ -35,4 +37,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.talk-input{
+  margin-right: 0rem !important;
 }

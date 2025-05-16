@@ -1,5 +1,7 @@
+import React from 'react';
 import './App.scss';
 import SearchForm from './components/SearchForm';
+import BookReviewPage from './pages/BookReviewPage';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
 
       <main className="app-main">
         <SearchForm title='Bookle-Talk'/>
+        <BookReviewPage />
       </main>
 
       <footer className="app-footer">
