@@ -47,11 +47,13 @@ body {
 
 // Main content area
 .app-main {
-  flex: 1;
+  display: flex;
+  justify-content: center;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem;
+  gap: 20px;
 }
 
 // Footer styles

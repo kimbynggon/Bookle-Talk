@@ -11,7 +11,7 @@ function App() {
       </header>
 
       <main className="app-main">
-        <SearchForm title='Bookle-Talk'/>
+        <SearchForm title='도서 검색'/>
         <BookReviewPage />
       </main>
 
