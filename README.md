@@ -12,7 +12,7 @@
 ## 🗂 프로젝트 구조
 
 ```bash
-booktalk-app
+booktalk
 ├── backend
 │ ├── models # Sequelize 모델 정의
 │ ├── routes # REST API 라우터
@@ -61,6 +61,8 @@ npm start
 - 기본 포트: http://localhost:8080
 
 
+## RDB
+![RDB](https://github.com/user-attachments/assets/6ddeaa27-af39-44fc-ab7a-d3dc85134af3)
 
 
 
