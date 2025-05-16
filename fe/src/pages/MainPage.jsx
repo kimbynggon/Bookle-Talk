@@ -88,22 +88,6 @@ const MainSearchPage = () => {
               </button>
             </div>
           </div>
-
-          {/* 검색 팁 */}
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-            <button className="py-2 px-3 bg-white rounded border border-gray-200 shadow-sm hover:shadow text-gray-600">
-              베스트셀러
-            </button>
-            <button className="py-2 px-3 bg-white rounded border border-gray-200 shadow-sm hover:shadow text-gray-600">
-              신간도서
-            </button>
-            <button className="py-2 px-3 bg-white rounded border border-gray-200 shadow-sm hover:shadow text-gray-600">
-              추천도서
-            </button>
-            <button className="py-2 px-3 bg-white rounded border border-gray-200 shadow-sm hover:shadow text-gray-600">
-              인기검색어
-            </button>
-          </div>
         </div>
       </main>
 
