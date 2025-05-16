@@ -6,7 +6,7 @@ import BookCover from '../components/BookCover.jsx';
 import ChatSection from '../components/ChatSection.jsx';
 import BookSummary from '../components/BookSummary.jsx';
 import BookInfo from '../components/BookInfo.jsx';
-
+import '../App.css'
 export default function BookReviewPage() {
   // 나중에 API에서 가져올 데이터 더미데이터로 만든거라 달라질수도 있음
   const bookData = {
