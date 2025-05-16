@@ -13,6 +13,7 @@ dotenv.config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
+// var bookRouter = require('./routes/book');
 
 var app = express();
 
@@ -29,7 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/books', searchRouter);
+app.use('/api/search', searchRouter);
+// app.use('/api/books', bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +48,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// 기본 라우트
+app.get('/', (req, res) => {
+  res.send('API 서버가 실행 중입니다.');
+});
+
 
 module.exports = app;

@@ -12,12 +12,20 @@ const SearchForm = ({title}) => {
   const[showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
 
   const callAPI = useCallback(async() => {
-    const url = `https://dapi.kakao.com/v3/search/book?target=title&query=${query}&page=${page}`;
-    const config = {headers:'Authorization: KakaoAK 00888d17f1595a03bfdab587b6880278'};
-    const response = await axios(url, config);
-    setDocuments(response.data.documents); // 검색 결과 books 리스트만 전달
-    const total = response.data.meta.pageable_count; // 전체 문서 갯수 저장
-    setLast(Math.ceil(total/10))
+    try {
+      const response = await axios.get('/api/search', {
+        params: {
+          query: query,
+          page: page
+        }
+      });
+      setDocuments(response.data.documents); // 검색 결과 books 리스트만 전달
+      const total = response.data.meta.pageable_count; // 전체 문서 갯수 저장
+      setLast(Math.ceil(total/10))
+    
+    } catch (error) {
+      console.error('검색 실패: ', error);
+    }
   }, [query, page]);
 
   useEffect(()=>{
@@ -156,9 +164,15 @@ const SearchForm = ({title}) => {
             ))}
         </div>
         <div>
-            <button onClick={()=>setPage(page-1)} disabled={page===1}>이전</button>
+            <button onClick={()=> {
+              setPage(page-1);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }} disabled={page===1}>이전</button>
             <span style={{margin:'10px'}}>{page}/{last}</span>
-            <button onClick={()=>setPage(page+1)} disabled={page===last}>다음</button>
+            <button onClick={()=> {
+              setPage(page+1);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }} disabled={page===last}>다음</button>
         </div>
         
     </div>
