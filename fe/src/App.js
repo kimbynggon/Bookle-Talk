@@ -13,7 +13,7 @@ function App() {
     <div className="app">
         <Header />
       <main className="app-main">
-       <MainPage />
+       {/* <MainPage /> */}
         <SearchForm />
         <BookReviewPage />
       </main>
