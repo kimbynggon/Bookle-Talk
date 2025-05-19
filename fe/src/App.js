@@ -14,10 +14,8 @@ function App() {
         <Header />
       <main className="app-main">
        <MainPage />
-        <SearchForm />
-        <BookReviewPage />
       </main>
-        <Footer />
+        <Footer />  
     </div>
   );
 }

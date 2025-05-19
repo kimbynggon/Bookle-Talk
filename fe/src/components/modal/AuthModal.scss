@@ -1,0 +1,107 @@
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-modal {
+  background: white;
+  width: 320px;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+
+      button {
+        background: none;
+        border: none;
+        font-size: 16px;
+        color: #ccc;
+        cursor: pointer;
+
+        &.active {
+          font-weight: bold;
+          color: black;
+        }
+      }
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+      padding: 10px;
+      border: 1px solid #aaa;
+    }
+
+    .submit-btn {
+      background-color: #ccc;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    .submit-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .nickname-field {
+      display: flex;
+      gap: 8px;
+
+      input {
+        flex: 1;
+      }
+
+      .check-btn {
+        color: black;
+        padding: 10px;
+        background: #eee;
+        border: 1px solid #aaa;
+        cursor: pointer;
+      }
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+    
+
+    .kakao-login {
+      margin-top: 20px;
+      text-align: center;
+      background: #eee;
+      padding: 10px;
+      border-radius: 50%;
+      width: 80px;
+      align-self: center;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2563eb; // Tailwind의 text-blue-600에 해당
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .nav {
+      display: flex;
+      gap: 1rem;
+  
+      .auth-btn {
+        padding: 0.25rem 0.75rem;
+        color: #4b5563; // Tailwind의 text-gray-600
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+  
+        &:hover {
+          color: #111827; // Tailwind의 text-gray-900
+        }
+      }
+    }
+  }
+  

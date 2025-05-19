@@ -10,6 +10,9 @@ var dotenv = require('dotenv');
 
 dotenv.config();
 
+const authRouter = require("./routes/auth");
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
@@ -17,6 +20,8 @@ var searchRouter = require('./routes/search');
 
 var app = express();
 
+app.use(express.json());
+app.use("/api/auth", authRouter);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -54,5 +59,15 @@ app.get('/', (req, res) => {
   res.send('API 서버가 실행 중입니다.');
 });
 
+const db = require("./models");
+
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log(" DB 연결 완료");
+  })
+  .catch((err) => {
+    console.error(" DB 연결 실패:", err);
+  });
 
 module.exports = app;
