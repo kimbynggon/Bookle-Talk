@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const storedNickname = localStorage.getItem("nickname");
-    console.log("✅ 저장된 JWT 토큰:", storedToken);
+    console.log("저장된 JWT 토큰:", storedToken);
     if (storedToken && storedNickname) {
       setNickname(storedNickname);
     }
