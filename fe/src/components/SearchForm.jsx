@@ -29,7 +29,9 @@ const SearchForm = ({title}) => {
   }, [query, page]);
 
   useEffect(()=>{
-    callAPI(); // 렌더링 할 때마다 callAPI 호출
+    if (page !== 1) { // 페이지 변경 시에만 검색되도록
+      callAPI();
+    }
   },[page, callAPI])
 
   const handleSubmit = (e) => {
