@@ -1,24 +1,23 @@
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var cors = require('cors');
 var dotenv = require('dotenv');
-
 dotenv.config();
-
 const authRouter = require("./routes/auth");
-
+const protectedRouter = require("./routes/middleTest"); 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
 // var bookRouter = require('./routes/book');
-const middletestRouter = require("./routes/middletest");
+
 var app = express();
+
+app.use("/api/user", usersRouter); 
+
 
 app.use(express.json());
 app.use("/api/auth", authRouter);
@@ -33,15 +32,15 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/search', searchRouter);
 // app.use('/api/books', bookRouter);
-app.use("/api/user",middletestRouter);
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.use("/api/user/protected", protectedRouter);
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -59,6 +58,10 @@ app.get('/', (req, res) => {
   res.send('API 서버가 실행 중입니다.');
 });
 
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
 const db = require("./models");
 
 db.sequelize
@@ -69,5 +72,6 @@ db.sequelize
   .catch((err) => {
     console.error(" DB 연결 실패:", err);
   });
+
 
 module.exports = app;

@@ -32,5 +32,24 @@
         }
       }
     }
+    .user-info {
+      color: black;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    
+      .nickname {
+        font-weight: bold;
+      }
+    
+      .alarm,
+      .logout {
+        color: black;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
   }
+
   

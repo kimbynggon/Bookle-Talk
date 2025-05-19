@@ -5,6 +5,7 @@ import "./AuthModal.scss";
 const AuthModal = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState("login");
 
+
 // 각 상태를 저장하는 코드
   const [loginData, setLoginData] = useState({
     userId: "",
@@ -78,13 +79,21 @@ const AuthModal = ({ onClose }) => {
         userId: loginData.userId,
         password: loginData.password,
       });
+  
       console.log("로그인 성공:", res.data);
+  
+     
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("nickname", res.data.user.nickname);
+  
       setLoginError("");
-      onClose(); // 로그인 성공 시 모달 닫기
+      onClose(); 
+      window.location.reload(); 
     } catch (err) {
       setLoginError(err.response?.data?.message || "로그인 실패");
     }
   };
+  
 
   return (
     <div className="auth-modal-overlay" onClick={handleOverlayClick}>
