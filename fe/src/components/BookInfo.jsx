@@ -1,28 +1,42 @@
-// src/components/BookInfo.jsx
+// fe/src/components/BookInfo.jsx
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Badge } from 'react-bootstrap';
+import { Star } from 'lucide-react';
 
-export const BookInfo = ({ author, translator, publisher, price }) => {
-  author = author || "J. K. Rowling";
-  translator = translator || "김혜원";
-  publisher = publisher || "Yes24";
-  price = price || "50,000원";
-  
+const BookInfo = ({ book }) => {
   return (
-    <Card className="shadow-sm mt-3">
-      <Card.Header className="bg-white">
-        <h6 className="mb-0 fw-bold">도서 정보</h6>
-      </Card.Header>
-      <Card.Body className="bg-light">
-        <p className="mb-1">
-          <span className="fw-medium">저자/역자 이름 :</span> {author}
-          {!author && <small className="text-muted ms-1">(Kakao API로 조회 예정)</small>}
-        </p>
-        <p className="mb-1"><span className="fw-medium">번역가 :</span> {translator}</p>
-        <p className="mb-1"><span className="fw-medium">출판사 :</span> {publisher}</p>
-        <p className="mb-0"><span className="fw-medium">도서정가 :</span> {price}</p>
+    <Card className="border-0 shadow-sm h-100">
+      <Card.Body>
+        <div className="d-flex mb-3">
+          <div className="text-warning me-2">
+            {[...Array(Math.round(book.average_rating || 0))].map((_, i) => (
+              <Star key={i} size={16} fill="currentColor" />
+            ))}
+          </div>
+          <span className="text-muted small">
+            ({book.rating_count || 0}명 참여)
+          </span>
+        </div>
+        
+        <h6 className="fw-bold">출판 정보</h6>
+        <ul className="list-unstyled text-muted small">
+          <li>출판사: {book.publisher}</li>
+          <li>출판일: {new Date(book.published_date).toLocaleDateString()}</li>
+          <li>페이지: {book.pages}페이지</li>
+          <li>ISBN: {book.isbn}</li>
+        </ul>
+        
+        <h6 className="fw-bold mt-3">장르</h6>
+        <div>
+          {book.genres && book.genres.map((genre, index) => (
+            <Badge bg="secondary" className="me-1 mb-1" key={index}>
+              {genre}
+            </Badge>
+          ))}
+        </div>
       </Card.Body>
     </Card>
   );
 };
+
 export default BookInfo;

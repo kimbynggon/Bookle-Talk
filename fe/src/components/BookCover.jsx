@@ -1,24 +1,26 @@
-// src/components/BookCover.jsx
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export const BookCover = ({ imageUrl }) => {
+const BookCover = ({ book }) => {
   return (
-    <Card className="shadow-sm bg-light h-100">
-      {imageUrl ? (
-        <Card.Img 
-          src={imageUrl} 
-          alt="책 표지" 
-          className="img-fluid"
-          style={{ objectFit: 'cover', height: '100%' }}
-        />
-      ) : (
-        <Card.Body className="text-center py-5">
-          <h3 className="text-secondary">이미지</h3>
-          <small className="text-muted">(Kakao API로 조회 예정)</small>
+    <Link to={`/book/${book.id}`} className="text-decoration-none">
+      <Card className="h-100 book-cover-card border-0 shadow-sm">
+        <div className="book-cover-img-container">
+          <Card.Img 
+            variant="top" 
+            src={book.cover_image || 'https://via.placeholder.com/200x300?text=No+Cover'} 
+            alt={book.title}
+            className="book-cover-img"
+          />
+        </div>
+        <Card.Body className="p-2">
+          <Card.Title className="fs-6 text-truncate">{book.title}</Card.Title>
+          <Card.Text className="text-muted small text-truncate">{book.author}</Card.Text>
         </Card.Body>
-      )}
-    </Card>
+      </Card>
+    </Link>
   );
 };
+
 export default BookCover;

@@ -10,10 +10,11 @@ var dotenv = require('dotenv');
 
 dotenv.config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var searchRouter = require('./routes/search');
-// var bookRouter = require('./routes/book');
+const indexRoutes = require('./routes/index');
+const bookRoutes = require('./routes/book');
+const searchRoutes = require('./routes/search');
+const userRoutes = require('./routes/users');
+
 
 var app = express();
 
@@ -28,10 +29,15 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api/search', searchRouter);
-// app.use('/api/books', bookRouter);
+
+app.use('/', indexRoutes);
+app.use('/api/books', bookRoutes);
+app.use('/api/search', searchRoutes);
+app.use('/api/users', userRoutes);
+
+const chatController = require('./controllers/chatController');
+app.get('/api/books/:bookId/chat', chatController.getChatMessages);
+app.post('/api/messages/:messageId/report', chatController.reportMessage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
