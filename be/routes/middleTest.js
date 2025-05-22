@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const authMiddleware = require("../middleware/authMiddleware"); // ✅ 정확한 이름
+const authMiddleware = require("../middleware/authMiddleware"); 
 
 router.get("/profile", authMiddleware, (req, res) => {
   console.log("/profile 라우터 진입");

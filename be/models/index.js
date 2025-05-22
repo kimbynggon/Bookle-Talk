@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
-dotenv.config(); // 반드시 최상단에서 호출
-
+dotenv.config(); 
 const db = {};
 
 const sequelize = new Sequelize(

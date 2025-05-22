@@ -32,14 +32,25 @@ exports.signup = async ({ userId, password, email, nickname }) => {
 };
 exports.login = async ({ userId, password }) => {
     const user = await userDao.findByUserId(userId);
-    if (!user) throw new Error("존재하지 않는 사용자입니다.");
+    if (!user) throw new Error("아이디 또는 비밀번호를 확인해주세요");
   
     const [salt, storedHash] = user.password.split(".");
     const inputHash = hashPassword(password, salt);
   
     if (inputHash !== storedHash) {
-      throw new Error("비밀번호가 일치하지 않습니다.");
+      throw new Error("아이디 또는 비밀번호를 확인해주세요");
     }
   
     return user;
   };
+
+
+exports.isUserIdTaken = async (userId) => {
+  const user = await userDao.findByUserId(userId);
+  return !!user;  
+};
+
+exports.isNicknameTaken = async (nickname) => {
+  const user = await userDao.findByNickname(nickname);
+  return !!user;
+};

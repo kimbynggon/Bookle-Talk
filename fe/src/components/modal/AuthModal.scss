@@ -18,6 +18,8 @@
   border-radius: 8px;
   position: relative;
 
+
+  
   .modal-header {
     display: flex;
     justify-content: space-between;
@@ -64,12 +66,14 @@
       padding: 10px;
       border: none;
       cursor: pointer;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
     }
-    .submit-btn:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-    
+
+    .id-field,
     .nickname-field {
       display: flex;
       gap: 8px;
@@ -89,10 +93,15 @@
 
     .error-message {
       color: red;
-      margin-top: 5px;
-      font-size: 0.9rem;
+      margin-top: -10px;
+      font-size: 0.75rem;
     }
-    
+
+    .info-message {
+      color: #2c7be5;
+      font-size: 0.75rem;
+      margin-top: -20px;
+    }
 
     .kakao-login {
       margin-top: 20px;
