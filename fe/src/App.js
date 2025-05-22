@@ -6,6 +6,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
     <div className="app">
         <Header />
       <main className="app-main">
-       {/* <MainPage /> */}
-        <SearchForm />
-        <BookReviewPage />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+    </Routes>
       </main>
         <Footer />
     </div>
