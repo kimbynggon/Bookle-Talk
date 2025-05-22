@@ -13,11 +13,10 @@ function App() {
     <Router>
       <div className="app-container d-flex flex-column min-vh-100">
         <Header />
-        <Container className="flex-grow-1 py-4">
+        <Container className="flex-grow-1 searchmain">
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/book/:id" element={<BookReviewPage />} />
-            <Route path="/search" element={<MainPage />} />
           </Routes>
         </Container>
         <Footer />

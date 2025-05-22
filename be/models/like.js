@@ -1,56 +1,44 @@
-// models/like.model.js
 module.exports = (sequelize, DataTypes) => {
-    const Like = sequelize.define('Like', {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+  const Like = sequelize.define('Like', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    user_id: { 
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'users',
+        key: 'id'
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+      allowNull: false
+    },
+    book_id: {  
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'books',
+        key: 'id'
       },
-      review_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'reviews',
-          key: 'id'
-        }
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+      allowNull: false
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 5
       }
-    }, {
-      tableName: 'likes',
-      timestamps: false,
-      underscored: true,
-      indexes: [
-        {
-          unique: true,
-          fields: ['user_id', 'review_id']
-        }
-      ]
-    });
-  
-    Like.associate = function(models) {
-      // 좋아요와 사용자의 관계 (N:1)
-      Like.belongsTo(models.User, {
-        foreignKey: 'user_id',
-        as: 'user'
-      });
-  
-      // 좋아요와 리뷰의 관계 (N:1)
-      Like.belongsTo(models.Review, {
-        foreignKey: 'review_id',
-        as: 'review'
-      });
-    };
-  
-    return Like;
+    }
+  }, {
+    tableName: 'likes',
+    timestamps: false,
+    underscored: true  
+  });
+
+  Like.associate = function(models) {
+    Like.belongsTo(models.User, { foreignKey: 'user_id' });
+    Like.belongsTo(models.Book, { foreignKey: 'book_id' });
   };
+
+  return Like;
+};

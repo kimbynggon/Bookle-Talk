@@ -1,48 +1,60 @@
-// be/server.js
+const express = require('express');
 const http = require('http');
-const app = require('./app');
-const { initializeSocket } = require('./controllers/chatController');
+const { Server } = require('socket.io');
+const { sequelize } = require('./models');
+const logger = require('./utils/logger');
+const routes = require('./routes');
+const { setupMiddleware } = require('./middlewares');
+const { setupSocketIO } = require('./socket');
 
-const port = process.env.PORT || 8080;
-app.set('port', port);
+const PORT = process.env.PORT || 3000;
 
+// Initialize Express app
+const app = express();
+
+// Setup middleware
+setupMiddleware(app);
+
+// Setup routes
+app.use('/', routes);
+
+// Create HTTP server
 const server = http.createServer(app);
 
-// Initialize Socket.io
-const io = initializeSocket(server);
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
+// Initialize Socket.io with secure CORS settings
+const io = new Server(server, {
+  cors: {
+    origin: process.env.NODE_ENV === 'development' ? "*" : "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true
   }
+});
 
-  const bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+// Setup Socket.io handlers
+setupSocketIO(io);
 
-  // Handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
+// Error handling middleware
+app.use((err, req, res, next) => {
+  logger.error(err.stack);
+  res.status(500).json({
+    success: false,
+    message: 'Internal server error',
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+  });
+});
+
+// Start server
+const startServer = async () => {
+  try {
+    await sequelize.sync({ force: false });
+    server.listen(PORT, '0.0.0.0', () => {
+      logger.info(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    logger.error('Failed to start server:', error);
+    process.exit(1);
   }
-}
+};
 
-function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  console.log('Listening on ' + bind);
-}
+// Start the server
+startServer();

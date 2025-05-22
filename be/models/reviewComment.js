@@ -1,17 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-  const Chat = sequelize.define('Chat', {
+  const ReviewComment = sequelize.define('ReviewComment', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
-    },
-    book_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'books',
-        key: 'id'
-      }
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -21,7 +13,15 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    message: {
+    review_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'reviews',
+        key: 'id'
+      }
+    },
+    content: {
       type: DataTypes.TEXT,
       allowNull: false
     },
@@ -30,18 +30,24 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.NOW
     }
   }, {
-    tableName: 'chats',
-    timestamps: false
+    tableName: 'review_comments',
+    timestamps: false,
+    underscored: true
   });
 
-  Chat.associate = function(models) {
-    Chat.belongsTo(models.Book, { foreignKey: 'book_id' });
-    // User와의 관계 추가
-    Chat.belongsTo(models.User, { 
+  ReviewComment.associate = function(models) {
+    // 댓글과 사용자의 관계 (N:1)
+    ReviewComment.belongsTo(models.User, {
       foreignKey: 'user_id',
       as: 'user'
     });
+
+    // 댓글과 리뷰의 관계 (N:1)
+    ReviewComment.belongsTo(models.Review, {
+      foreignKey: 'review_id',
+      as: 'review'
+    });
   };
 
-  return Chat;
+  return ReviewComment;
 };
