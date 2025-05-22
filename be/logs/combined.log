@@ -1764,3 +1764,15 @@
 {"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:33:49"}
 {"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:33:50"}
 {"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:44:34"}
+{"level":"info","message":"GET /main.1a75dcbb5c404f3940df.hot-update.json","service":"bookletalk-api","timestamp":"2025-05-22 14:48:50"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-22 15:07:43"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-22 15:08:12"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:11:21"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=123","service":"bookletalk-api","timestamp":"2025-05-22 15:11:30"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=1236654","service":"bookletalk-api","timestamp":"2025-05-22 15:11:32"}
+{"level":"info","message":"GET /api/auth/check-nickname?nickname=123","service":"bookletalk-api","timestamp":"2025-05-22 15:11:45"}
+{"level":"info","message":"GET /api/auth/check-nickname?nickname=12355","service":"bookletalk-api","timestamp":"2025-05-22 15:11:46"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=12355","service":"bookletalk-api","timestamp":"2025-05-22 15:11:49"}
+{"level":"info","message":"POST /api/auth/signup","service":"bookletalk-api","timestamp":"2025-05-22 15:11:50"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:11:54"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:12:02"}
