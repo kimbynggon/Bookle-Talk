@@ -36,7 +36,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-<<<<<<< HEAD
 app.use('/', indexRoutes);
 app.use('/api/books', book);
 app.use('/api/search', searchRoutes);
@@ -55,7 +54,6 @@ app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
-=======
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/search', searchRouter);
@@ -65,11 +63,6 @@ app.use("/api/user/protected", protectedRouter);
 
 
 
-<<<<<<< HEAD
->>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
-=======
->>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
->>>>>>> origin/main
 // error handler
 app.use((err, req, res, next) => {
   logger.error(err.stack);

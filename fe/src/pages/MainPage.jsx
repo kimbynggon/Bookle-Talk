@@ -90,7 +90,6 @@ export default function MainPage() {
         ) : (
           <section className="bookContainer">
             <div className="bookList">
-              <p>베스트셀러</p>
             </div>
           </section>
         )}

@@ -4,29 +4,30 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const config = require('../config/db');
 const logger = require('../utils/logger');
+const dotenv = require("dotenv");
 
-// const sequelize = new Sequelize(
-//   config.db,
-//   config.user,
-//   config.password,
-//   {
-//     host: config.host,
-//     port: config.port,
-//     dialect: config.dialect,
-//     logging: msg => logger.debug(msg),
-//     pool: config.pool
-//   }
-// );
+const sequelize = new Sequelize(
+  config.db,
+  config.user,
+  config.password,
+  {
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
+    logging: msg => logger.debug(msg),
+    pool: config.pool
+  }
+);
 
-// const db = {
-//   sequelize,
-//   Sequelize,
-//   User: null,
-//   Review: null,
-//   Like: null,
-//   Bookmark: null,
-//   Chat: null
-// };
+const db = {
+  sequelize,
+  Sequelize,
+  User: null,
+  Review: null,
+  Like: null,
+  Bookmark: null,
+  Chat: null
+};
 
 // Import models in dependency order
 const models = [
@@ -79,26 +80,25 @@ try {
   process.exit(1);
 }
 
-module.exports = db;
-const Sequelize = require("sequelize");
-const dotenv = require("dotenv");
-dotenv.config(); 
-const db = {};
+// module.exports = db;
+// const Sequelize = require("sequelize");
+// dotenv.config(); 
+// const db = {};
 
-const sequelize = new Sequelize(
-  process.env.DB_DATABASE,      
-  process.env.DB_ID,            
-  process.env.DB_PASS,          
-  {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT, 
-    logging: false,
-  }
-);
+// const sequelize = new Sequelize(
+//   process.env.DB_DATABASE,      
+//   process.env.DB_ID,            
+//   process.env.DB_PASS,          
+//   {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     dialect: process.env.DB_DIALECT, 
+//     logging: false,
+//   }
+// );
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
 
 db.User = require("./user")(sequelize, Sequelize);
 
