@@ -9,16 +9,24 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.6",
+<<<<<<< HEAD
     "dotenv": "^16.5.0",
+=======
+    "jsonwebtoken": "^9.0.2",
+>>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
     "lucide-react": "^0.510.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "sass": "^1.89.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
+=======
+    "styled-components": "^6.1.18",
+>>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,5 +53,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.89.0"
+  }
 }

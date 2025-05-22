@@ -13,6 +13,7 @@ function App() {
     <Router>
       <div className="app-container d-flex flex-column min-vh-100">
         <Header />
+<<<<<<< HEAD
         <Container className="flex-grow-1 searchmain">
           <Routes>
             <Route path="/" element={<MainPage />} />
@@ -22,6 +23,13 @@ function App() {
         <Footer />
       </div>
     </Router>
+=======
+      <main className="app-main">
+       <MainPage />
+      </main>
+        <Footer />  
+    </div>
+>>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
   );
 }
 
