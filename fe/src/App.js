@@ -25,7 +25,13 @@ function App() {
     </Router>
 =======
       <main className="app-main">
+<<<<<<< HEAD
        <MainPage />
+=======
+       {/* <MainPage /> */}
+        <SearchForm />
+        <BookReviewPage />
+>>>>>>> origin/main
       </main>
         <Footer />  
     </div>
