@@ -62,11 +62,6 @@
     }
 
     .submit-btn {
-      background-color: #ccc;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-
       &:disabled {
         background-color: #ccc;
         cursor: not-allowed;
@@ -88,6 +83,10 @@
         background: #eee;
         border: 1px solid #aaa;
         cursor: pointer;
+
+        height: 3.125rem;     
+        margin-top: 1.25rem;  
+        white-space: nowrap;  
       }
     }
 
@@ -114,3 +113,6 @@
     }
   }
 }
+input[type='text']{
+  margin: 0px 0px 10px 0px;
+ }

@@ -1,8 +1,5 @@
 // src/pages/MainSearchPage.jsx
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
-import Header from '../components/common/Header.js';
-import Footer from '../components/common/Footer.js';
 import '../css/MainPage.scss'
 import logoImg from '../img/logo.png'
 import AuthModal from "../components/modal/AuthModal.jsx";

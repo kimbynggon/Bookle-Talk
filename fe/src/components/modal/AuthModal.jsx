@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "./Button";
+import Input from "./Input"
 import "./AuthModal.scss";
 
 const AuthModal = ({ onClose }) => {
@@ -168,9 +170,9 @@ const AuthModal = ({ onClose }) => {
               }
             />
             {loginError && <div className="error-message">{loginError}</div>}
-            <button className="submit-btn" onClick={handleLogin}>
+            <Button className="submit-btn" onClick={handleLogin}>
               로그인
-            </button>
+            </Button>
             <div className="kakao-login">카카오톡 아이콘</div>
           </div>
         )}
@@ -178,9 +180,9 @@ const AuthModal = ({ onClose }) => {
         {activeTab === "signup" && (
           <div className="form signup-form">
             <div className="id-field">
-              <input
+              <Input
                 type="text"
-                placeholder="아이디"
+                label="아이디"
                 value={signupData.userId}
                 onChange={(e) => {
                   setSignupData({ ...signupData, userId: e.target.value });
@@ -196,9 +198,9 @@ const AuthModal = ({ onClose }) => {
               <div className="info-message">{userIdMessage}</div>
             )}
 
-            <input
+            <Input
+              label="비밀번호"
               type="password"
-              placeholder="비밀번호"
               value={signupData.password}
               onChange={(e) =>
                 setSignupData({ ...signupData, password: e.target.value })
@@ -219,9 +221,9 @@ const AuthModal = ({ onClose }) => {
               <div className="error-message">비밀번호가 다릅니다</div>
             )}
 
-            <input
-              type="email"
-              placeholder="이메일"
+            <Input
+            label="이메일"
+              type="text"
               value={signupData.email}
               onChange={(e) =>
                 setSignupData({ ...signupData, email: e.target.value })
@@ -232,9 +234,9 @@ const AuthModal = ({ onClose }) => {
             )}
 
             <div className="nickname-field">
-              <input
+              <Input
                 type="text"
-                placeholder="닉네임"
+                label="닉네임"
                 value={signupData.nickname}
                 onChange={(e) => {
                   setSignupData({ ...signupData, nickname: e.target.value });
@@ -253,13 +255,13 @@ const AuthModal = ({ onClose }) => {
             {serverError && (
               <div className="error-message">{serverError}</div>
             )}
-            <button
+            <Button
               className="submit-btn"
               disabled={!isSignupValid}
               onClick={handleSignup}
             >
               회원가입
-            </button>
+            </Button>
             <div className="kakao-login">카카오톡 아이콘</div>
           </div>
         )}
