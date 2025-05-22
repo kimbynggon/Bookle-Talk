@@ -1,24 +1,27 @@
 import React from 'react';
-import './App.scss';
-import SearchForm from './components/SearchForm';
-import BookReviewPage from './pages/BookReviewPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
 import MainPage from './pages/MainPage';
+import BookReviewPage from './pages/BookReviewPage';
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 
 function App() {
   return (
-    <div className="app">
+    <Router>
+      <div className="app-container d-flex flex-column min-vh-100">
         <Header />
-      <main className="app-main">
-       <MainPage />
-        <SearchForm />
-        <BookReviewPage />
-      </main>
+        <Container className="flex-grow-1 searchmain">
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/book/:id" element={<BookReviewPage />} />
+          </Routes>
+        </Container>
         <Footer />
-    </div>
+      </div>
+    </Router>
   );
 }
 

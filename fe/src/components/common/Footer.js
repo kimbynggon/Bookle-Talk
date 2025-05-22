@@ -1,19 +1,43 @@
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+
 const Footer = () => {
-    return (
-        <footer className="py-6 bg-white border-t">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <p className="text-sm text-gray-600">© 2025 BookleTalk. All rights reserved.</p>
-            </div>
-            <div className="flex space-x-4">
-              <a href="#" className="text-sm text-gray-600 hover:text-blue-500">이용약관</a>
-              <a href="#" className="text-sm text-gray-600 hover:text-blue-500">개인정보처리방침</a>
-              <a href="#" className="text-sm text-gray-600 hover:text-blue-500">고객센터</a>
-            </div>
-          </div>
+  return (
+    <footer className="bg-light py-4 border-top mt-auto">
+      <Container>
+        <Row>
+          <Col md={6}>
+            <h5>BookleTalk</h5>
+            <p className="text-muted">
+              실시간으로 책에 대해 이야기하고 의견을 나눌 수 있는 플랫폼입니다.
+            </p>
+          </Col>
+          <Col md={3}>
+            <h6>링크</h6>
+            <ul className="list-unstyled">
+              <li><a href="/about" className="text-decoration-none">소개</a></li>
+              <li><a href="/terms" className="text-decoration-none">이용약관</a></li>
+              <li><a href="/privacy" className="text-decoration-none">개인정보처리방침</a></li>
+            </ul>
+          </Col>
+          <Col md={3}>
+            <h6>연락처</h6>
+            <address className="text-muted">
+              <small>
+                이메일: contact@bookletalk.com<br />
+                전화: 02-123-4567<br />
+                서울특별시 강남구
+              </small>
+            </address>
+          </Col>
+        </Row>
+        <hr />
+        <div className="text-center text-muted">
+          <small>&copy; {new Date().getFullYear()} BookleTalk. All rights reserved.</small>
         </div>
-      </footer>
-    );
+      </Container>
+    </footer>
+  );
 };
+
 export default Footer;
