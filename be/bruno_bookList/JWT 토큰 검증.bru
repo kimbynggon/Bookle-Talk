@@ -1,0 +1,15 @@
+meta {
+  name: JWT 토큰 검증
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/api/user/protected/profile
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9pZCI6IjEyMyIsIm5pY2tuYW1lIjoi7YWM7Iqk7Yq4IiwiaWF0IjoxNzQ3NjQ0MDAwLCJleHAiOjE3NDc2NTg0MDB9.ZK1guj4v0ezWkXMOYYrjRuLySmof5QioGn28E8hoIJU
+}

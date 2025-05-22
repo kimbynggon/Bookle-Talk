@@ -1,22 +1,18 @@
-// src/components/BookSummary.jsx
+// fe/src/components/BookSummary.jsx
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-export const BookSummary = ({ summary }) => {
-  const summaryText = summary || "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...";
-  
+const BookSummary = ({ book }) => {
   return (
-    <Card className="shadow-sm mt-4">
-      <Card.Header className="bg-white">
-        <h6 className="mb-0 fw-bold">줄거리 요약</h6>
-      </Card.Header>
+    <Card className="border-0 shadow-sm h-100">
       <Card.Body>
-        {!summary && <small className="text-muted">(Kakao API로 조회 예정)</small>}
-        <p className={!summary ? "mt-2 mb-0" : "mb-0"}>
-          {summaryText}
+        <h5 className="card-title fw-bold mb-3">책 소개</h5>
+        <p className="card-text text-muted">
+          {book.description || '이 책에 대한 소개가 없습니다.'}
         </p>
       </Card.Body>
     </Card>
   );
 };
+
 export default BookSummary;

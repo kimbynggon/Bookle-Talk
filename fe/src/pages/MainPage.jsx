@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
 import BookReviewPage from './BookReviewPage';
 import SearchForm from '../components/SearchForm';
+import { bookService } from '../services/bookService';
 import logoImg from '../img/logo.png'
-// import AuthModal from "../components/modal/AuthModal.jsx";
+import AuthModal from "../components/modal/AuthModal.jsx";
 
 export default function MainPage() {
   const location = useLocation();
@@ -99,7 +100,7 @@ export default function MainPage() {
         )}
       </div>
 
-      {/* {showModal && <AuthModal onClose={() => setShowModal(false)} />} */}
+      {showModal && <AuthModal onClose={() => setShowModal(false)} />}
     </div>
   );
 }
