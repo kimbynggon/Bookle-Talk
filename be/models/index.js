@@ -104,4 +104,8 @@ db.Sequelize = Sequelize;
 db.User = require("./user")(sequelize, Sequelize);
 
 module.exports = db;
+<<<<<<< HEAD
 >>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
+=======
+>>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
+>>>>>>> origin/main
