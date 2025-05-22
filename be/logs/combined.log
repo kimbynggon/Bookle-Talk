@@ -1760,3 +1760,7 @@
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 14:11:50"}
 {"level":"info","message":"GET /api/auth/check-userid?userId=123","service":"bookletalk-api","timestamp":"2025-05-22 14:11:56"}
 {"level":"info","message":"GET /api/auth/check-userid?userId=123666","service":"bookletalk-api","timestamp":"2025-05-22 14:11:58"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 14:32:49"}
+{"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:33:49"}
+{"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:33:50"}
+{"level":"info","message":"GET //search/books?query=%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0","service":"bookletalk-api","timestamp":"2025-05-22 14:44:34"}
