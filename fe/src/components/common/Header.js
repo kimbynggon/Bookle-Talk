@@ -1,21 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SearchForm from '../SearchForm';
-=======
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./style/Header.scss";
 import AuthModal from "../modal/AuthModal";
->>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
-=======
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
-import "./style/Header.scss";
-import AuthModal from "../modal/AuthModal";
->>>>>>> origin/main
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,30 +29,11 @@ const Header = () => {
   const handleModalClose = () => setIsModalOpen(false);
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
     <Navbar bg="light" expand="lg" className="border-bottom">
       <Container>
         <Navbar.Brand as={Link} to="/">BookleTalk</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-<<<<<<< HEAD
-          {/* <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">홈</Nav.Link>
-            <Nav.Link as={Link} to="/category">카테고리</Nav.Link>
-            <Nav.Link as={Link} to="/new">신작</Nav.Link>
-          </Nav>
-          <SearchForm /> */}
-          <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/login">로그인</Nav.Link>
-            <Nav.Link as={Link} to="/signup">회원가입</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-=======
     <>
       <header className="header">
         <button className="logo">BookleTalk</button>
@@ -86,8 +56,6 @@ const Header = () => {
 
       {isModalOpen && <AuthModal onClose={handleModalClose} />}
     </>
->>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
-=======
           <nav className="nav">
             {!nickname ? (
               <button className="auth-btn" onClick={handleModalOpen}>
@@ -107,9 +75,6 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-
->>>>>>> origin/main
   );
 };
 

@@ -15,9 +15,7 @@ function App() {
 
     // <Router>
       <div className="app-container d-flex flex-column min-vh-100">
-<<<<<<< HEAD
         <Header />
-<<<<<<< HEAD
         <Container className="flex-grow-1 searchmain">
           <Routes>
             <Route path="/" element={<MainPage />} />
@@ -26,29 +24,8 @@ function App() {
         </Container>
         <Footer />
       </div>
-    </Router>
-=======
-      <main className="app-main">
-       <MainPage />
-      </main>
-        <Footer />  
-    </div>
->>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
-=======
-        <div>
-          <Header />
-          <Container className="flex-grow-1 searchmain">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/book/:id" element={<BookReviewPage />} />
-            </Routes>
-          </Container>
-          <Footer />
-        </div>
-      </div>
     // </Router>
->>>>>>> origin/main
-  );
+  )
 }
 
 export default App;

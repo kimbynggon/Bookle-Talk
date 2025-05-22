@@ -1,32 +1,32 @@
-<<<<<<< HEAD
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const config = require('../config/db');
 const logger = require('../utils/logger');
 
-const sequelize = new Sequelize(
-  config.db,
-  config.user,
-  config.password,
-  {
-    host: config.host,
-    port: config.port,
-    dialect: config.dialect,
-    logging: msg => logger.debug(msg),
-    pool: config.pool
-  }
-);
+// const sequelize = new Sequelize(
+//   config.db,
+//   config.user,
+//   config.password,
+//   {
+//     host: config.host,
+//     port: config.port,
+//     dialect: config.dialect,
+//     logging: msg => logger.debug(msg),
+//     pool: config.pool
+//   }
+// );
 
-const db = {
-  sequelize,
-  Sequelize,
-  User: null,
-  Review: null,
-  Like: null,
-  Bookmark: null,
-  Chat: null
-};
+// const db = {
+//   sequelize,
+//   Sequelize,
+//   User: null,
+//   Review: null,
+//   Like: null,
+//   Bookmark: null,
+//   Chat: null
+// };
 
 // Import models in dependency order
 const models = [
@@ -80,7 +80,6 @@ try {
 }
 
 module.exports = db;
-=======
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 dotenv.config(); 
@@ -104,8 +103,3 @@ db.Sequelize = Sequelize;
 db.User = require("./user")(sequelize, Sequelize);
 
 module.exports = db;
-<<<<<<< HEAD
->>>>>>> 3e0ba3384bfe42ea7e955f3210f6abe05df3cc98
-=======
->>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
->>>>>>> origin/main
