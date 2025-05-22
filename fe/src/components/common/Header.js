@@ -1,7 +1,6 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SearchForm from '../SearchForm';
-
 import React, { useState, useEffect } from "react";
 import "./style/Header.scss";
 import AuthModal from "../modal/AuthModal";
@@ -29,47 +28,30 @@ const Header = () => {
   const handleModalClose = () => setIsModalOpen(false);
 
   return (
-    <>
-      <Navbar bg="light" expand="lg" className="border-bottom">
-        <Container>
-          <Navbar.Brand as={Link} to="/">BookleTalk</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            {/* <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">홈</Nav.Link>
-              <Nav.Link as={Link} to="/category">카테고리</Nav.Link>
-              <Nav.Link as={Link} to="/new">신작</Nav.Link>
-            </Nav>
-            <SearchForm /> */}
-            <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/login">로그인</Nav.Link>
-              <Nav.Link as={Link} to="/signup">회원가입</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-      <header className="header">
-        <button className="logo">BookleTalk</button>
-        <nav className="nav">
-          {!nickname ? (
-            <button className="auth-btn" onClick={handleModalOpen}>
-              로그인/회원가입
-            </button>
-          ) : (
-            <div className="user-info">
-              <button className="alarm">알람</button>
-              <span className="nickname">{nickname}님</span>
-              <button className="logout" onClick={handleLogout}>
-                로그아웃
+    <Navbar bg="light" expand="lg" className="border-bottom">
+      <Container>
+        <Navbar.Brand as={Link} to="/">BookleTalk</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <nav className="nav">
+            {!nickname ? (
+              <button className="auth-btn" onClick={handleModalOpen}>
+                로그인/회원가입
               </button>
-            </div>
-          )}
-        </nav>
-      </header>
-
-      {isModalOpen && <AuthModal onClose={handleModalClose} />}
-    </>
+            ) : (
+              <div className="user-info">
+                <button className="alarm">알람</button>
+                <span className="nickname">{nickname}님</span>
+                <button className="logout" onClick={handleLogout}>
+                  로그아웃
+                </button>
+              </div>
+            )}
+          </nav>
+          {isModalOpen && <AuthModal onClose={handleModalClose} />}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
