@@ -4,7 +4,6 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import BookReviewPage from './pages/BookReviewPage';
 import { Container } from 'react-bootstrap';
@@ -14,7 +13,7 @@ import './App.scss';
 function App() {
   return (
 
-    <Router>
+    // <Router>
       <div className="app-container d-flex flex-column min-vh-100">
         <div>
           <Header />
@@ -27,7 +26,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </Router>
+    // </Router>
   );
 }
 
