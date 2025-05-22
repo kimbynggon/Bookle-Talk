@@ -12,30 +12,18 @@ function App() {
   return (
     <Router>
       <div className="app-container d-flex flex-column min-vh-100">
-        <Header />
-<<<<<<< HEAD
-        <Container className="flex-grow-1 searchmain">
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/book/:id" element={<BookReviewPage />} />
-          </Routes>
-        </Container>
-        <Footer />
+        <div>
+          <Header />
+          <Container className="flex-grow-1 searchmain">
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/book/:id" element={<BookReviewPage />} />
+            </Routes>
+          </Container>
+          <Footer />
+        </div>
       </div>
     </Router>
-=======
-      <main className="app-main">
-<<<<<<< HEAD
-       <MainPage />
-=======
-       {/* <MainPage /> */}
-        <SearchForm />
-        <BookReviewPage />
->>>>>>> origin/main
-      </main>
-        <Footer />  
-    </div>
->>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
   );
 }
 

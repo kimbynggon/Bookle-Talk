@@ -9,28 +9,18 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.6",
-<<<<<<< HEAD
     "dotenv": "^16.5.0",
-=======
     "jsonwebtoken": "^9.0.2",
->>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
     "lucide-react": "^0.510.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "sass": "^1.89.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-=======
     "styled-components": "^6.1.18",
->>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
-=======
     "sass": "^1.89.0",
->>>>>>> origin/main
     "web-vitals": "^2.1.4"
   },
   "scripts": {
