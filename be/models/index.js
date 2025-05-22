@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -79,3 +80,28 @@ try {
 }
 
 module.exports = db;
+=======
+const Sequelize = require("sequelize");
+const dotenv = require("dotenv");
+dotenv.config(); 
+const db = {};
+
+const sequelize = new Sequelize(
+  process.env.DB_DATABASE,      
+  process.env.DB_ID,            
+  process.env.DB_PASS,          
+  {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT, 
+    logging: false,
+  }
+);
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+db.User = require("./user")(sequelize, Sequelize);
+
+module.exports = db;
+>>>>>>> f7eb54460ddd3cf2fca94aba2a04d6a2d4f9c007
