@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 const userDao = require("../dao/userDao");
-const { User, Sequelize } = require("../models");
+const { User, Sequelize } = require("../models_before");
 const { Op } = Sequelize;
 
 const HASH_ITER = parseInt(process.env.HASH_ITER || "10000", 10);

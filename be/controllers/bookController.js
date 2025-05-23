@@ -1,4 +1,4 @@
-const { Book, Like } = require('../models');
+const { Book, Like } = require('../models_before');
 const logger = require('../utils/logger');
 const kakaoService = require('../services/kakaoService');
 

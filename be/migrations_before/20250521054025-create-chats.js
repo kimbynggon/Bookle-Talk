@@ -5,33 +5,37 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('chats', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
+        type: Sequelize.INTEGER
       },
       book_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'books',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'users',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       message: {
         type: Sequelize.TEXT,
         allowNull: false
       },
       created_at: {
+        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },
