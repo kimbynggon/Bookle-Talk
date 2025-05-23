@@ -1,5 +1,5 @@
 .book-list{
-  width: 50%;
+  width: 100%;
 }
 
 .input{
@@ -112,11 +112,11 @@
       padding: 0.1rem;
 
       #category {
-        width: 35%;
-        font-size: 10px;
+        width: 50%;
+        font-size: 13px;
       }
       #detail {
-        width: 65%;
+        width: 50%;
         font-size: 12px;
         overflow: hidden; 
         text-overflow: ellipsis; 
@@ -124,6 +124,7 @@
         -webkit-line-clamp: 1;
         line-clamp: 1;
         -webkit-box-orient: vertical;
+        // justify-content: space-between;
       }
     }  
   }
@@ -182,15 +183,16 @@
 
  
 input[type='text']{
+  width: 85%;
  padding: 2px;
- margin: 10px 5px 10px 0px;
+ margin: 10px 10px 10px 0px;
 }
  
 button{
   background-color: rgb(88, 61, 188);
   color: white;
   border: none;
-  padding: 5px;
+  padding: 8px;
   border-radius: 10px;
 }
  

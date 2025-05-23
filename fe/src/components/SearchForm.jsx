@@ -1,19 +1,25 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
 import './SearchForm.scss';
 
-const SearchForm = ({title}) => {
-  const[query,setQuery] = useState('해리포터');
-  const[page,setPage] = useState(1);
-  const[last,setLast] = useState(1);
-  const [documents,setDocuments] = useState(null);
-  const[sortType, setSortType] = useState('latest'); // 정렬 타입 (최신순, 별점순)
-  const[viewMode, setViewMode] = useState('grid'); // 보기 모드 (그리드형, 목록형)
-  const[showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
+const testApi = process.env.REACT_APP_API_URL
 
-  const callAPI = useCallback(async() => {
+const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
+  const [query,setQuery] = useState(initialQuery);
+  const [page,setPage] = useState(1);
+  const [last,setLast] = useState(1);
+  const [documents,setDocuments] = useState(null);
+  const [sortType, setSortType] = useState('latest'); // 정렬 타입 (최신순, 별점순)
+  const [viewMode, setViewMode] = useState('grid'); // 보기 모드 (그리드형, 목록형)
+  const [showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
+  const [selectedBookId, setSelectedBookId] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+  
+  const firstLoad = useRef(true);
+  
+  const callAPI = useCallback(async(e) => {
     try {
-      const response = await axios.get('/api/search', {
+      const response = await axios.get(`${testApi}api/search`, {
         params: {
           query: query,
           page: page
@@ -29,8 +35,26 @@ const SearchForm = ({title}) => {
   }, [query, page]);
 
   useEffect(()=>{
-    callAPI(); // 렌더링 할 때마다 callAPI 호출
-  },[page, callAPI])
+    if (initialQuery && firstLoad.current) {
+      setQuery(initialQuery);
+      callAPI();
+      firstLoad.current = false;
+    }
+    else {
+      if (page !== 1) { // 검색버튼/엔터 눌렀을 때만 검색되도록
+        callAPI();
+      }
+    }
+  },[page, callAPI, initialQuery])
+
+  // useEffect(()=>{
+  //   if(!isInitialized) {
+  //     const firstBook = documents[0];
+  //     setSelectedBookId(firstBook.id);
+  //     onBookSelect(firstBook);
+  //     setIsInitialized(true);
+  //   }
+  // }, [onBookSelect, isInitialized]);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // 이벤트가 바로 실행되는 것 막음
@@ -38,6 +62,11 @@ const SearchForm = ({title}) => {
     callAPI();
     setPage(1);
   }
+
+  const handleBookSelect = (book) => {
+    setSelectedBookId(book.id);
+    onBookSelect(book);
+  };
   
   // 정렬 기능
   const sortDocuments = () => {
@@ -91,17 +120,21 @@ const SearchForm = ({title}) => {
   
 
   if(documents === null) {
-    return <h3>로딩중..</h3>
+    return <p>로딩중..</p>
   }
 
   const sortedDocuments = sortDocuments();
 
   return (
     <div className='book-list'>
-        <h1>{title}</h1>
         <form onSubmit={handleSubmit}>
-            <input className='input' type="text" placeholder='책 제목, 저자, 출판사, ...' value={query} onChange={(e)=>setQuery(e.target.value)}/>
-            <button>검색</button>
+            <input 
+              className='input' 
+              type="text" 
+              placeholder='책 제목, 저자, 출판사, ...' 
+              value={query} 
+              onChange={(e)=>setQuery(e.target.value)}/>
+            <button disabled={query.trim() === ""}>검색</button>
         </form>
 
         {/* 정렬 옵션과 보기 모드 버튼 */}
@@ -140,24 +173,30 @@ const SearchForm = ({title}) => {
         </div>
         
         <div className={`documents ${viewMode}`}>
-            {documents.map(d=>(
-                <div className='box'>
+            {documents.map(book=>(
+                <div 
+                  key={book.id}
+                  className='box'
+                  onClick={() => handleBookSelect(book)}
+                  style={{ cursor: 'pointer' }}  
+                >
                     <div className='book-info-1'>
-                      <img id='book-img' src={d.thumbnail ? d.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
+                      <img id='book-img' src={book.thumbnail ? book.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
                       <p>별점 연동⭐⭐</p>
+                      {/* <p>{'⭐️'.repeat(book.rating)} {book.rating}/5</p> */}
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>
                         <div id='category'>제목</div> 
-                        <div id='detail'>{d.title}</div>
+                        <div id='detail'>{book.title}</div>
                       </div>
                       <div className='ellipsis'>
                         <div id='category'>저자/역자</div> 
-                        <div id='detail'>{d.authors}</div>
+                        <div id='detail'>{book.authors}</div>
                       </div>
                       <div className='ellipsis'>
                         <div id='category'>가격(정가)</div> 
-                        <div id='detail'>{d.price}원</div>
+                        <div id='detail'>{book.price}원</div>
                       </div>
                     </div>
                 </div>
