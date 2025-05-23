@@ -1,47 +1,25 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const Chat = sequelize.define('Chat', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    book_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'books',
-        key: 'id'
-      }
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
-    message: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
+  class Chat extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
+  }
+  Chat.init({
+    book_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
+    message: DataTypes.TEXT
   }, {
-    tableName: 'chats',
-    timestamps: false
+    sequelize,
+    modelName: 'Chat',
   });
-
-  Chat.associate = function(models) {
-    Chat.belongsTo(models.Book, { foreignKey: 'book_id' });
-    // User와의 관계 추가
-    Chat.belongsTo(models.User, { 
-      foreignKey: 'user_id',
-      as: 'user'
-    });
-  };
-
   return Chat;
 };
