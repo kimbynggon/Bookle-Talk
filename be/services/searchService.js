@@ -8,30 +8,37 @@ require('dotenv').config();
  * @param {string} params.query - 검색어
  * @param {string} params.sort - 정렬 기준
  * @param {number} params.page - 페이지 번호
- * @param {number} params.size - 페이지 크기
+//  * @param {number} params.size - 페이지 크기
  * @returns {Promise<Object>} - 검색 결과
  */
 const searchBooks = async (params) => {
   try {
-    const { query, sort = 'accuracy', page = 1, size = 10 } = params;
+    // 쿼리 파라미터에서 검색어와 페이지 정보 가져오기
+    const query = params.query;
+    const page = params.page || 1; // 기본값 설정
     
-    const response = await axios.get('https://dapi.kakao.com/v3/search/book', {
+    const response = await axios.get('https://dapi.kakao.com/v3/search/book?target=title', {
       headers: {
         'Authorization': `KakaoAK ${process.env.KAKAO_REST_API_KEY}`
       },
       params: {
         query,
-        sort,
+        // sort,
         page,
-        size
+        // size,
+        target: 'title'
       }
     });
-
+    // console.log(response.data);
     return response.data;
+
   } catch (error) {
-    console.error('도서 검색 오류:', error);
-    throw error;
-  }
+    console.error(error.response?.data || error.message)
+    throw {
+      statusCode: error.response?.status || 500,
+      message: error.response?.data?.message || '카카오 API 요청 중 오류가 발생했습니다.',
+    };
+  }        
 };
 
 module.exports = {

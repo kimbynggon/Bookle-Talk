@@ -4,8 +4,8 @@ import './SearchForm.scss';
 
 const testApi = process.env.REACT_APP_API_URL
 
-const SearchForm = ({onBookSelect}) => {
-  const [query,setQuery] = useState('');
+const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
+  const [query,setQuery] = useState(initialQuery);
   const [page,setPage] = useState(1);
   const [last,setLast] = useState(1);
   const [documents,setDocuments] = useState(null);
@@ -17,7 +17,7 @@ const SearchForm = ({onBookSelect}) => {
   
   const firstLoad = useRef(true);
   
-  const callAPI = useCallback(async() => {
+  const callAPI = useCallback(async(e) => {
     try {
       const response = await axios.get(`${testApi}api/search`, {
         params: {
@@ -35,7 +35,8 @@ const SearchForm = ({onBookSelect}) => {
   }, [query, page]);
 
   useEffect(()=>{
-    if (firstLoad.current) {
+    if (initialQuery && firstLoad.current) {
+      setQuery(initialQuery);
       callAPI();
       firstLoad.current = false;
     }
@@ -44,7 +45,7 @@ const SearchForm = ({onBookSelect}) => {
         callAPI();
       }
     }
-  },[page, callAPI])
+  },[page, callAPI, initialQuery])
 
   // useEffect(()=>{
   //   if(!isInitialized) {
