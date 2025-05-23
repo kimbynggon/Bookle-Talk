@@ -1,46 +1,30 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define('Book', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    published_year: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    isbn: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    summary: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
+  class Book extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
+  }
+  Book.init({
+    title: DataTypes.STRING,
+    author: DataTypes.STRING,
+    image: DataTypes.STRING,
+    published_year: DataTypes.INTEGER,
+    isbn: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    translator: DataTypes.STRING,
+    summary: DataTypes.TEXT
   }, {
-    tableName: 'books',
-    timestamps: false
+    sequelize,
+    modelName: 'Book',
   });
-
-  Book.associate = function(models) {
-    Book.hasMany(models.Chat, { foreignKey: 'book_id' });
-    Book.hasMany(models.Like, { foreignKey: 'book_id' });
-    // Commented out as the user mentioned these are handled by someone else
-    // Book.hasMany(models.Review, { foreignKey: 'book_id' });
-    // Book.hasMany(models.Bookmark, { foreignKey: 'book_id' });
-  };
-
   return Book;
 };

@@ -1,4 +1,4 @@
-const { User, Sequelize } = require("../models"); 
+const { User, Sequelize } = require("../models_before"); 
 const { Op } = Sequelize; 
 
 exports.findByUserIdOrNickname = async (userId, nickname) => {

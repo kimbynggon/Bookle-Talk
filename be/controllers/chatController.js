@@ -1,4 +1,4 @@
-const { Chat, Book, User, sequelize } = require('../models');
+const { Chat, Book, User, sequelize } = require('../models_before');
 const logger = require('../utils/logger');
 
 exports.getChatsByBookId = async (req, res) => {
