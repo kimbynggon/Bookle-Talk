@@ -1776,3 +1776,4 @@
 {"level":"info","message":"POST /api/auth/signup","service":"bookletalk-api","timestamp":"2025-05-22 15:11:50"}
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:11:54"}
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:12:02"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-22 17:31:14"}
