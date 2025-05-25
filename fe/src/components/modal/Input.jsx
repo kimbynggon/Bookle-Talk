@@ -1,117 +1,105 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 
-const Input = ({ type = "text", label, value, onChange, ...props }) => {
+const Input = ({
+  type = "text",
+  label,
+  value,
+  onChange,
+  message = "",
+  messageType = "",
+  className = "",
+  ...props
+}) => {
   return (
     <StyledWrapper>
-      <div className="group">
+      <div className="input-wrapper">
         <input
           required
           type={type}
-          className="input"
+          className={`input ${className}`}  // ✅ 기본 'input' 클래스 병합
           value={value}
           onChange={onChange}
           {...props}
         />
-        <span className="highlight" />
-        <span className="bar" />
-        <label>{label}</label>
+        <label className={value ? "filled" : ""}>{label}</label>
+        {message && <span className={`msg ${messageType}`}>{message}</span>}
       </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-  .group {
+  width: 100%;
+
+  .input-wrapper {
     position: relative;
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   .input {
-    font-size: 16px;
-    padding: 10px 10px 10px 5px;
-    display: block;
+    font-size: 14px;
+    padding: 12px 12px;
     width: 100%;
-    border: none;
-    border-bottom: 1px solid #515151;
-    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: white;
+    transition: border 0.2s ease;
   }
 
   .input:focus {
     outline: none;
+    border-color: #5264ae;
+  }
+
+  /* ✅ 외부에서 전달된 className에 따라 조건부 스타일 적용 */
+  .input.left-rounded {
+    border-radius: 10px 0 0 10px !important;
+    border-right: none;
+  }
+
+  .input.right-rounded {
+    border-radius: 0 10px 10px 0 !important;
+    border-left: none;
   }
 
   label {
+    position: absolute;
+    left: 14px;
+    top: 0%;
+    transform: translateY(-50%);
     color: #999;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
+    font-size: 14px;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
     transition: 0.2s ease all;
+    background: white;
+    padding: 0 4px;
   }
 
-  .input:focus ~ label,
-  .input:valid ~ label {
-    top: -20px;
-    font-size: 0.75rem;
-    color: #5264AE;
+  .input:focus + label,
+  .filled {
+    top: -8px;
+    font-size: 10px;
+    color: #5264ae;
   }
 
-  .bar {
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-
-  .bar:before,
-  .bar:after {
-    content: '';
-    height: 2px;
-    width: 0;
-    bottom: 1px;
+  .msg {
     position: absolute;
-    background: #5264AE;
-    transition: 0.2s ease all;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    padding-left: 8px;
   }
 
-  .bar:before {
-    left: 50%;
+  .msg.info {
+    color: #357edd;
   }
 
-  .bar:after {
-    right: 50%;
-  }
-
-  .input:focus ~ .bar:before,
-  .input:focus ~ .bar:after {
-    width: 50%;
-  }
-
-  .highlight {
-    position: absolute;
-    height: 60%;
-    width: 100px;
-    top: 25%;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  .input:focus ~ .highlight {
-    animation: inputHighlighter 0.3s ease;
-  }
-
-  @keyframes inputHighlighter {
-    from {
-      background: #5264AE;
-    }
-
-    to {
-      width: 0;
-      background: transparent;
-    }
+  .msg.error {
+    color: #e53935;
   }
 `;
 
