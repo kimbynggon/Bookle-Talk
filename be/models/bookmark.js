@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     book_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Bookmark',
+    modelName: 'Bookmarks',
   });
   return Bookmark;
 };

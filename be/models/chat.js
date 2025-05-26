@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Chat = sequelize.define('Chat', {
+  const Chat = sequelize.define('Chats', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'books',
+        model: 'Books',
         key: 'id'
       }
     },
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'users',
+        model: 'Users',
         key: 'id'
       }
     },
@@ -30,14 +30,14 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.NOW
     }
   }, {
-    tableName: 'chats',
+    tableName: 'Chats',
     timestamps: false
   });
 
   Chat.associate = function(models) {
-    Chat.belongsTo(models.Book, { foreignKey: 'book_id' });
+    Chat.belongsTo(models.Books, { foreignKey: 'book_id' });
     // User와의 관계 추가
-    Chat.belongsTo(models.User, { 
+    Chat.belongsTo(models.Users, { 
       foreignKey: 'user_id',
       as: 'user'
     });

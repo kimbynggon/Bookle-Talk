@@ -7,7 +7,7 @@ const getAllBooks = async (req, res) => {
     const books = await Book.findAll({
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: [],
           required: false
@@ -47,7 +47,7 @@ const getBookById = async (req, res) => {
     const book = await Book.findByPk(id, {
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: ['rating', 'user_id']
         }
@@ -80,7 +80,7 @@ const getBookById = async (req, res) => {
 // 책 생성
 const createBook = async (req, res) => {
   try {
-    const { title, author, published_year, isbn, summary, image, price, translator } = req.body;
+    const { title, authors, datetime, isbn, contents, thumbnail, price, translators } = req.body;
     
     if (!title) {
       return res.status(400).json({
@@ -99,13 +99,13 @@ const createBook = async (req, res) => {
     
     const book = await Book.create({
       title,
-      author,
-      published_year,
+      authors,
+      datetime,
       isbn,
-      summary,
-      image,
+      contents,
+      thumbnail,
       price,
-      translator,
+      translators,
       avg: 0.0
     });
     
@@ -211,7 +211,7 @@ const searchBooks = async (req, res) => {
       },
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: ['rating'],
           required: false

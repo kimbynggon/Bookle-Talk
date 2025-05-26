@@ -1,43 +1,29 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define('Book', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    published_year: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    isbn: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: true
-    },
-    price: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    translator: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    summary: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
+  class Book extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  Book.init({
+    title: DataTypes.STRING,
+    authors: DataTypes.STRING,
+    thumbnail: DataTypes.STRING,
+    datetime: DataTypes.STRING,
+    publisher: DataTypes.STRING,
+    isbn: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    translators: DataTypes.STRING,
+    contents: DataTypes.TEXT,
+    url: DataTypes.TEXT,
     avg: {  // 평균 평점
       type: DataTypes.DECIMAL(3, 2), // 평균 평점 (0.00 ~ 5.00)
       allowNull: true,
@@ -47,36 +33,33 @@ module.exports = (sequelize, DataTypes) => {
         max: 5.0
       }
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
-    }
   }, {
-    tableName: 'books',
-    timestamps: false
+    sequelize,
+    modelName: 'Books',
+    timestamps: false,
   });
 
   Book.associate = function(models) {
-    Book.hasMany(models.Chat, { 
+    Book.hasMany(models.Chats, { 
       foreignKey: 'book_id',
-      as: 'chats'
+      as: 'chat'
     });
     
-    Book.hasMany(models.Like, { 
+    Book.hasMany(models.Likes, { 
       foreignKey: 'book_id',
-      as: 'likes'
+      as: 'like'
     });
     
-    Book.hasMany(models.Bookmark, { 
+    Book.hasMany(models.Bookmarks, { 
       foreignKey: 'book_id',
-      as: 'bookmarks'
+      as: 'bookmark'
     });
   };
 
   // 🌟 자동 평점 계산 기능 (Book 모델이 담당)
   Book.updateAverageRating = async function(bookId) {
     try {
-      const Like = sequelize.models.Like;
+      const Like = sequelize.models.Likes;
       
       // 해당 책의 모든 평점을 가져와서 평균 계산
       const avgResult = await Like.findOne({
@@ -105,7 +88,7 @@ module.exports = (sequelize, DataTypes) => {
 
   // 특정 책의 평점 정보 조회 (인스턴스 메서드)
   Book.prototype.getRatingInfo = async function() {
-    const Like = sequelize.models.Like;
+    const Like = sequelize.models.Likes;
     
     const ratingInfo = await Like.findAll({
       where: { book_id: this.id },

@@ -12,15 +12,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      author: {
+      authors: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      image: {
+      thumbnail: {
         type: Sequelize.STRING
       },
-      published_year: {
-        type: Sequelize.INTEGER,
+      datetime: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      publisher: {
+        type: Sequelize.STRING,
         allowNull: false
       },
       isbn: {
@@ -30,12 +34,15 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
-      translator: {
+      translators: {
         type: Sequelize.STRING
       },
-      summary: {
+      contents: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: true
+      },
+      url: {
+        type: Sequelize.TEXT
       }
     });
   },

@@ -82,7 +82,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-const db = require("./models_before");
+const db = require("./models");
 
 db.sequelize
   .sync()
