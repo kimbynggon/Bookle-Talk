@@ -133,18 +133,18 @@ const AuthModal = ({ onClose }) => {
       <div className="auth-modal">
         <div className="modal-header">
           <div className="tabs">
-            <button
+            <Button
               className={activeTab === "login" ? "active" : ""}
               onClick={() => setActiveTab("login")}
             >
               로그인
-            </button>
-            <button
+            </Button>
+            <Button
               className={activeTab === "signup" ? "active" : ""}
               onClick={() => setActiveTab("signup")}
             >
               회원가입
-            </button>
+            </Button>
           </div>
           <button className="close-btn" onClick={onClose}>
             닫기
@@ -173,7 +173,7 @@ const AuthModal = ({ onClose }) => {
             <Button className="submit-btn" onClick={handleLogin}>
               로그인
             </Button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            
           </div>
         )}
 
@@ -262,7 +262,7 @@ const AuthModal = ({ onClose }) => {
             >
               회원가입
             </Button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            
           </div>
         )}
       </div>

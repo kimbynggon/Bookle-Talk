@@ -84,6 +84,10 @@ try {
 // const Sequelize = require("sequelize");
 // dotenv.config(); 
 // const db = {};
+const Sequelize = require("sequelize");
+const dotenv = require("dotenv");
+dotenv.config(); 
+// const db = {};
 
 // const sequelize = new Sequelize(
 //   process.env.DB_DATABASE,      
@@ -103,3 +107,4 @@ try {
 db.User = require("./user")(sequelize, Sequelize);
 
 module.exports = db;
+
