@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "./Button";
+import Input from "./Input";
 import "./AuthModal.scss";
 
 const AuthModal = ({ onClose }) => {
@@ -115,17 +117,17 @@ const AuthModal = ({ onClose }) => {
         <div className="modal-header">
           <div className="tabs">
             <button
-              className={activeTab === "login" ? "active" : ""}
+              className=  {activeTab === "login" ? "active" : ""}
               onClick={() => setActiveTab("login")}
             >
               로그인
-            </Button>
-            <Button
+            </button>
+            <button
               className={activeTab === "signup" ? "active" : ""}
               onClick={() => setActiveTab("signup")}
             >
               회원가입
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -150,69 +152,77 @@ const AuthModal = ({ onClose }) => {
             {loginError && <div className="error-message">{loginError}</div>}
             <Button className="submit-btn" onClick={handleLogin}>
               로그인
-            </button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            </Button>
           </div>
         )}
 
         {activeTab === "signup" && (
           <div className="form signup-form">
             <div className="id-field">
-              <input
-                type="text"
-                placeholder="아이디"
-                value={signupData.userId}
-                onChange={(e) => {
-                  setSignupData({ ...signupData, userId: e.target.value });
-                  setIsUserIdChecked(false);
-                  setUserIdMessage("");
-                }}
-              />
-              <button className="check-btn" onClick={checkUserId}>
-                중복 확인
-              </button>
+              <div className="input-with-button">
+                <Input
+                  type="text"
+                  label="아이디"
+                  value={signupData.userId}
+                  className="left-rounded"
+                  onChange={(e) => {
+                    setSignupData({ ...signupData, userId: e.target.value });
+                    setIsUserIdChecked(false);
+                    setUserIdMessage("");
+                  }}
+                />
+                <button className="check-btn" onClick={checkUserId}>
+                  중복 확인
+                </button>
+              </div>
+              {userIdMessage && (
+                <div className="info-message">{userIdMessage}</div>
+              )}
             </div>
-            {userIdMessage && (
-              <div className="info-message">{userIdMessage}</div>
-            )}
 
-            <input
-              type="password"
-              placeholder="비밀번호"
-              value={signupData.password}
-              onChange={(e) =>
-                setSignupData({ ...signupData, password: e.target.value })
-              }
-            />
-            <input
-              type="password"
-              placeholder="비밀번호 확인"
-              value={signupData.confirmPassword}
-              onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  confirmPassword: e.target.value,
-                })
-              }
-            />
+            <div className="field">
+              <Input
+                label="비밀번호"
+                type="password"
+                value={signupData.password}
+                onChange={(e) =>
+                  setSignupData({ ...signupData, password: e.target.value })
+                }
+              />
+            </div>
+            <div className="field">
+              <Input
+                type="password"
+                label="비밀번호 확인"
+                value={signupData.confirmPassword}
+                onChange={(e) =>
+                  setSignupData({
+                    ...signupData,
+                    confirmPassword: e.target.value,
+                  })
+                }
+              />
+            </div>
             {passwordError && (
               <div className="error-message">비밀번호가 다릅니다</div>
             )}
 
-            <input
-              type="email"
-              placeholder="이메일"
-              value={signupData.email}
-              onChange={(e) =>
-                setSignupData({ ...signupData, email: e.target.value })
-              }
-            />
+            <div className="field">
+              <Input
+                label="이메일"
+                type="text"
+                value={signupData.email}
+                onChange={(e) =>
+                  setSignupData({ ...signupData, email: e.target.value })
+                }
+              />
+            </div>
             {signupData.email && !isValidEmail(signupData.email) && (
               <div className="error-message">이메일 형식이 올바르지 않습니다</div>
             )}
 
-            <div className="nickname-field">
-              <input
+            <div className="field">
+              <Input
                 type="text"
                 label="닉네임"
                 value={signupData.nickname}
@@ -222,17 +232,14 @@ const AuthModal = ({ onClose }) => {
               />
             </div>
 
-            {serverError && (
-              <div className="error-message">{serverError}</div>
-            )}
-            <button
+            <Button
               className="submit-btn"
               disabled={!isSignupValid}
               onClick={handleSignup}
             >
               회원가입
-            </button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            </Button>
+            {serverError && <div className="error-message">{serverError}</div>}
           </div>
         )}
       </div>
