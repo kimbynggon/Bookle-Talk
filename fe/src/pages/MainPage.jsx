@@ -56,6 +56,46 @@ const MainSearchPage = () => {
           </div>
         </div>
       </main>
+
+        {!isSearched && (
+          <div className="search-bar">
+            <form onSubmit={handleSearch} className="bookSearchForm">
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="검색어를 입력하세요"
+                className={`searchInput ${isError ? 'error' : ''} ${isSuccess ? 'success' : ''}`}
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setIsError(false);
+                  setIsSuccess(false);
+                }}
+              />
+              <button type="submit" disabled={searchQuery.trim() === ''}>검색</button>
+            </form>
+          </div>
+        )}
+
+        {isSearched ? (
+          <section className="bookContainer" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
+            <div style={{ flex: '1' }}>
+            <SearchForm query={searchQuery} onBookSelect={handleBookSelect} />
+            </div>
+            <div style={{ flex: '2' }}>
+              {/* <BookReviewPage/> bookid 문제 발생 */}
+            </div>
+          </section>
+        ) : (
+          <section className="bookContainer">
+            <div className="bookList">
+              <p>베스트셀러</p>
+            </div>
+          </section>
+        )}
+      </div>
+
+      {showModal && <AuthModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };

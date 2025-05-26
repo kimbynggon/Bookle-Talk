@@ -1,24 +1,24 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    const Like = sequelize.define('Like', {
-      user_id: {
-        type: DataTypes.INTEGER,
-      },
-      book_id: {
-        type: DataTypes.INTEGER,
-      },
-    }, {
-      tableName: 'likes',
-      underscored: true,
-      timestamps: true,
-      paranoid: true,
-      indexes: [
-        {
-          unique: true,
-          fields: ['user_id', 'book_id']
-        }
-      ]
-    });
-  
-    return Like;
-  };
-  
+  class Like extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  Like.init({
+    user_id: DataTypes.INTEGER,
+    book_id: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Like',
+  });
+  return Like;
+};

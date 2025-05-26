@@ -127,7 +127,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
 
   return (
     <div className='book-list'>
-        {/* <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input 
               className='input' 
               type="text" 
@@ -135,7 +135,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
               value={query} 
               onChange={(e)=>setQuery(e.target.value)}/>
             <button disabled={query.trim() === ""}>검색</button>
-        </form> */}
+        </form>
 
         {/* 정렬 옵션과 보기 모드 버튼 */}
         <div className='view-controls'>
