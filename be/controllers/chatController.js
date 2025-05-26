@@ -25,7 +25,7 @@ const getChatsByBookId = async (req, res) => {
       order: [['created_at', 'ASC']],
       include: [
         {
-          model: User,
+          model: Users,
           as: 'user',
           attributes: ['id', 'user_id', 'nickname']
         }

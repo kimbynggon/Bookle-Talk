@@ -35,31 +35,31 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'Book',
+    modelName: 'Books',
     timestamps: false,
   });
 
   Book.associate = function(models) {
-    Book.hasMany(models.Chat, { 
+    Book.hasMany(models.Chats, { 
       foreignKey: 'book_id',
-      as: 'chats'
+      as: 'chat'
     });
     
-    Book.hasMany(models.Like, { 
+    Book.hasMany(models.Likes, { 
       foreignKey: 'book_id',
-      as: 'likes'
+      as: 'like'
     });
     
-    Book.hasMany(models.Bookmark, { 
+    Book.hasMany(models.Bookmarks, { 
       foreignKey: 'book_id',
-      as: 'bookmarks'
+      as: 'bookmark'
     });
   };
 
   // 🌟 자동 평점 계산 기능 (Book 모델이 담당)
   Book.updateAverageRating = async function(bookId) {
     try {
-      const Like = sequelize.models.Like;
+      const Like = sequelize.models.Likes;
       
       // 해당 책의 모든 평점을 가져와서 평균 계산
       const avgResult = await Like.findOne({
@@ -88,7 +88,7 @@ module.exports = (sequelize, DataTypes) => {
 
   // 특정 책의 평점 정보 조회 (인스턴스 메서드)
   Book.prototype.getRatingInfo = async function() {
-    const Like = sequelize.models.Like;
+    const Like = sequelize.models.Likes;
     
     const ratingInfo = await Like.findAll({
       where: { book_id: this.id },

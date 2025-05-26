@@ -7,7 +7,7 @@ const getAllBooks = async (req, res) => {
     const books = await Book.findAll({
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: [],
           required: false
@@ -47,7 +47,7 @@ const getBookById = async (req, res) => {
     const book = await Book.findByPk(id, {
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: ['rating', 'user_id']
         }
@@ -211,7 +211,7 @@ const searchBooks = async (req, res) => {
       },
       include: [
         {
-          model: Like,
+          model: Likes,
           as: 'likes',
           attributes: ['rating'],
           required: false

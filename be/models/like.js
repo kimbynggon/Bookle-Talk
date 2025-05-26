@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Like = sequelize.define('Like', {
+  const Like = sequelize.define('Likes', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: { 
       type: DataTypes.INTEGER,
       references: {
-        model: 'users',
+        model: 'Users',
         key: 'id'
       },
       allowNull: false
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     book_id: {  
       type: DataTypes.INTEGER,
       references: {
-        model: 'books',
+        model: 'Books',
         key: 'id'
       },
       allowNull: false
@@ -42,12 +42,12 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Like.associate = function(models) {
-    Like.belongsTo(models.User, { 
+    Like.belongsTo(models.Users, { 
       foreignKey: 'user_id',
       as: 'user'
     });
     
-    Like.belongsTo(models.Book, { 
+    Like.belongsTo(models.Books, { 
       foreignKey: 'book_id',
       as: 'book'
     });
@@ -55,28 +55,28 @@ module.exports = (sequelize, DataTypes) => {
 
   // Book 모델의 평점 계산 함수 호출
   Like.addHook('afterCreate', async (like) => {
-    const Book = sequelize.models.Book;
+    const Book = sequelize.models.Books;
     if (Book && Book.updateAverageRating) {
       await Book.updateAverageRating(like.book_id);
     }
   });
 
   Like.addHook('afterUpdate', async (like) => {
-    const Book = sequelize.models.Book;
+    const Book = sequelize.models.Books;
     if (Book && Book.updateAverageRating) {
       await Book.updateAverageRating(like.book_id);
     }
   });
 
   Like.addHook('afterDestroy', async (like) => {
-    const Book = sequelize.models.Book;
+    const Book = sequelize.models.Books;
     if (Book && Book.updateAverageRating) {
       await Book.updateAverageRating(like.book_id);
     }
   });
 
   Like.addHook('afterBulkCreate', async (likes) => {
-    const Book = sequelize.models.Book;
+    const Book = sequelize.models.Books;
     if (Book && Book.updateAverageRating) {
       const bookIds = [...new Set(likes.map(like => like.book_id))];
       for (const bookId of bookIds) {
