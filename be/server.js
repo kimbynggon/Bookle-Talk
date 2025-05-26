@@ -7,7 +7,7 @@ const routes = require('./routes');
 const { setupMiddleware } = require('./middlewares');
 const { setupSocketIO } = require('./socket');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Initialize Express app
 const app = express();
@@ -24,7 +24,7 @@ const server = http.createServer(app);
 // Initialize Socket.io with secure CORS settings
 const io = new Server(server, {
   cors: {
-    origin: process.env.NODE_ENV === 'development' ? "*" : "http://localhost:3000",
+    origin: process.env.NODE_ENV === 'development' ? "*" : "http://localhost:8080",
     methods: ["GET", "POST"],
     credentials: true
   }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "./Button";
+import Input from "./Input";
 import "./AuthModal.scss";
 
 const AuthModal = ({ onClose }) => {
@@ -23,13 +25,10 @@ const AuthModal = ({ onClose }) => {
   const [serverError, setServerError] = useState("");
 
   const [isUserIdChecked, setIsUserIdChecked] = useState(false);
-  const [isNicknameChecked, setIsNicknameChecked] = useState(false);
   const [userIdMessage, setUserIdMessage] = useState("");
-  const [nicknameMessage, setNicknameMessage] = useState("");
 
-  const isValidEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   const isSignupValid =
     signupData.userId &&
     signupData.password &&
@@ -38,8 +37,7 @@ const AuthModal = ({ onClose }) => {
     signupData.nickname &&
     isValidEmail(signupData.email) &&
     !passwordError &&
-    isUserIdChecked &&
-    isNicknameChecked;
+    isUserIdChecked;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -75,19 +73,6 @@ const AuthModal = ({ onClose }) => {
     } catch (err) {
       setUserIdMessage("이미 사용 중인 아이디입니다.");
       setIsUserIdChecked(false);
-    }
-  };
-
-  const checkNickname = async () => {
-    try {
-      const res = await axios.get("/api/auth/check-nickname", {
-        params: { nickname: signupData.nickname },
-      });
-      setNicknameMessage("사용 가능한 닉네임입니다.");
-      setIsNicknameChecked(true);
-    } catch (err) {
-      setNicknameMessage("이미 사용 중인 닉네임입니다.");
-      setIsNicknameChecked(false);
     }
   };
 
@@ -132,135 +117,129 @@ const AuthModal = ({ onClose }) => {
         <div className="modal-header">
           <div className="tabs">
             <button
-              className={activeTab === "login" ? "active" : ""}
+              className=  {activeTab === "login" ? "active" : ""}
               onClick={() => setActiveTab("login")}
             >
               로그인
-            </button>
-            <button
+            </Button>
+            <Button
               className={activeTab === "signup" ? "active" : ""}
               onClick={() => setActiveTab("signup")}
             >
               회원가입
-            </button>
+            </Button>
           </div>
-          <button className="close-btn" onClick={onClose}>
-            닫기
-          </button>
         </div>
 
         {activeTab === "login" && (
           <div className="form login-form">
-            <input
+            <Input
               type="text"
-              placeholder="아이디"
+              label="아이디"
               value={loginData.userId}
               onChange={(e) =>
                 setLoginData({ ...loginData, userId: e.target.value })
               }
             />
-            <input
+            <Input
               type="password"
-              placeholder="비밀번호"
+              label="비밀번호"
               value={loginData.password}
               onChange={(e) =>
                 setLoginData({ ...loginData, password: e.target.value })
               }
             />
             {loginError && <div className="error-message">{loginError}</div>}
-            <button className="submit-btn" onClick={handleLogin}>
+            <Button className="submit-btn" onClick={handleLogin}>
               로그인
-            </button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            </Button>
           </div>
         )}
 
         {activeTab === "signup" && (
           <div className="form signup-form">
             <div className="id-field">
-              <input
-                type="text"
-                placeholder="아이디"
-                value={signupData.userId}
-                onChange={(e) => {
-                  setSignupData({ ...signupData, userId: e.target.value });
-                  setIsUserIdChecked(false);
-                  setUserIdMessage("");
-                }}
-              />
-              <button className="check-btn" onClick={checkUserId}>
-                중복 확인
-              </button>
+              <div className="input-with-button">
+                <Input
+                  type="text"
+                  label="아이디"
+                  value={signupData.userId}
+                  className="left-rounded"
+                  onChange={(e) => {
+                    setSignupData({ ...signupData, userId: e.target.value });
+                    setIsUserIdChecked(false);
+                    setUserIdMessage("");
+                  }}
+                />
+                <button className="check-btn" onClick={checkUserId}>
+                  중복 확인
+                </button>
+              </div>
+              {userIdMessage && (
+                <div className="info-message">{userIdMessage}</div>
+              )}
             </div>
-            {userIdMessage && (
-              <div className="info-message">{userIdMessage}</div>
-            )}
 
-            <input
-              type="password"
-              placeholder="비밀번호"
-              value={signupData.password}
-              onChange={(e) =>
-                setSignupData({ ...signupData, password: e.target.value })
-              }
-            />
-            <input
-              type="password"
-              placeholder="비밀번호 확인"
-              value={signupData.confirmPassword}
-              onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  confirmPassword: e.target.value,
-                })
-              }
-            />
+            <div className="field">
+              <Input
+                label="비밀번호"
+                type="password"
+                value={signupData.password}
+                onChange={(e) =>
+                  setSignupData({ ...signupData, password: e.target.value })
+                }
+              />
+            </div>
+            <div className="field">
+              <Input
+                type="password"
+                label="비밀번호 확인"
+                value={signupData.confirmPassword}
+                onChange={(e) =>
+                  setSignupData({
+                    ...signupData,
+                    confirmPassword: e.target.value,
+                  })
+                }
+              />
+            </div>
             {passwordError && (
               <div className="error-message">비밀번호가 다릅니다</div>
             )}
 
-            <input
-              type="email"
-              placeholder="이메일"
-              value={signupData.email}
-              onChange={(e) =>
-                setSignupData({ ...signupData, email: e.target.value })
-              }
-            />
+            <div className="field">
+              <Input
+                label="이메일"
+                type="text"
+                value={signupData.email}
+                onChange={(e) =>
+                  setSignupData({ ...signupData, email: e.target.value })
+                }
+              />
+            </div>
             {signupData.email && !isValidEmail(signupData.email) && (
               <div className="error-message">이메일 형식이 올바르지 않습니다</div>
             )}
 
-            <div className="nickname-field">
-              <input
+            <div className="field">
+              <Input
                 type="text"
-                placeholder="닉네임"
+                label="닉네임"
                 value={signupData.nickname}
-                onChange={(e) => {
-                  setSignupData({ ...signupData, nickname: e.target.value });
-                  setIsNicknameChecked(false);
-                  setNicknameMessage("");
-                }}
+                onChange={(e) =>
+                  setSignupData({ ...signupData, nickname: e.target.value })
+                }
               />
-              <button className="check-btn" onClick={checkNickname}>
-                중복 확인
-              </button>
             </div>
-            {nicknameMessage && (
-              <div className="info-message">{nicknameMessage}</div>
-            )}
 
-            {serverError && (
-              <div className="error-message">{serverError}</div>
-            )}
-            <button
+            <Button
               className="submit-btn"
               disabled={!isSignupValid}
               onClick={handleSignup}
             >
               회원가입
-            </button>
-            <div className="kakao-login">카카오톡 아이콘</div>
+            </Button>
+            {serverError && <div className="error-message">{serverError}</div>}
           </div>
         )}
       </div>
