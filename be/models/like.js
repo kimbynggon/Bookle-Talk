@@ -1,70 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-<<<<<<<<< Temporary merge branch 1
-  const Like = sequelize.define('Like', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    user_id: { 
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'users',
-        key: 'id'
-      },
-      allowNull: false
-    },
-    book_id: {  
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'books',
-        key: 'id'
-      },
-      allowNull: false
-    },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 5
-      }
+  class Like extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
+  }
+  Like.init({
+    user_id: DataTypes.INTEGER,
+    book_id: DataTypes.INTEGER
   }, {
-    tableName: 'likes',
-    timestamps: false,
-    underscored: true  
+    sequelize,
+    modelName: 'Like',
   });
-
-  Like.associate = function(models) {
-    Like.belongsTo(models.User, { foreignKey: 'user_id' });
-    Like.belongsTo(models.Book, { foreignKey: 'book_id' });
-  };
-
   return Like;
 };
-=========
-    const Like = sequelize.define('Like', {
-      user_id: {
-        type: DataTypes.INTEGER,
-      },
-      book_id: {
-        type: DataTypes.INTEGER,
-      },
-    }, {
-      tableName: 'likes',
-      underscored: true,
-      timestamps: true,
-      paranoid: true,
-      indexes: [
-        {
-          unique: true,
-          fields: ['user_id', 'book_id']
-        }
-      ]
-    });
-  
-    return Like;
-  };
-  
->>>>>>>>> Temporary merge branch 2
