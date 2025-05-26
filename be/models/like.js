@@ -1,3 +1,5 @@
+const model = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   const Like = sequelize.define('Likes', {
     id: {
