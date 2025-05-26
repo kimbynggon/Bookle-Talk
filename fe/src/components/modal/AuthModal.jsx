@@ -81,7 +81,6 @@ const AuthModal = ({ onClose }) => {
       const res = await axios.post("/api/auth/signup", {
         userId: signupData.userId,
         password: signupData.password,
-        email: signupData.email,
         nickname: signupData.nickname,
       });
       console.log("회원가입 성공:", res.data);
