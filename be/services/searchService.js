@@ -1,6 +1,6 @@
 // services/searchService.js
 const axios = require('axios');
-const { Book } = require('../models_before');
+const { Book } = require('../models/index');
 require('dotenv').config();
 
 /**
@@ -14,13 +14,20 @@ require('dotenv').config();
  */
 const searchBooks = async (params) => {
   try {
-    const { query, sort = 'accuracy', page = 1, size = 10 } = params;
+    // 쿼리 파라미터에서 검색어와 페이지 정보 가져오기
+    const query = params.query;
+    const page = params.page || 1; // 기본값 설정
 
-    const response = await axios.get('https://dapi.kakao.com/v3/search/book', {
+    const response = await axios.get('https://dapi.kakao.com/v3/search/book?target=title', {
       headers: {
         Authorization: `KakaoAK ${process.env.KAKAO_REST_API_KEY}`,
       },
-      params: { query, sort, page, size },
+      params: { 
+        query, 
+        // sort, 
+        page, 
+        // size 
+        },
     });
 
     const books = response.data.documents;
@@ -35,16 +42,20 @@ const searchBooks = async (params) => {
         await Book.create({
           title: book.title,
           authors: book.authors.join(', '),
-          publisher: book.publisher,
           thumbnail: book.thumbnail,
-          isbn,
           datetime: book.datetime,
+          isbn,
+          price: book.price,
+          translators: book.translators?.join(', '),
+          contents: book.contents,
+          publisher: book.publisher,
           url: book.url,
         });
       }
     }
 
     return response.data;
+
   } catch (error) {
     console.error(error.response?.data || error.message)
     throw {

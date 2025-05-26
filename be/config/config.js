@@ -2,12 +2,12 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: 'postgres',
-    password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    dialect: 'postgres', // Sequelize는 'postgresql'이 아니라 'postgres'
+    dialect: 'postgres',
     logging: false,
     pool: {
       max: 20,
@@ -16,5 +16,5 @@ module.exports = {
       idle: 10000,
       evict: 1000
     }
-  }
+  },
 };

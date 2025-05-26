@@ -1,34 +1,91 @@
 const { Model } = require('sequelize'); // ✅ 수정된 부분
 
 module.exports = (sequelize, DataTypes) => {
-  class Like extends Model {
-    static associate(models) {
-      // 관계 정의 가능
-      Like.belongsTo(models.User, { foreignKey: 'user_id' });
-      Like.belongsTo(models.Book, { foreignKey: 'book_id' });
-    }
-  }
-
-  Like.init(
-    {
-      user_id: DataTypes.INTEGER,
-      book_id: DataTypes.INTEGER
+  const Like = sequelize.define('Like', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
     },
-    {
-      sequelize,
-      modelName: 'Like',
-      tableName: 'likes',
-      timestamps: true,
-      underscored: true,
-      paranoid: true,
-      indexes: [
-        {
-          unique: true,
-          fields: ['user_id', 'book_id']
-        }
-      ]
+    user_id: { 
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'users',
+        key: 'id'
+      },
+      allowNull: false
+    },
+    book_id: {  
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'books',
+        key: 'id'
+      },
+      allowNull: false
+    },
+    rating: {  // 별점 (1~5)
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 5
+      }
     }
-  );
+  }, {
+    tableName: 'likes',
+    timestamps: false,
+    underscored: true,
+    indexes: [
+      {
+        unique: true,
+        fields: ['user_id', 'book_id']
+      }
+    ]
+  });
+
+  Like.associate = function(models) {
+    Like.belongsTo(models.User, { 
+      foreignKey: 'user_id',
+      as: 'user'
+    });
+    
+    Like.belongsTo(models.Book, { 
+      foreignKey: 'book_id',
+      as: 'book'
+    });
+  };
+
+  // Book 모델의 평점 계산 함수 호출
+  Like.addHook('afterCreate', async (like) => {
+    const Book = sequelize.models.Book;
+    if (Book && Book.updateAverageRating) {
+      await Book.updateAverageRating(like.book_id);
+    }
+  });
+
+  Like.addHook('afterUpdate', async (like) => {
+    const Book = sequelize.models.Book;
+    if (Book && Book.updateAverageRating) {
+      await Book.updateAverageRating(like.book_id);
+    }
+  });
+
+  Like.addHook('afterDestroy', async (like) => {
+    const Book = sequelize.models.Book;
+    if (Book && Book.updateAverageRating) {
+      await Book.updateAverageRating(like.book_id);
+    }
+  });
+
+  Like.addHook('afterBulkCreate', async (likes) => {
+    const Book = sequelize.models.Book;
+    if (Book && Book.updateAverageRating) {
+      const bookIds = [...new Set(likes.map(like => like.book_id))];
+      for (const bookId of bookIds) {
+        await Book.updateAverageRating(bookId);
+      }
+    }
+  });
 
   return Like;
 };

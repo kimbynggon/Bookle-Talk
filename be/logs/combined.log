@@ -1777,8 +1777,3 @@
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:11:54"}
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:12:02"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-22 17:31:14"}
-{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 13:12:32"}
-{"level":"info","message":"GET /main.aa9640f42142e8d13663.hot-update.json","service":"bookletalk-api","timestamp":"2025-05-26 13:23:47"}
-{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 13:29:41"}
-{"level":"info","message":"GET /api/auth/check-userid?userId=1234","service":"bookletalk-api","timestamp":"2025-05-26 13:32:22"}
-{"level":"info","message":"GET /api/auth/check-userid?userId=123555","service":"bookletalk-api","timestamp":"2025-05-26 13:32:26"}

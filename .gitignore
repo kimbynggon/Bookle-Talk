@@ -11,3 +11,4 @@
 **/**/dist
 **/**/**/dist
 **/logs/combined.log
+be/logs/combined.log

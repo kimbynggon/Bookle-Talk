@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 const userDao = require("../dao/userDao");
-const { User, Sequelize } = require("../models_before");
+const { User, Sequelize } = require("../models");
 const { Op } = Sequelize;
 
 const HASH_ITER = parseInt(process.env.HASH_ITER || "10000", 10);
@@ -24,7 +24,6 @@ exports.signup = async ({ userId, password, email, nickname }) => {
   const newUser = await userDao.createUser({
     user_id: userId,
     password: passwordWithSalt,
-    email,
     nickname,
   });
 
