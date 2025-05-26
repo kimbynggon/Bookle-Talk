@@ -15,16 +15,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   Book.init({
     title: DataTypes.STRING,
-    author: DataTypes.STRING,
-    image: DataTypes.STRING,
-    published_year: DataTypes.INTEGER,
+    authors: DataTypes.STRING,
+    thumbnail: DataTypes.STRING,
+    datetime: DataTypes.STRING,
+    publisher: DataTypes.STRING,
     isbn: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    translator: DataTypes.STRING,
-    summary: DataTypes.TEXT
+    translators: DataTypes.STRING,
+    contents: DataTypes.TEXT,
+    url: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Book',
+    timestamps: false,
   });
   return Book;
 };
