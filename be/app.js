@@ -16,8 +16,19 @@ const bookRoutes = require('./routes/book');
 const searchRoutes = require('./routes/search');
 const userRoutes = require('./routes/users');
 
+const express = require('express');
+const cors = require('cors');
+
+
+// ✅ CORS 설정 추가
 
 var app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000',  // 프론트엔드 주소
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 app.use("/api/user", usersRouter); 
 

@@ -3,13 +3,14 @@ const router = express.Router();
 const bookRoutes = require('./book');
 const searchRoutes = require('./search');
 const userRoutes = require('./users');
+const authRoutes = require('./auth');
 const chatController = require('../controllers/chatController');
 
 //체팅 라우트 연결
 router.get('/api/books/:bookId/chat', chatController.getChatsByBookId);
 router.post('/api/books/:bookId/chat', chatController.sendMessage);
 
-
+router.use('/api/auth', authRoutes);
 
 // API routes (채팅 라우트 다음에 배치)
 router.use('/api/books', bookRoutes);

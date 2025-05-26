@@ -4,7 +4,7 @@ const { Server } = require('socket.io');
 const { sequelize } = require('./models');
 const logger = require('./utils/logger');
 const routes = require('./routes');
-const { setupMiddleware } = require('./middlewares');
+
 const { setupSocketIO } = require('./socket');
 
 const PORT = process.env.PORT || 8080;
@@ -12,8 +12,18 @@ const PORT = process.env.PORT || 8080;
 // Initialize Express app
 const app = express();
 
-// Setup middleware
-setupMiddleware(app);
+const cors = require('cors'); // 추가
+
+
+
+// ✅ CORS 미들웨어 설정 추가
+app.use(cors({
+  origin: 'http://localhost:3000', // 프론트엔드 주소
+  credentials: true,               // 쿠키 or 인증 정보 허용 시 true
+}));
+
+app.use(express.json()); // 필요 시 추가
+
 
 // Setup routes
 app.use('/', routes);

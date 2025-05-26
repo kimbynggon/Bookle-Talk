@@ -1,28 +1,47 @@
-// src/pages/MainSearchPage.jsx
-import React, { useState, useRef } from 'react';
-import '../css/MainPage.scss';
-import AuthModal from '../components/modal/AuthModal';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
+import BookReviewPage from './BookReviewPage';
 import SearchForm from '../components/SearchForm';
-import { Search } from 'lucide-react';
+import { bookService } from '../services/bookService';
+import logoImg from '../img/logo.png'
+import AuthModal from "../components/modal/AuthModal.jsx";
 
 
 const MainSearchPage = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
   const [searchQuery, setSearchQuery] = useState('');
-  const [showModal, setShowModal] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
   const inputRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+
 
   const handleSearch = (e) => {
-    e?.preventDefault();
-    console.log('검색어:', searchQuery);
-    setIsSearched(true);
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setIsSearched(true);
+      setIsError(false);
+      setIsSuccess(true);
+      navigate(`/?q=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      setIsError(true);
+      setIsSuccess(false);
+      inputRef.current?.focus();
+    }
   };
 
-  const handleBookSelect = () => {
-    // Handle book selection
-  };
+  const handleBookSelect = useCallback((book) => {
+    console.log(book);
+    setSelectedBook(book);
+    const query = searchParams.get('q');
+    if (query) {
+      navigate(`/?q=${encodeURIComponent(query)}&bookId=${book.id}`);
+    }
+  }, [searchParams, navigate]);
 
   return (
     <div className="main-container">
@@ -49,17 +68,21 @@ const MainSearchPage = () => {
           {/* 검색창 */}
           <div className="w-full">
             <div className="search-wrapper">
+            <form onSubmit={handleSearch} className="bookSearchForm">
               <input
+                ref={inputRef}
                 type="text"
-                placeholder="검색어를 입력해주세요."
-                className="search-input"
+                placeholder="검색어를 입력하세요"
+                className={`searchInput ${isError ? 'error' : ''} ${isSuccess ? 'success' : ''}`}
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setIsError(false);
+                  setIsSuccess(false);
+                }}
               />
-              <button className="search-icon" onClick={handleSearch}>
-                <Search size={18} />
-              </button>
+              <button type="submit" disabled={searchQuery.trim() === ''}>검색</button>
+            </form>
             </div>
           </div>
         </div>
@@ -97,7 +120,6 @@ const MainSearchPage = () => {
       ) : (
         <section className="bookContainer">
           <div className="bookList">
-            <p>베스트셀러</p>
           </div>
         </section>
       )}

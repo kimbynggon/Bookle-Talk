@@ -1,4 +1,3 @@
-// ✅ models/user.js
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
     user_id: {
@@ -13,14 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     nickname: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'cratedAt'  
     }
   }, {
     tableName: "Users",
-    underscored: true,
-    timestamps: true,
-    createdAt: "created_at",
-    updatedAt: false,
+    timestamps: true,     // createdAt을 자동 관리
+    updatedAt: false,     // updatedAt 없음
     paranoid: false,
+    underscored: false,   // 개별 field로 처리하므로 false여도 OK
   });
 
   User.associate = (models) => {

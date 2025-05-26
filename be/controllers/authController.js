@@ -39,16 +39,24 @@ exports.login = async (req, res) => {
 };
 // 중복체크
 exports.checkUserId = async (req, res) => {
-  const { userId } = req.query;
+  try {
+    const { userId } = req.query || {};
 
-  if (!userId) return res.status(400).json({ message: "ID를 입력해주세요" });
+    if (!userId) {
+      return res.status(400).json({ message: "ID를 입력해주세요" });
+    }
 
-  const exists = await authService.isUserIdTaken(userId);
-  if (exists) {
-    return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+    const exists = await authService.isUserIdTaken(userId);
+
+    if (exists) {
+      return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+    }
+
+    return res.status(200).json({ message: "사용 가능한 아이디입니다." });
+  } catch (err) {
+    console.error("checkUserId error:", err);
+    res.status(500).json({ message: "서버 오류" });
   }
-
-  return res.status(200).json({ message: "사용 가능한 아이디입니다." });
 };
 
 exports.checkNickname = async (req, res) => {

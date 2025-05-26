@@ -15,7 +15,7 @@ function hashPassword(password, salt) {
 
 exports.signup = async ({ userId, password, email, nickname }) => {
   const existingUser = await userDao.findByUserIdOrNickname(userId, nickname);
-  if (existingUser) throw new Error("아이디 또는 닉네임이 이미 존재합니다.");
+  if (existingUser) throw new Error("아이디가  이미 존재합니다.");
 
   const salt = generateSalt();
   const hashed = hashPassword(password, salt);
