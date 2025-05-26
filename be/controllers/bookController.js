@@ -1,4 +1,4 @@
-const { Book, Like } = require('../models_before');
+const { Book, Like } = require('../models');
 const logger = require('../utils/logger');
 const kakaoService = require('../services/kakaoService');
 
@@ -62,7 +62,7 @@ exports.getBookById = async (req, res) => {
 
 exports.createBook = async (req, res) => {
   try {
-    const { title, author, published_year, isbn, summary } = req.body;
+    const { title, authors, datetime, isbn, contents } = req.body;
     
     if (!title) {
       return res.status(400).json({
@@ -82,10 +82,10 @@ exports.createBook = async (req, res) => {
     
     const book = await Book.create({
       title,
-      author,
-      published_year,
+      authors,
+      datetime,
       isbn,
-      summary
+      contents
     });
     
     return res.status(201).json({
@@ -106,7 +106,7 @@ exports.createBook = async (req, res) => {
 exports.updateBook = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, author, published_year, isbn, summary } = req.body;
+    const { title, authors, datetime, isbn, contents } = req.body;
     
     const book = await Book.findByPk(id);
     
@@ -119,10 +119,10 @@ exports.updateBook = async (req, res) => {
     
     await book.update({
       title: title || book.title,
-      author: author || book.author,
-      published_year: published_year || book.published_year,
+      authors: authors || book.authors,
+      datetime: datetime || book.datetime,
       isbn: isbn || book.isbn,
-      summary: summary || book.summary
+      contents: contents || book.contents
     });
     
     return res.status(200).json({
@@ -183,10 +183,10 @@ exports.searchBooks = async (req, res) => {
     // Save books to database if they don't exist
     const booksToCreate = kakaoBooks.map(book => ({
       title: book.title,
-      author: book.authors?.[0],
-      published_year: book.datetime ? new Date(book.datetime).getFullYear() : null,
+      authors: book.authors?.[0],
+      datetime: book.datetime ? new Date(book.datetime).getFullYear() : null,
       isbn: book.isbn,
-      summary: book.contents
+      contents: book.contents
     }));
 
     // Create books that don't exist in the database
