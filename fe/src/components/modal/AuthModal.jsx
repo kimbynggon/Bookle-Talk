@@ -116,22 +116,19 @@ const AuthModal = ({ onClose }) => {
       <div className="auth-modal">
         <div className="modal-header">
           <div className="tabs">
-            <Button
-              className={activeTab === "login" ? "active" : ""}
+            <button
+              className=  {activeTab === "login" ? "active" : ""}
               onClick={() => setActiveTab("login")}
             >
               로그인
-            </Button>
-            <Button
+            </button>
+            <button
               className={activeTab === "signup" ? "active" : ""}
               onClick={() => setActiveTab("signup")}
             >
               회원가입
-            </Button>
+            </button>
           </div>
-          <button className="close-btn" onClick={onClose}>
-            닫기
-          </button>
         </div>
 
         {activeTab === "login" && (

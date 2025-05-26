@@ -17,7 +17,7 @@ const Input = ({
         <input
           required
           type={type}
-          className={`input ${className}`}  // ✅ 기본 'input' 클래스 병합
+          className={`input ${className}`} 
           value={value}
           onChange={onChange}
           {...props}
@@ -40,11 +40,11 @@ const StyledWrapper = styled.div`
   }
 
   .input {
-    font-size: 14px;
-    padding: 12px 12px;
+    font-size: 15px;
+    padding: 6px 6px;
     width: 100%;
     border: 1px solid #ccc;
-    border-radius: 12px;
+    border-radius: 10px;
     background: white;
     transition: border 0.2s ease;
   }
@@ -54,7 +54,6 @@ const StyledWrapper = styled.div`
     border-color: #5264ae;
   }
 
-  /* ✅ 외부에서 전달된 className에 따라 조건부 스타일 적용 */
   .input.left-rounded {
     border-radius: 10px 0 0 10px !important;
     border-right: none;
@@ -92,14 +91,6 @@ const StyledWrapper = styled.div`
     transform: translateY(-50%);
     font-size: 11px;
     padding-left: 8px;
-  }
-
-  .msg.info {
-    color: #357edd;
-  }
-
-  .msg.error {
-    color: #e53935;
   }
 `;
 

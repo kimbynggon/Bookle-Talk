@@ -20,12 +20,12 @@
 
   .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     .tabs {
       display: flex;
-      gap: 10px;
+      gap: 35px;
 
       button {
         background: none;
@@ -40,12 +40,6 @@
         }
       }
     }
-
-    .close-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
   }
 
   .form {
@@ -53,11 +47,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    input {
-      padding: 10px;
-      border: 1px solid #aaa;
-    }
 
 
     .submit-btn {
@@ -74,12 +63,13 @@
 
     .check-btn {
       color: black;
-      padding: 10px;
+      padding: 6px 6px;
+      font-size: 15px;
       background: #eee;
       border: 1px solid #aaa;
       cursor: pointer;
       white-space: nowrap;
-      height: 42px; 
+      height: 100%; 
       margin: auto;
       margin-bottom: 10px;
       border-radius: 0 10px 10px 0;
@@ -110,3 +100,4 @@ input[type='text'] {
 .field {
   margin-bottom: 12px;
 }
+
