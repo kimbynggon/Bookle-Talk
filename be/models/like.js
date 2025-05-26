@@ -1,3 +1,5 @@
+const model = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class Like extends Model {
     /**
