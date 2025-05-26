@@ -1,54 +1,55 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2563eb; 
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .nav {
     display: flex;
-    gap: 1rem;
-
-    .auth-btn {
-      padding: 0.25rem 0.75rem;
-      color: #4b5563; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2563eb; 
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
-
-      &:hover {
-        color: #111827; 
+    }
+  
+    .nav {
+      display: flex;
+      gap: 1rem;
+  
+      .auth-btn {
+        padding: 0.25rem 0.75rem;
+        color: #4b5563; 
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+  
+        &:hover {
+          color: #111827; 
+        }
+      }
+    }
+    .user-info {
+      color: black;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    
+      .nickname {
+        font-weight: bold;
+      }
+    
+      .alarm,
+      .logout {
+        color: black;
+        background: none;
+        border: none;
+        cursor: pointer;
       }
     }
   }
-  .user-info {
-    color: black;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  
-    .nickname {
-      font-weight: bold;
-    }
-  
-    .alarm,
-    .logout {
-      color: black;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-  }
-}
 
+  

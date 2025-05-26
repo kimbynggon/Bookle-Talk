@@ -18,16 +18,14 @@
   border-radius: 8px;
   position: relative;
 
-
-  
   .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     .tabs {
       display: flex;
-      gap: 10px;
+      gap: 35px;
 
       button {
         background: none;
@@ -42,12 +40,6 @@
         }
       }
     }
-
-    .close-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
   }
 
   .form {
@@ -56,10 +48,6 @@
     flex-direction: column;
     gap: 10px;
 
-    input {
-      padding: 10px;
-      border: 1px solid #aaa;
-    }
 
     .submit-btn {
       &:disabled {
@@ -67,15 +55,11 @@
         cursor: not-allowed;
       }
     }
-
-    .id-field,
-    .nickname-field {
+    
+    .input-with-button {
       display: flex;
-      gap: 8px;
-
-      input {
-        flex: 1;
-      }
+      align-items: flex-end;
+    }
 
       .check-btn {
         color: black;
@@ -83,17 +67,14 @@
         background: #eee;
         border: 1px solid #aaa;
         cursor: pointer;
-
-        height: 3.125rem;     
-        margin-top: 1.25rem;  
-        white-space: nowrap;  
       }
     }
 
     .error-message {
       color: red;
-      margin-top: -10px;
+      margin-top: -20px;
       font-size: 0.75rem;
+      text-align: right;
     }
 
     .info-message {
@@ -113,6 +94,3 @@
     }
   }
 }
-input[type='text']{
-  margin: 0px 0px 10px 0px;
- }
