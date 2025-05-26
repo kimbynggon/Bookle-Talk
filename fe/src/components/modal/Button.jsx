@@ -7,7 +7,7 @@ const StyledButton = styled.button`
   display: inline-block;
   width: 5.5em;
   height: 2.5em;
-  text-align: center; !important
+  text-align: center !important;
   line-height: 2.5em;
   overflow: hidden;
   cursor: pointer;
