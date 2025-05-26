@@ -51,15 +51,3 @@ exports.checkUserId = async (req, res) => {
   return res.status(200).json({ message: "사용 가능한 아이디입니다." });
 };
 
-exports.checkNickname = async (req, res) => {
-  const { nickname } = req.query;
-
-  if (!nickname) return res.status(400).json({ message: "닉네임을 입력해주세요" });
-
-  const exists = await authService.isNicknameTaken(nickname);
-  if (exists) {
-    return res.status(409).json({ message: "이미 사용 중인 닉네임입니다." });
-  }
-
-  return res.status(200).json({ message: "사용 가능한 닉네임입니다." });
-};

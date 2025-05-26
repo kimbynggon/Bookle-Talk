@@ -29,9 +29,18 @@
     flex-direction: column;
   }
 }
+.logo-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4b85f0;
+  user-select: none;
+}
 .search-wrapper {
   position: relative;
-  width: 100%;
   max-width: 500px;
   margin: 0 auto;
 
@@ -63,4 +72,5 @@
       color: #4b85f0;
     }
   }
+
 }

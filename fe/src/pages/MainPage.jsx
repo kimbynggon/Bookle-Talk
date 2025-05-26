@@ -1,23 +1,31 @@
 // src/pages/MainSearchPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/MainPage.scss';
+import AuthModal from '../components/modal/AuthModal';
+import SearchForm from '../components/SearchForm';
 import { Search } from 'lucide-react';
 
 
 const MainSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [isSearched, setIsSearched] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const inputRef = useRef(null);
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e?.preventDefault();
     console.log('검색어:', searchQuery);
-    // 검색 로직 구현
+    setIsSearched(true);
+  };
+
+  const handleBookSelect = () => {
+    // Handle book selection
   };
 
   return (
-    <div
-      className="main-container"
-      // style={{ '--bg-image': "url('/img/logo-background.png')" }}
-    >
-      {/* 메인 컨텐츠 */}
+    <div className="main-container">
       <main className="content px-4">
         <div className="max-w-2xl w-full text-center mb-12">
           {/* 로고 */}
@@ -32,7 +40,7 @@ const MainSearchPage = () => {
                 <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 50 C50 40, 60 40, 70 50" />
                 <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 65 C50 55, 60 55, 70 65" />
               </svg> */}
-              <div className="absolute top-16 left-1/2 transform -translate-x-1/2 text-2xl font-bold text-blue-600">
+              <div className="logo-text">
                 BookleTalk
               </div>
             </div>
@@ -40,7 +48,7 @@ const MainSearchPage = () => {
 
           {/* 검색창 */}
           <div className="w-full">
-          <div className="search-wrapper">
+            <div className="search-wrapper">
               <input
                 type="text"
                 placeholder="검색어를 입력해주세요."
@@ -56,6 +64,45 @@ const MainSearchPage = () => {
           </div>
         </div>
       </main>
+
+      {!isSearched && (
+        <div className="search-bar">
+          <form onSubmit={handleSearch} className="bookSearchForm">
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="검색어를 입력하세요"
+              className={`searchInput ${isError ? 'error' : ''} ${isSuccess ? 'success' : ''}`}
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setIsError(false);
+                setIsSuccess(false);
+              }}
+            />
+            <button type="submit" disabled={searchQuery.trim() === ''}>검색</button>
+          </form>
+        </div>
+      )}
+
+      {isSearched ? (
+        <section className="bookContainer" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
+          <div style={{ flex: '1' }}>
+            <SearchForm query={searchQuery} onBookSelect={handleBookSelect} />
+          </div>
+          <div style={{ flex: '2' }}>
+            {/* <BookReviewPage/> bookid 문제 발생 */}
+          </div>
+        </section>
+      ) : (
+        <section className="bookContainer">
+          <div className="bookList">
+            <p>베스트셀러</p>
+          </div>
+        </section>
+      )}
+
+      {showModal && <AuthModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };
