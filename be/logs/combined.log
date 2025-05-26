@@ -1777,3 +1777,18 @@
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:11:54"}
 {"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-22 15:12:02"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-22 17:31:14"}
+{"level":"error","message":"Failed to start server: \"likes_user_id_book_id\" 이름의 릴레이션(relation)이 이미 있습니다","name":"SequelizeDatabaseError","original":{"code":"42P07","file":"index.c","length":136,"line":"900","name":"error","routine":"index_create","severity":"오류","sql":"CREATE UNIQUE INDEX \"likes_user_id_book_id\" ON \"Likes\" (\"user_id\", \"book_id\")"},"parameters":{},"parent":{"code":"42P07","file":"index.c","length":136,"line":"900","name":"error","routine":"index_create","severity":"오류","sql":"CREATE UNIQUE INDEX \"likes_user_id_book_id\" ON \"Likes\" (\"user_id\", \"book_id\")"},"service":"bookletalk-api","sql":"CREATE UNIQUE INDEX \"likes_user_id_book_id\" ON \"Likes\" (\"user_id\", \"book_id\")","stack":"Error\n    at Query.run (C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Likes.sync (C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\UVC\\Desktop\\WorkSpace\\Bookle-Talk\\be\\server.js:49:5)","timestamp":"2025-05-26 16:29:51"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 16:35:25"}
+{"level":"info","message":"GET /main.0bea8bf950dc88bafb3e.hot-update.json","service":"bookletalk-api","timestamp":"2025-05-26 16:35:45"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=1234","service":"bookletalk-api","timestamp":"2025-05-26 16:35:54"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=3033030","service":"bookletalk-api","timestamp":"2025-05-26 16:35:59"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-26 16:38:27"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-26 16:38:27"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=123","service":"bookletalk-api","timestamp":"2025-05-26 16:38:38"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=r23432432","service":"bookletalk-api","timestamp":"2025-05-26 16:38:44"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=r23432432","service":"bookletalk-api","timestamp":"2025-05-26 16:38:45"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=r23432432","service":"bookletalk-api","timestamp":"2025-05-26 16:38:45"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 16:40:47"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 16:41:03"}
+{"level":"info","message":"POST /api/auth/login","service":"bookletalk-api","timestamp":"2025-05-26 16:46:04"}
+{"level":"info","message":"GET /api/auth/check-userid?userId=123","service":"bookletalk-api","timestamp":"2025-05-26 16:46:06"}
