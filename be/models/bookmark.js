@@ -1,57 +1,24 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const Bookmark = sequelize.define('Bookmark', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
-    book_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'books',
-        key: 'id'
-      }
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
+  class Bookmark extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
+  }
+  Bookmark.init({
+    user_id: DataTypes.INTEGER,
+    book_id: DataTypes.INTEGER
   }, {
-    tableName: 'bookmarks',
-    timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: false,
-    underscored: true,
-    indexes: [
-      {
-        unique: true,
-        fields: ['user_id', 'book_id']
-      }
-    ]
+    sequelize,
+    modelName: 'Bookmark',
   });
-
-  Bookmark.associate = function(models) {
-    // 북마크와 사용자의 관계 (N:1)
-    Bookmark.belongsTo(models.User, {
-      foreignKey: 'user_id',
-      as: 'user'
-    });
-
-    // 북마크와 책의 관계 (N:1)
-    Bookmark.belongsTo(models.Book, {
-      foreignKey: 'book_id',
-      as: 'book'
-    });
-  };
-
   return Bookmark;
 };

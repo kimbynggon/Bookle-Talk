@@ -1,5 +1,4 @@
 module.exports = (sequelize, DataTypes) => {
-<<<<<<<<< Temporary merge branch 1
   const Like = sequelize.define('Like', {
     id: {
       type: DataTypes.INTEGER,
@@ -43,28 +42,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return Like;
 };
-=========
-    const Like = sequelize.define('Like', {
-      user_id: {
-        type: DataTypes.INTEGER,
-      },
-      book_id: {
-        type: DataTypes.INTEGER,
-      },
-    }, {
-      tableName: 'likes',
-      underscored: true,
-      timestamps: true,
-      paranoid: true,
-      indexes: [
-        {
-          unique: true,
-          fields: ['user_id', 'book_id']
-        }
-      ]
-    });
-  
-    return Like;
-  };
-  
->>>>>>>>> Temporary merge branch 2

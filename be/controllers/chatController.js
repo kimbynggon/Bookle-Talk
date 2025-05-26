@@ -1,4 +1,4 @@
-const { Chat, Book, User, sequelize } = require('../models');
+const { Chat, Book, User, sequelize } = require('../models_before');
 const logger = require('../utils/logger');
 
 exports.getChatsByBookId = async (req, res) => {
@@ -11,15 +11,15 @@ exports.getChatsByBookId = async (req, res) => {
     console.log('숫자로 변환된 bookId:', numericBookId, typeof numericBookId);
     
     // 직접 SQL 쿼리 실행 - 데이터베이스에 실제로 데이터가 있는지 확인
-    console.log('직접 SQL 쿼리 실행:');
-    const rawBooks = await sequelize.query(
-      'SELECT * FROM books WHERE id = :id',
-      {
-        replacements: { id: numericBookId },
-        type: sequelize.QueryTypes.SELECT
-      }
-    );
-    console.log('직접 SQL 쿼리 결과:', JSON.stringify(rawBooks, null, 2));
+    // console.log('직접 SQL 쿼리 실행:');
+    // const rawBooks = await sequelize.query(
+    //   'SELECT * FROM books WHERE id = :id',
+    //   {
+    //     replacements: { id: numericBookId },
+    //     type: sequelize.QueryTypes.SELECT
+    //   }
+    // );
+    // console.log('직접 SQL 쿼리 결과:', JSON.stringify(rawBooks, null, 2));
     
     // 테이블 이름 확인을 위한 쿼리
     const [tables] = await sequelize.query(
