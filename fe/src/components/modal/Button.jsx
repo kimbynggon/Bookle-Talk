@@ -5,12 +5,14 @@ const StyledButton = styled.button`
   --color: #0077ff;
   font-family: inherit;
   display: inline-block;
-  width: 6em;
+  width: 5.5em;
+  height: 2.5em;
+  text-align: center; !important
   line-height: 2.5em;
   overflow: hidden;
   cursor: pointer;
   margin: 20px auto 0;
-  font-size: 17px;
+  font-size: 15px;
   z-index: 1;
   color: var(--color);
   border: 2px solid var(--color);
