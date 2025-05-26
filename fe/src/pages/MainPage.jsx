@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import '../css/MainPage.scss';
 import { Search } from 'lucide-react';
 
+
 const MainSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -14,7 +15,7 @@ const MainSearchPage = () => {
   return (
     <div
       className="main-container"
-      style={{ '--bg-image': "url('/img/logo-background.png')" }}
+      // style={{ '--bg-image': "url('/img/logo-background.png')" }}
     >
       {/* 메인 컨텐츠 */}
       <main className="content px-4">
