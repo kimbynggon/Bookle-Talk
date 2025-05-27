@@ -6,12 +6,13 @@ const testApi = process.env.REACT_APP_API_URL
 
 const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   const [query,setQuery] = useState(initialQuery);
+  const [inputValue, setInputValue] = useState('');
   const [page,setPage] = useState(1);
-  const [sortType, setSortType] = useState('latest'); // 정렬 타입
+  const [sortType, setSortType] = useState('accuracy'); // 정렬 타입
+  const [showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
   const [last,setLast] = useState(1);
   const [documents,setDocuments] = useState(null);
   const [viewMode, setViewMode] = useState('grid'); // 보기 모드 (그리드형, 목록형)
-  const [showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
   const [searchTriggered, setSearchTriggered] = useState(false);
@@ -19,24 +20,21 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   const firstLoad = useRef(true);
 
   const sortMap = {
-    latest: 'latest',
     rating: 'rating',          // 백엔드에서는 처리 안됨, 향후 DB 기반 별점 추가 필요
-    naming: 'title_asc',
-    descending: 'price_desc',
-    ascending: 'price_asc',
+    title_asc: 'title_asc',
+    price_desc: 'price_desc',
+    price_asc: 'price_asc',
   };
   
   const getSortLabel = (type) => {
     switch (type) {
-      case 'latest':
-        return '최신순';
       case 'rating':
         return '별점순';
-      case 'naming':
+      case 'title_asc':
         return '이름순';
-      case 'descending':
+      case 'price_desc':
         return '높은가격순';
-      case 'ascending':
+      case 'price_asc':
         return '낮은가격순';
       default:
         return '정렬';
@@ -49,7 +47,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
         params: {
           query: query,
           page: page,
-          sort: sortMap[sortType] || 'latest',
+          sort: sortMap[sortType] || 'accuracy',
         }
       });
       setDocuments(response.data.documents); // 검색 결과 books 리스트만 전달
@@ -61,12 +59,14 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
     }
   }, [query, page, sortType]);
 
-  useEffect(()=>{
-    if (searchTriggered || firstLoad.current) {
+  useEffect(()=>{ // 질문하기..
+    if (!query.trim()) return;
+
+    // if (searchTriggered || firstLoad.current || page >= 1) {
       callAPI();
-      firstLoad.current = false;
-    }
-  },[page, callAPI, searchTriggered])
+      // firstLoad.current = false;
+    // }
+  },[page, callAPI, searchTriggered, sortType])
   
 
   // useEffect(()=>{
@@ -87,6 +87,12 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   
+  // const handleQuery = (e) => {
+  //   if(searchTriggered) {
+  //     setQuery(e);
+  //     searchTriggered = false;
+  //   }
+  // }
 
   const handleBookSelect = (book) => {
     setSelectedBookId(book.id);
@@ -96,6 +102,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   // 정렬 타입
   const handleSortChange = (type) => {
     setSortType(type);
+    // callAPI();
     setShowSortOptions(false); // 선택 후 드롭다운 닫기
     setPage(1);
   };
@@ -152,11 +159,6 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                 {showSortOptions && (
                     <div className='sort-options'>
                         <div 
-                            className={`sort-option ${sortType === 'latest' ? 'active' : ''}`} 
-                            onClick={() => handleSortChange('latest')}>
-                            최신순
-                        </div>
-                        <div 
                             className={`sort-option ${sortType === 'rating' ? 'active' : ''}`} 
                             onClick={() => handleSortChange('rating')}>
                             별점순
@@ -203,8 +205,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                 >
                     <div className='book-info-1'>
                       <img id='book-img' src={book.thumbnail ? book.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
-                      <p>별점 연동⭐⭐</p>
-                      {/* <p>{'⭐️'.repeat(book.rating)} {book.rating}/5</p> */}
+                      <p>{'⭐️'.repeat(book.avg)} {book.avg}점</p>
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>
@@ -227,14 +228,14 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
             <button onClick={()=> {
               setPage(page-1);
               window.scrollTo({ top: 0, behavior: 'smooth' });
-            }} disabled={page===1}>이전</button>
+            }}>이전</button>
 
             <span style={{margin:'10px'}}>{page}/{last}</span>
 
             <button onClick={()=> {
               setPage(page+1);
               window.scrollTo({ top: 0, behavior: 'smooth' });
-            }} disabled={page===last}>다음</button>
+            }}>다음</button>
         </div>
         
     </div>
