@@ -1,7 +1,7 @@
 .main-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
 
   &::before {
@@ -41,10 +41,10 @@
 }
 .search-wrapper {
   position: relative;
-  max-width: 500px;
+  // max-width: 500px;
   margin: 0 auto;
 
-  .search-input {
+  .search-bar {
     width: 25rem;
     padding: 10px 40px 10px 15px; // 오른쪽 여백 확보
     border: 1px solid #ccc;
@@ -59,9 +59,9 @@
   }
 
   .search-icon {
-    position: absolute;
-    right: 12px;
-    top: 37.5%;
+    position: relative;
+    // right: 12px;
+    // top: 37.5%;
     transform: translateY(-50%);
     background: none;
     border: none;
@@ -73,4 +73,7 @@
     }
   }
 
+  .bookContainer {
+    width: 100%;
+  }
 }

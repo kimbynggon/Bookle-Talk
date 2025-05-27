@@ -13,12 +13,12 @@ const Footer = () => {
             </p>
           </Col>
           <Col md={3}>
-            <h6>링크</h6>
+            {/* <h6>링크</h6>
             <ul className="list-unstyled">
               <li><a href="/about" className="text-decoration-none">소개</a></li>
               <li><a href="/terms" className="text-decoration-none">이용약관</a></li>
               <li><a href="/privacy" className="text-decoration-none">개인정보처리방침</a></li>
-            </ul>
+            </ul> */}
           </Col>
           <Col md={3}>
             <h6>연락처</h6>

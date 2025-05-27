@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
 import './SearchForm.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
 const testApi = process.env.REACT_APP_API_URL
 
@@ -144,10 +146,12 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
             <input 
               className='input' 
               type="text" 
-              placeholder='책 제목, 저자, 출판사, ...' 
+              placeholder='검색어를 입력하세요' 
               value={query} 
               onChange={(e)=>setQuery(e.target.value)}/>
-            <button disabled={query.trim() === ""}>검색</button>
+            <button className="search-icon" disabled={query.trim() === ""}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
         </form>
 
         {/* 정렬 옵션과 보기 모드 버튼 */}
@@ -202,10 +206,10 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                   className='box'
                   onClick={() => handleBookSelect(book)}
                   style={{ cursor: 'pointer' }}  
-                >
+                  >
+                    <p id='rating'>{'⭐️'.repeat(book.avg)} {book.avg}점</p>
                     <div className='book-info-1'>
                       <img id='book-img' src={book.thumbnail ? book.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
-                      <p>{'⭐️'.repeat(book.avg)} {book.avg}점</p>
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>
@@ -224,7 +228,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                 </div>
             ))}
         </div>
-        <div>
+        <div id='paging'>
             <button onClick={()=> {
               setPage(page-1);
               window.scrollTo({ top: 0, behavior: 'smooth' });
