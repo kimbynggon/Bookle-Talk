@@ -7,22 +7,49 @@ const testApi = process.env.REACT_APP_API_URL
 const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   const [query,setQuery] = useState(initialQuery);
   const [page,setPage] = useState(1);
+  const [sortType, setSortType] = useState('latest'); // 정렬 타입
   const [last,setLast] = useState(1);
   const [documents,setDocuments] = useState(null);
-  const [sortType, setSortType] = useState('latest'); // 정렬 타입 (최신순, 별점순)
   const [viewMode, setViewMode] = useState('grid'); // 보기 모드 (그리드형, 목록형)
   const [showSortOptions, setShowSortOptions] = useState(false); // 정렬 옵션 드롭다운 표시 여부
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [searchTriggered, setSearchTriggered] = useState(false);
   
   const firstLoad = useRef(true);
+
+  const sortMap = {
+    latest: 'latest',
+    rating: 'rating',          // 백엔드에서는 처리 안됨, 향후 DB 기반 별점 추가 필요
+    naming: 'title_asc',
+    descending: 'price_desc',
+    ascending: 'price_asc',
+  };
+  
+  const getSortLabel = (type) => {
+    switch (type) {
+      case 'latest':
+        return '최신순';
+      case 'rating':
+        return '별점순';
+      case 'naming':
+        return '이름순';
+      case 'descending':
+        return '높은가격순';
+      case 'ascending':
+        return '낮은가격순';
+      default:
+        return '정렬';
+    }
+  };
   
   const callAPI = useCallback(async(e) => {
     try {
       const response = await axios.get(`${testApi}api/search`, {
         params: {
           query: query,
-          page: page
+          page: page,
+          sort: sortMap[sortType] || 'latest',
         }
       });
       setDocuments(response.data.documents); // 검색 결과 books 리스트만 전달
@@ -32,20 +59,15 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
     } catch (error) {
       console.error('검색 실패: ', error);
     }
-  }, [query, page]);
+  }, [query, page, sortType]);
 
   useEffect(()=>{
-    if (initialQuery && firstLoad.current) {
-      setQuery(initialQuery);
+    if (searchTriggered || firstLoad.current) {
       callAPI();
       firstLoad.current = false;
     }
-    else {
-      if (page !== 1) { // 검색버튼/엔터 눌렀을 때만 검색되도록
-        callAPI();
-      }
-    }
-  },[page, callAPI, initialQuery])
+  },[page, callAPI, searchTriggered])
+  
 
   // useEffect(()=>{
   //   if(!isInitialized) {
@@ -57,43 +79,28 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   // }, [onBookSelect, isInitialized]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // 이벤트가 바로 실행되는 것 막음
-    // if (!query.trim()) return;
-    callAPI();
-    setPage(1);
-  }
+    e.preventDefault();
+    if (!query.trim()) return;
+  
+    setPage(1); // 첫 페이지로 초기화
+    setSearchTriggered(true); // 검색 트리거 ON
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
 
   const handleBookSelect = (book) => {
     setSelectedBookId(book.id);
     onBookSelect(book);
   };
   
-  // 정렬 기능
-  const sortDocuments = () => {
-    if (!documents) return [];
-    
-    const sortedDocs = [...documents];
-    
-    if (sortType === 'latest') {
-      // 최신순 정렬 (출판일 기준)
-      return sortedDocs.sort((a, b) => {
-        return new Date(b.datetime || 0) - new Date(a.datetime || 0);
-      });
-    } else if (sortType === 'rating') {
-      // 별점순 정렬 (실제 별점 데이터가 없으므로 임의로 정렬)
-      // 실제 구현 시 별점 데이터 사용
-      return sortedDocs;
-    }
-    
-    return sortedDocs;
-  };
-  
   // 정렬 타입
   const handleSortChange = (type) => {
     setSortType(type);
     setShowSortOptions(false); // 선택 후 드롭다운 닫기
+    setPage(1);
   };
   
+
   // 드롭다운 토글
   const toggleSortOptions = () => {
     setShowSortOptions(!showSortOptions);
@@ -119,11 +126,10 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
   }, [showSortOptions]);
   
 
-  if(documents === null) {
-    return <p>로딩중..</p>
-  }
+  if (documents === null) {
+  return <p>검색 결과가 없습니다.</p>;
+}
 
-  const sortedDocuments = sortDocuments();
 
   return (
     <div className='book-list'>
@@ -140,9 +146,9 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
         {/* 정렬 옵션과 보기 모드 버튼 */}
         <div className='view-controls'>
             <div className='sort-dropdown'>
-                <button className='sort-button' onClick={toggleSortOptions}>
-                    {sortType === 'latest' ? '최신순' : '별점순'} ▼
-                </button>
+            <button className='sort-button' onClick={toggleSortOptions}>
+              {getSortLabel(sortType)} ▼
+            </button>
                 {showSortOptions && (
                     <div className='sort-options'>
                         <div 
@@ -154,6 +160,21 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                             className={`sort-option ${sortType === 'rating' ? 'active' : ''}`} 
                             onClick={() => handleSortChange('rating')}>
                             별점순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'title_asc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('title_asc')}>
+                            이름순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'price_desc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('price_desc')}>
+                            높은가격순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'price_asc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('price_asc')}>
+                            낮은가격순
                         </div>
                     </div>
                 )}
@@ -207,7 +228,9 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
               setPage(page-1);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }} disabled={page===1}>이전</button>
+
             <span style={{margin:'10px'}}>{page}/{last}</span>
+
             <button onClick={()=> {
               setPage(page+1);
               window.scrollTo({ top: 0, behavior: 'smooth' });
