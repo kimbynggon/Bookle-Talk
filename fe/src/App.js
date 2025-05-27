@@ -5,7 +5,6 @@ import BookReviewPage from './pages/BookReviewPage';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
 import MainPage from './pages/MainPage';
 
 function App() {
