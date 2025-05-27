@@ -205,8 +205,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                 >
                     <div className='book-info-1'>
                       <img id='book-img' src={book.thumbnail ? book.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
-                      <p>별점 연동⭐⭐</p>
-                      {/* <p>{'⭐️'.repeat(book.rating)} {book.rating}/5</p> */}
+                      <p>{'⭐️'.repeat(book.avg)} {book.avg}점</p>
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>

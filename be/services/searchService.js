@@ -51,7 +51,7 @@ const searchBooks = async (params) => {
         books.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case 'rating':
-        // 별점 정보가 없으므로 DB 저장 이후 별도 테이블/컬럼 도입 필요
+        books.sort((a, b) => b.avg - a.avg);
         break;
       default:
         break;
