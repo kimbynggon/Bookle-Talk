@@ -1,4 +1,3 @@
-// services/searchService.js
 const axios = require('axios');
 const { Book } = require('../models/index');
 require('dotenv').config();
@@ -17,6 +16,11 @@ const searchBooks = async (params) => {
     // 쿼리 파라미터에서 검색어와 페이지 정보 가져오기
     const query = params.query;
     const page = params.page || 1; // 기본값 설정
+    const size = params.size || 10;
+    const sort = params.sort || 'accuracy'
+
+    // Kakao API에서 지원하는 정렬 기준만 전달
+    const kakaoSort = (sort === 'latest' || sort === 'accuracy') ? sort : 'accuracy';
 
     const response = await axios.get('https://dapi.kakao.com/v3/search/book?target=title', {
       headers: {
@@ -24,13 +28,34 @@ const searchBooks = async (params) => {
       },
       params: { 
         query, 
-        // sort, 
+        sort: kakaoSort, 
         page, 
-        // size 
-        },
+        size 
+      },
     });
 
-    const books = response.data.documents;
+    let books = response.data.documents;
+
+    // API 응답 후 추가 정렬 처리
+    switch (sort) {
+      case 'price_desc':
+        books.sort((a, b) => b.price - a.price);
+        break;
+      case 'price_asc':
+        books.sort((a, b) => a.price - b.price);
+        break;
+      case 'title_asc':
+        books.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'title_desc':
+        books.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+      case 'rating':
+        // 별점 정보가 없으므로 DB 저장 이후 별도 테이블/컬럼 도입 필요
+        break;
+      default:
+        break;
+    }
 
     // DB 저장
     for (const book of books) {
@@ -54,7 +79,11 @@ const searchBooks = async (params) => {
       }
     }
 
-    return response.data;
+    // 페이지네이션 정보 포함해서 리턴
+    return {
+      ...response.data,
+      documents: books,
+    };
 
   } catch (error) {
     console.error(error.response?.data || error.message)
