@@ -20,7 +20,7 @@ const searchBooks = async (params) => {
     const sort = params.sort || 'accuracy'
 
     // Kakao API에서 지원하는 정렬 기준만 전달
-    const kakaoSort = (sort === 'latest' || sort === 'accuracy') ? sort : 'accuracy';
+    const kakaoSort = (sort === 'accuracy') ? sort : 'accuracy';
 
     const response = await axios.get('https://dapi.kakao.com/v3/search/book?target=title', {
       headers: {
