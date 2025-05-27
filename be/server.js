@@ -7,13 +7,14 @@ const routes = require('./routes');
 const { setupSocketIO } = require('./socket');
 
 const PORT = process.env.PORT || 8080;
+const FRONT_API = process.env.REACT_APP_API_URL
 
 const app = express();
 const cors = require('cors'); // 추가
 
 // CORS 미들웨어 설정 추가
 app.use(cors({
-  origin: 'http://localhost:3000', // 프론트엔드 주소
+  origin: `${FRONT_API}`, // 프론트엔드 주소
   credentials: true,               // 쿠키 or 인증 정보 허용 시 true
 }));
 

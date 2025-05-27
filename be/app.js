@@ -18,11 +18,12 @@ const userRoutes = require('./routes/users');
 
 const express = require('express');
 const cors = require('cors');
+const FRONT_API = process.env.REACT_APP_API_URL
 
 var app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',  // 프론트엔드 주소
+  origin: `${FRONT_API}`,  // 프론트엔드 주소
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
@@ -91,7 +92,7 @@ app.use(function(req, res, next) {
 const db = require("./models");
 
 db.sequelize
-  .sync()
+  .sync({alter: true}) // model정보에 맞춰서 임시로 컬럼 추가되는 코드 {alter: true}
   .then(() => {
     console.log(" DB 연결 완료");
   })
