@@ -158,7 +158,8 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
         <div className='view-controls'>
             <div className='sort-dropdown'>
             <button className='sort-button' onClick={toggleSortOptions}>
-              {getSortLabel(sortType)} ▼
+              <span>{getSortLabel(sortType)}</span> 
+              <span>▼</span>
             </button>
                 {showSortOptions && (
                     <div className='sort-options'>
@@ -207,12 +208,15 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {} }) => {
                   onClick={() => handleBookSelect(book)}
                   style={{ cursor: 'pointer' }}  
                   >
-                    <p id='rating'>{'⭐️'.repeat(book.avg)} {book.avg}점</p>
                     <div className='book-info-1'>
                       <img id='book-img' src={book.thumbnail ? book.thumbnail:'http://via.placeholder.com/120X150'} alt="이미지" />
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>
+                        {/* <div id='rating'>{'⭐️'.repeat(Math.trunc(book.avg))}{''.repeat(5-Math.trunc(book.avg))} {book.avg}점 ({book.user}명)</div> */}
+                        <div id='rating'>⭐️⭐️⭐️ 3점</div>
+                      </div>
+                      <div className='ellipsis title' data-tooltip={book.title}>
                         <div id='category'>제목</div> 
                         <div id='detail'>{book.title}</div>
                       </div>
