@@ -108,6 +108,15 @@ const BookSummary = ({ book }) => {
                 }
               </div>
             )}
+            {book.isbn && (
+              <div className="col-md-6 mb-2">
+                <strong>isbn:</strong> {
+                  Array.isArray(book.isbn) 
+                    ? book.isbn.join(', ') 
+                    : book.isbn
+                }
+              </div>
+            )}
           </div>
         </div>
         
