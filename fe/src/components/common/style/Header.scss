@@ -9,8 +9,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-  background-color: white;
+  padding: 0.2rem 1.5rem;
+  // background-color: rgba(var(--bs-light-rgb)) !important;
   border-bottom: 1px solid #ddd;
 
   .logo {

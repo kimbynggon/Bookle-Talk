@@ -3,8 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import BookReviewPage from './BookReviewPage';
 import SearchForm from '../components/SearchForm';
 import AuthModal from "../components/modal/AuthModal.jsx";
+import '../css/MainPage.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { Card } from 'react-bootstrap';
-import '../App.css';
 
 const MainSearchPage = () => {
   const location = useLocation();
@@ -76,10 +78,6 @@ const MainSearchPage = () => {
   };
 
   const handleBookSelect = useCallback(async (book) => {
-    // console.log('🚀 책 클릭됨! 함수 진입');
-    // console.log('📚 선택된 책 전체 데이터:', book);
-    // console.log('📖 책 제목:', book.title);
-    // console.log('🔢 원본 ISBN:', book.isbn);
     try {
       // ISBN으로 실제 DB에서 책 정보 조회
       const isbn = book.isbn?.split(' ')[0]; // 첫 번째 ISBN만 사용
@@ -153,69 +151,80 @@ const MainSearchPage = () => {
 
   return (
     <div className="main-container">
-      {/* 메인 헤더 (검색되지 않았을 때만 표시) */}
-      {!isSearched && (
-        <main className="content px-4">
-          <div className="max-w-2xl w-full text-center mb-12">
-            {/* 로고 */}
-            <div className="mb-8 flex justify-center">
-              <div className="logo-text">
-                BookleTalk
-              </div>
-            </div>
-
-            {/* 검색창 */}
-            <div className="w-full">
-              <div className="search-wrapper">
-                <form onSubmit={handleSearch} className="bookSearchForm">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="검색어를 입력하세요"
-                    className={`searchInput ${isError ? 'error' : ''} ${isSuccess ? 'success' : ''}`}
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      setIsError(false);
-                      setIsSuccess(false);
-                    }}
-                  />
-                  <button type="submit" disabled={searchQuery.trim() === ''}>검색</button>
-                </form>
-              </div>
+      <main className="content px-4">
+        <div className="max-w-2xl w-full text-center mb-12">
+          {/* 로고 */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              {/* <svg className="w-40 h-40 text-blue-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M20 15 L80 15 L80 85 L20 85 Z" />
+                <path fill="#fff" d="M30 15 L30 85 Z" />
+                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M20 15 L80 15 L80 85 L20 85 Z" />
+                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M30 15 L30 85" />
+                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 35 C50 25, 60 25, 70 35" />
+                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 50 C50 40, 60 40, 70 50" />
+                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 65 C50 55, 60 55, 70 65" />
+              </svg> */}
             </div>
           </div>
-        </main>
-      )}
 
-      {/* 검색 결과 영역 */}
-      {isSearched && (
-        <section className="bookContainer" style={{ display: 'flex', gap: '20px', padding: '20px', height: 'calc(100vh - 200px)' }}>
-          {/* 왼쪽: 검색 결과 목록 */}
-          <div style={{ flex: '1', overflowY: 'auto' }}>
-            <SearchForm 
-              query={searchQuery} 
-              onBookSelect={handleBookSelect}
-              selectedBookId={selectedBookId}
-            />
-          </div>
-          
-          {/* 오른쪽: 선택된 책 상세페이지 */}
-          <div style={{ flex: '2', overflowY: 'auto' }}>
-            {selectedBook && selectedBookId ? (
-              <BookReviewPage 
-                bookId={selectedBookId} 
-                bookData={selectedBook}
-                currentUser={currentUser}
-              />
-            ) : (
-              <PlaceholderCard />
-            )}
-          </div>
-        </section>
-      )}
+          {/* 검색창 */}
+          <div className="w-full">
+            <div className="search-wrapper">
+              {!isSearched && (
+                <div className="search-bar">
+                  <div className="logo-text">
+                    BookleTalk
+                  </div>
+                  <form onSubmit={handleSearch} className="bookSearchForm">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      placeholder="검색어를 입력하세요"
+                      className={`searchInput ${isError ? 'error' : ''} ${isSuccess ? 'success' : ''}`}
+                      value={searchQuery}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                        setIsError(false);
+                        setIsSuccess(false);
+                      }}
+                    />
+                    <button className="search-icon" type="submit" disabled={searchQuery.trim() === ''}>
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                  </form>
+                </div>
+              )}
 
-      {/* 인증 모달 */}
+              {isSearched ? (
+                <section className="bookContainer" style={{ display: 'flex', gap: '50px', padding: '0px' }}>
+                  <div className='book-list' style={{ flex: '1' }}>
+                    <SearchForm query={searchQuery} onBookSelect={handleBookSelect} selectedBookId={selectedBookId}/>
+                  </div>
+                  <div className='book-detail' style={{ flex: '2' }}>
+                  {selectedBook && selectedBookId ? (
+                    <BookReviewPage 
+                      bookId={selectedBookId} 
+                      bookData={selectedBook}
+                      currentUser={currentUser}
+                    />
+                    ) : (
+                      <PlaceholderCard />
+                    )}
+                  </div>
+                </section>
+              ) : (
+                <section className="bookContainer">
+                  <div className="bookList">
+                  </div>
+                </section>
+              )}
+            </div>
+          </div>
+        </div>
+      </main>
+
+
       {showModal && <AuthModal onClose={() => setShowModal(false)} />}
     </div>
   );

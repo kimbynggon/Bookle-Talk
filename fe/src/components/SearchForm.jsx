@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
 import './SearchForm.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
 const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selectedBookId = null }) => {
   const [query, setQuery] = useState(initialQuery);
@@ -226,73 +228,69 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
 
   return (
     <div className='book-list'>
-      <form onSubmit={handleSubmit}>
-        <input 
-          className='input' 
-          type="text" 
-          placeholder='책 제목, 저자, 출판사, ...' 
-          value={query} 
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button disabled={query.trim() === ""}>검색</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+            <input 
+              className='input' 
+              type="text" 
+              placeholder='검색어를 입력하세요' 
+              value={query} 
+              onChange={(e)=>setQuery(e.target.value)}/>
+            <button className="search-icon" disabled={query.trim() === ""}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+        </form>
 
-      {/* 정렬 옵션과 보기 모드 버튼 */}
-      <div className='view-controls'>
-        <div className='sort-dropdown'>
-          <button className='sort-button' onClick={toggleSortOptions}>
-            {getSortLabel(sortType)} ▼
-          </button>
-          {showSortOptions && (
-            <div className='sort-options'>
-              <div 
-                className={`sort-option ${sortType === 'latest' ? 'active' : ''}`} 
-                onClick={() => handleSortChange('latest')}>
-                최신순
-              </div>
-              <div 
-                className={`sort-option ${sortType === 'rating' ? 'active' : ''}`} 
-                onClick={() => handleSortChange('rating')}>
-                별점순
-              </div>
-              <div 
-                className={`sort-option ${sortType === 'naming' ? 'active' : ''}`} 
-                onClick={() => handleSortChange('naming')}>
-                이름순
-              </div>
-              <div 
-                className={`sort-option ${sortType === 'descending' ? 'active' : ''}`} 
-                onClick={() => handleSortChange('descending')}>
-                높은가격순
-              </div>
-              <div 
-                className={`sort-option ${sortType === 'ascending' ? 'active' : ''}`} 
-                onClick={() => handleSortChange('ascending')}>
-                낮은가격순
-              </div>
+        {/* 정렬 옵션과 보기 모드 버튼 */}
+        <div className='view-controls'>
+            <div className='sort-dropdown'>
+            <button className='sort-button' onClick={toggleSortOptions}>
+              <span>{getSortLabel(sortType)}</span> 
+              <span>▼</span>
+            </button>
+                {showSortOptions && (
+                    <div className='sort-options'>
+                        <div 
+                            className={`sort-option ${sortType === 'rating' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('rating')}>
+                            별점순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'title_asc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('title_asc')}>
+                            이름순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'price_desc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('price_desc')}>
+                            높은가격순
+                        </div>
+                        <div 
+                            className={`sort-option ${sortType === 'price_asc' ? 'active' : ''}`} 
+                            onClick={() => handleSortChange('price_asc')}>
+                            낮은가격순
+                        </div>
+                    </div>
+                )}
             </div>
-          )}
+            <div className='view-toggle'>
+                <button 
+                    className={`view-button ${viewMode === 'grid' ? 'active' : ''}`} 
+                    onClick={() => setViewModeType('grid')}>
+                    그리드형
+                </button>
+                <button 
+                    className={`view-button ${viewMode === 'list' ? 'active' : ''}`} 
+                    onClick={() => setViewModeType('list')}>
+                    목록형
+                </button>
+            </div>
         </div>
-        <div className='view-toggle'>
-          <button 
-            className={`view-button ${viewMode === 'grid' ? 'active' : ''}`} 
-            onClick={() => setViewModeType('grid')}>
-            그리드형
-          </button>
-          <button 
-            className={`view-button ${viewMode === 'list' ? 'active' : ''}`} 
-            onClick={() => setViewModeType('list')}>
-            목록형
-          </button>
+        {/* 검색 결과 개수 표시 */}
+        <div className="search-info">
+          <p>총 <strong>{documents.length}</strong>권의 책을 찾았습니다.</p>
         </div>
-      </div>
-      
-      {/* 검색 결과 개수 표시 */}
-      <div className="search-info">
-        <p>총 <strong>{documents.length}</strong>권의 책을 찾았습니다.</p>
-      </div>
-      
-      <div className={`documents ${viewMode}`}>
+        
+        <div className={`documents ${viewMode}`}>
         {documents.map((book, index) => (
           <div 
             key={book.isbn || index}
@@ -300,58 +298,43 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
             onClick={() => handleBookSelect(book)}
             style={{ cursor: 'pointer' }}  
           >
-            <div className='book-info-1'>
-              <img 
-                id='book-img' 
-                src={book.thumbnail || 'http://via.placeholder.com/120X150?text=No+Image'} 
-                alt={book.title || "책 표지"}
-                onError={handleImageError}
-              />
-              <div className="rating-info">
-                <span>⭐ 평점 연동 예정</span>
-              </div>
-            </div>
-            <div className='book-info-2'>
-              <div className='ellipsis'>
-                <div id='category'>제목</div> 
-                <div id='detail' title={book.title}>{book.title}</div>
-              </div>
-              <div className='ellipsis'>
-                <div id='category'>저자/역자</div> 
-                <div id='detail' title={book.authors}>
+                    <div className='book-info-1'>
+                    <img 
+                      id='book-img' 
+                      src={book.thumbnail || 'http://via.placeholder.com/120X150?text=No+Image'} 
+                      alt={book.title || "책 표지"}
+                      onError={handleImageError}
+                      />
+                    
+                    </div>
+                    <div className='ellipsis'>
+                        {/* <div id='rating'>{'⭐️'.repeat(Math.trunc(book.avg))}{''.repeat(5-Math.trunc(book.avg))} {book.avg}점 ({book.user}명)</div> */}
+                        <div id='rating'>⭐️⭐️⭐️ 3점</div>
+                      </div>
+                    <div className='book-info-2'>
+                      <div className='ellipsis'>
+                        <div id='category'>제목</div> 
+                        <div id='detail' title={book.title}>{book.title}</div>
+                      </div>
+                      <div className='ellipsis'>
+                        <div id='category'>저자/역자</div> 
+                        <div id='detail' title={book.authors}>
                   {Array.isArray(book.authors) ? book.authors.join(', ') : book.authors}
                 </div>
-              </div>
-              <div className='ellipsis'>
-                <div id='category'>출판사</div> 
-                <div id='detail' title={book.publisher}>{book.publisher || '정보 없음'}</div>
-              </div>
-              <div className='ellipsis'>
-                <div id='category'>가격</div> 
-                <div id='detail'>
-                  {book.price ? `${book.price.toLocaleString()}원` : '정보 없음'}
+                      </div>
+                      <div className='ellipsis'>
+                        <div id='category'>가격(정가)</div> 
+                        <div id='detail'>{book.price ? `${book.price.toLocaleString()}원` : '정보 없음'}</div>
+                      </div>
+                    </div>
                 </div>
-              </div>
-              <div className='ellipsis'>
-                <div id='category'>ISBN</div> 
-                <div id='detail' title={book.isbn}>{book.isbn || '정보 없음'}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      
-      {/* 페이지네이션 */}
-      <div className="pagination-controls">
-        <button 
-          onClick={() => {
-            setPage(page - 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }} 
-          disabled={page === 1}
-        >
-          이전
-        </button>
+            ))}
+        </div>
+        <div>
+            <button onClick={()=> {
+              setPage(page-1);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}>이전</button>
 
         <span style={{margin:'10px'}}>{page}/{last}</span>
 

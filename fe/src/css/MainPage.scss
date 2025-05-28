@@ -1,7 +1,7 @@
 .main-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
 
   &::before {
@@ -41,12 +41,14 @@
 }
 .search-wrapper {
   position: relative;
-  max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
+  // max-width: 500px;
+  // margin: 0 auto;
 
-  .search-input {
+  .search-bar {
     width: 25rem;
-    padding: 10px 40px 10px 15px; // 오른쪽 여백 확보
+    margin-top: 7rem;
+    padding: 0px 40px 0px 5px; // 오른쪽 여백 확보
     border: 1px solid #ccc;
     border-radius: 9999px;
     outline: none;
@@ -56,12 +58,27 @@
       border-color: #4b85f0;
       box-shadow: 0 0 0 2px rgba(75, 133, 240, 0.3);
     }
+
+    form {
+      border: none;
+      box-shadow: none;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      padding-left: 4.5rem;
+    }
+
+    button {
+      margin-right: -3rem;
+    }
   }
 
   .search-icon {
-    position: absolute;
-    right: 12px;
-    top: 37.5%;
+    position: relative;
+    // right: 12px;
+    // top: 37.5%;
     transform: translateY(-50%);
     background: none;
     border: none;
@@ -73,4 +90,7 @@
     }
   }
 
+  .bookContainer {
+    width: 100%;
+  }
 }
