@@ -1916,3 +1916,1079 @@
 {"level":"info","message":"User connected: Z8ftVvmZaTFhghRSAAAb","service":"bookletalk-api","timestamp":"2025-05-27 16:13:10"}
 {"level":"info","message":"User Z8ftVvmZaTFhghRSAAAb joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:13:10"}
 {"level":"info","message":"User disconnected: Z8ftVvmZaTFhghRSAAAb","service":"bookletalk-api","timestamp":"2025-05-27 16:13:25"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:18:57"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:21:05"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:22:04"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:40:29"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:48:31"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 22, 사용자 2, 별점 4","service":"bookletalk-api","timestamp":"2025-05-27 16:48:48"}
+{"level":"info","message":"💬 책 22의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:48:48"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:48:48"}
+{"level":"info","message":"User connected: oHUEIX_3NZslrUsyAAAB","service":"bookletalk-api","timestamp":"2025-05-27 16:48:48"}
+{"level":"info","message":"User oHUEIX_3NZslrUsyAAAB joined room for book 22","service":"bookletalk-api","timestamp":"2025-05-27 16:48:48"}
+{"level":"info","message":"User disconnected: oHUEIX_3NZslrUsyAAAB","service":"bookletalk-api","timestamp":"2025-05-27 16:49:01"}
+{"level":"info","message":"💬 책 21의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:49:01"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:49:01"}
+{"level":"info","message":"User connected: VDRbvIvcldxT4IJ4AAAD","service":"bookletalk-api","timestamp":"2025-05-27 16:49:01"}
+{"level":"info","message":"User VDRbvIvcldxT4IJ4AAAD joined room for book 21","service":"bookletalk-api","timestamp":"2025-05-27 16:49:01"}
+{"level":"info","message":"User disconnected: VDRbvIvcldxT4IJ4AAAD","service":"bookletalk-api","timestamp":"2025-05-27 16:49:09"}
+{"level":"info","message":"💬 책 12의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:49:09"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:49:09"}
+{"level":"info","message":"User connected: IORRXgnzQXGz2jK1AAAF","service":"bookletalk-api","timestamp":"2025-05-27 16:49:09"}
+{"level":"info","message":"User IORRXgnzQXGz2jK1AAAF joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:49:09"}
+{"level":"info","message":"User disconnected: IORRXgnzQXGz2jK1AAAF","service":"bookletalk-api","timestamp":"2025-05-27 16:49:19"}
+{"level":"info","message":"💬 책 12의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:49:24"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:49:24"}
+{"level":"info","message":"User connected: RkHQB53soMIMOd9PAAAH","service":"bookletalk-api","timestamp":"2025-05-27 16:49:24"}
+{"level":"info","message":"User RkHQB53soMIMOd9PAAAH joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:49:24"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:490:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-27 16:49:34"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 12, 사용자 2","service":"bookletalk-api","timestamp":"2025-05-27 16:49:40"}
+{"level":"info","message":"💬 채팅 생성 완료: ID 6","service":"bookletalk-api","timestamp":"2025-05-27 16:49:40"}
+{"level":"info","message":"User disconnected: RkHQB53soMIMOd9PAAAH","service":"bookletalk-api","timestamp":"2025-05-27 16:51:31"}
+{"level":"info","message":"💬 책 12의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:51:54"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:51:54"}
+{"level":"info","message":"User connected: YiRzw5Z6Zja_L_SHAAAJ","service":"bookletalk-api","timestamp":"2025-05-27 16:51:54"}
+{"level":"info","message":"User YiRzw5Z6Zja_L_SHAAAJ joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:51:54"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 12, 사용자 3","service":"bookletalk-api","timestamp":"2025-05-27 16:52:00"}
+{"level":"info","message":"💬 채팅 생성 완료: ID 7","service":"bookletalk-api","timestamp":"2025-05-27 16:52:00"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 16:54:52"}
+{"level":"info","message":"User connected: rHAFbhosEI0qkv9RAAAB","service":"bookletalk-api","timestamp":"2025-05-27 16:54:55"}
+{"level":"info","message":"User rHAFbhosEI0qkv9RAAAB joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:54:55"}
+{"level":"info","message":"User disconnected: rHAFbhosEI0qkv9RAAAB","service":"bookletalk-api","timestamp":"2025-05-27 16:54:57"}
+{"level":"info","message":"💬 책 12의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:54:58"}
+{"level":"info","message":"User connected: fLhFIFGTTTa6cmsjAAAD","service":"bookletalk-api","timestamp":"2025-05-27 16:54:58"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:54:58"}
+{"level":"info","message":"User fLhFIFGTTTa6cmsjAAAD joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:54:58"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 12, 사용자 3","service":"bookletalk-api","timestamp":"2025-05-27 16:55:03"}
+{"level":"info","message":"💬 채팅 생성 완료: ID 8","service":"bookletalk-api","timestamp":"2025-05-27 16:55:03"}
+{"level":"info","message":"User disconnected: fLhFIFGTTTa6cmsjAAAD","service":"bookletalk-api","timestamp":"2025-05-27 16:55:05"}
+{"level":"info","message":"💬 책 12의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 16:55:32"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 16:55:32"}
+{"level":"info","message":"User connected: 4JKmsbo3FSCxzMR6AAAF","service":"bookletalk-api","timestamp":"2025-05-27 16:55:32"}
+{"level":"info","message":"User 4JKmsbo3FSCxzMR6AAAF joined room for book 12","service":"bookletalk-api","timestamp":"2025-05-27 16:55:32"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 12, 사용자 4","service":"bookletalk-api","timestamp":"2025-05-27 16:55:36"}
+{"level":"info","message":"💬 채팅 생성 완료: ID 9","service":"bookletalk-api","timestamp":"2025-05-27 16:55:36"}
+{"level":"info","message":"User disconnected: 4JKmsbo3FSCxzMR6AAAF","service":"bookletalk-api","timestamp":"2025-05-27 17:04:08"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 17:28:28"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 22:34:56"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-27 22:49:58"}
+{"level":"info","message":"💬 책 13의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 22:49:58"}
+{"level":"error","message":"채팅 조회 오류: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).","name":"SequelizeEagerLoadingError","service":"bookletalk-api","stack":"SequelizeEagerLoadingError: User is associated to Chat using an alias. You've included an alias (user), but it does not match the alias(es) defined in your association (User).\n    at Chat._getIncludedAssociation (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:574:15)\n    at Chat._validateIncludedElement (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at Chat._validateIncludedElements (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:417:39)\n    at Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 22:49:58"}
+{"level":"info","message":"User connected: 9GnQYvlmLcPYtxdeAAAB","service":"bookletalk-api","timestamp":"2025-05-27 22:49:58"}
+{"level":"info","message":"User 9GnQYvlmLcPYtxdeAAAB joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-27 22:49:58"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:490:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-27 22:50:59"}
+{"level":"info","message":"User disconnected: 9GnQYvlmLcPYtxdeAAAB","service":"bookletalk-api","timestamp":"2025-05-27 22:51:33"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-27 23:18:53"}
+{"level":"info","message":"User connected: -OYJMhuCUFdhoaX6AAAB","service":"bookletalk-api","timestamp":"2025-05-27 23:19:00"}
+{"level":"info","message":"User -OYJMhuCUFdhoaX6AAAB joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-27 23:19:00"}
+{"level":"info","message":"User disconnected: -OYJMhuCUFdhoaX6AAAB","service":"bookletalk-api","timestamp":"2025-05-27 23:19:00"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-27 23:19:04"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 11)","service":"bookletalk-api","timestamp":"2025-05-27 23:19:04"}
+{"level":"info","message":"💬 책 11의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 23:19:05"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 13, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-27 23:19:05"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 23:19:05"}
+{"level":"info","message":"User connected: Ns5FxPfs3aJpqweDAAAD","service":"bookletalk-api","timestamp":"2025-05-27 23:19:05"}
+{"level":"info","message":"User Ns5FxPfs3aJpqweDAAAD joined room for book 11","service":"bookletalk-api","timestamp":"2025-05-27 23:19:05"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:489:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-27 23:19:17"}
+{"level":"info","message":"User disconnected: Ns5FxPfs3aJpqweDAAAD","service":"bookletalk-api","timestamp":"2025-05-27 23:23:18"}
+{"level":"info","message":"User connected: 2fWUuu11jqT7CQuRAAAF","service":"bookletalk-api","timestamp":"2025-05-27 23:23:19"}
+{"level":"info","message":"User 2fWUuu11jqT7CQuRAAAF joined room for book 11","service":"bookletalk-api","timestamp":"2025-05-27 23:23:19"}
+{"level":"info","message":"User disconnected: 2fWUuu11jqT7CQuRAAAF","service":"bookletalk-api","timestamp":"2025-05-27 23:27:19"}
+{"level":"info","message":"User connected: gwzbVWw9GU80h6F0AAAH","service":"bookletalk-api","timestamp":"2025-05-27 23:27:20"}
+{"level":"info","message":"User gwzbVWw9GU80h6F0AAAH joined room for book 11","service":"bookletalk-api","timestamp":"2025-05-27 23:27:20"}
+{"level":"info","message":"User disconnected: gwzbVWw9GU80h6F0AAAH","service":"bookletalk-api","timestamp":"2025-05-27 23:34:42"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 11)","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 11, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"💬 책 13의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"User connected: j9MV9mua22DlGW5CAAAJ","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"User j9MV9mua22DlGW5CAAAJ joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 13, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-27 23:34:44"}
+{"level":"info","message":"User disconnected: j9MV9mua22DlGW5CAAAJ","service":"bookletalk-api","timestamp":"2025-05-27 23:57:20"}
+{"level":"info","message":"User connected: trChcDJq1Jss_pT3AAAL","service":"bookletalk-api","timestamp":"2025-05-27 23:57:22"}
+{"level":"info","message":"User trChcDJq1Jss_pT3AAAL joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-27 23:57:22"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 00:08:41"}
+{"level":"info","message":"User connected: kOz8Zzi_C4WWsZrDAAAB","service":"bookletalk-api","timestamp":"2025-05-28 00:08:45"}
+{"level":"info","message":"User kOz8Zzi_C4WWsZrDAAAB joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-28 00:08:45"}
+{"level":"info","message":"User disconnected: kOz8Zzi_C4WWsZrDAAAB","service":"bookletalk-api","timestamp":"2025-05-28 00:08:49"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 17)","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"💬 책 17의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"User connected: W_mQu8Otqea7wCvBAAAD","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 13, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"User W_mQu8Otqea7wCvBAAAD joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:08:55"}
+{"level":"info","message":"User disconnected: W_mQu8Otqea7wCvBAAAD","service":"bookletalk-api","timestamp":"2025-05-28 00:11:27"}
+{"level":"info","message":"💬 책 17의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:11:27"}
+{"level":"info","message":"User connected: acvyYCxMfnQs37GEAAAF","service":"bookletalk-api","timestamp":"2025-05-28 00:11:27"}
+{"level":"info","message":"User acvyYCxMfnQs37GEAAAF joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:11:27"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:11:27"}
+{"level":"info","message":"User disconnected: acvyYCxMfnQs37GEAAAF","service":"bookletalk-api","timestamp":"2025-05-28 00:16:46"}
+{"level":"info","message":"User connected: b0N_UkykWzK3IzQwAAAH","service":"bookletalk-api","timestamp":"2025-05-28 00:16:47"}
+{"level":"info","message":"User b0N_UkykWzK3IzQwAAAH joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:16:47"}
+{"level":"info","message":"User disconnected: b0N_UkykWzK3IzQwAAAH","service":"bookletalk-api","timestamp":"2025-05-28 00:18:20"}
+{"level":"info","message":"💬 책 17의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:18:20"}
+{"level":"info","message":"User connected: fhYSfIg0G14zAetzAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 00:18:20"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:18:20"}
+{"level":"info","message":"User fhYSfIg0G14zAetzAAAJ joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:18:20"}
+{"level":"info","message":"User disconnected: fhYSfIg0G14zAetzAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 00:18:38"}
+{"level":"info","message":"💬 책 17의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:18:38"}
+{"level":"info","message":"User connected: 7T_zcnnvGmuOXoQFAAAL","service":"bookletalk-api","timestamp":"2025-05-28 00:18:38"}
+{"level":"info","message":"User 7T_zcnnvGmuOXoQFAAAL joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:18:38"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:18:38"}
+{"level":"info","message":"User disconnected: 7T_zcnnvGmuOXoQFAAAL","service":"bookletalk-api","timestamp":"2025-05-28 00:18:47"}
+{"level":"info","message":"💬 책 17의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:18:47"}
+{"level":"info","message":"User connected: IWkVgTjcdunDldSwAAAN","service":"bookletalk-api","timestamp":"2025-05-28 00:18:47"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 17 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:18:47"}
+{"level":"info","message":"User IWkVgTjcdunDldSwAAAN joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:18:47"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 00:18:54"}
+{"level":"info","message":"User connected: HoMU4CwR8CD_KGPXAAAB","service":"bookletalk-api","timestamp":"2025-05-28 00:18:56"}
+{"level":"info","message":"User HoMU4CwR8CD_KGPXAAAB joined room for book 17","service":"bookletalk-api","timestamp":"2025-05-28 00:18:56"}
+{"level":"info","message":"User disconnected: HoMU4CwR8CD_KGPXAAAB","service":"bookletalk-api","timestamp":"2025-05-28 00:18:58"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 17)","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"💬 책 13의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"User connected: FC48zy3J5XalMro7AAAD","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"User FC48zy3J5XalMro7AAAD joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 13, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 00:19:00"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 13, 사용자 qwer","service":"bookletalk-api","timestamp":"2025-05-28 00:19:07"}
+{"level":"error","message":"채팅 생성 오류: invalid input syntax for type integer: \"qwer\"","name":"SequelizeDatabaseError","original":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"parent":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"service":"bookletalk-api","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.insert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)\n    at async model.save (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:2490:35)\n    at async Chat.create (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1362:12)\n    at async Object.createChat (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:84:18)\n    at async Socket.<anonymous> (/Users/gimbyeong-gon/proj/Bookle-Talk/be/socket.js:19:9)","timestamp":"2025-05-28 00:19:07"}
+{"level":"error","message":"Error sending message: invalid input syntax for type integer: \"qwer\"","name":"SequelizeDatabaseError","original":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"parent":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:07.057 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"service":"bookletalk-api","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.insert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)\n    at async model.save (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:2490:35)\n    at async Chat.create (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1362:12)\n    at async Object.createChat (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:84:18)\n    at async Socket.<anonymous> (/Users/gimbyeong-gon/proj/Bookle-Talk/be/socket.js:19:9)","timestamp":"2025-05-28 00:19:07"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 13, 사용자 qwer","service":"bookletalk-api","timestamp":"2025-05-28 00:19:08"}
+{"level":"error","message":"채팅 생성 오류: invalid input syntax for type integer: \"qwer\"","name":"SequelizeDatabaseError","original":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"parent":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"service":"bookletalk-api","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.insert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)\n    at async model.save (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:2490:35)\n    at async Chat.create (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1362:12)\n    at async Object.createChat (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:84:18)\n    at async Socket.<anonymous> (/Users/gimbyeong-gon/proj/Bookle-Talk/be/socket.js:19:9)","timestamp":"2025-05-28 00:19:08"}
+{"level":"error","message":"Error sending message: invalid input syntax for type integer: \"qwer\"","name":"SequelizeDatabaseError","original":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"parent":{"code":"22P02","file":"numutils.c","length":142,"line":"323","name":"error","parameters":[13,"qwer","ㅎㅇ","2025-05-27 15:19:08.656 +00:00"],"routine":"pg_strtoint32","severity":"ERROR","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","where":"unnamed portal parameter $2 = '...'"},"service":"bookletalk-api","sql":"INSERT INTO \"Chats\" (\"id\",\"book_id\",\"user_id\",\"message\",\"created_at\") VALUES (DEFAULT,$1,$2,$3,$4) RETURNING \"id\",\"book_id\",\"user_id\",\"message\",\"created_at\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.insert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)\n    at async model.save (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:2490:35)\n    at async Chat.create (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1362:12)\n    at async Object.createChat (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:84:18)\n    at async Socket.<anonymous> (/Users/gimbyeong-gon/proj/Bookle-Talk/be/socket.js:19:9)","timestamp":"2025-05-28 00:19:08"}
+{"level":"info","message":"User disconnected: FC48zy3J5XalMro7AAAD","service":"bookletalk-api","timestamp":"2025-05-28 01:00:35"}
+{"level":"info","message":"User connected: -FN2hV3JR0edpSJmAAAF","service":"bookletalk-api","timestamp":"2025-05-28 01:00:37"}
+{"level":"info","message":"User -FN2hV3JR0edpSJmAAAF joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-28 01:00:37"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 01:11:43"}
+{"level":"info","message":"User connected: XWDN_bvjCzW7e4zoAAAB","service":"bookletalk-api","timestamp":"2025-05-28 01:11:43"}
+{"level":"info","message":"User XWDN_bvjCzW7e4zoAAAB joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-28 01:11:43"}
+{"level":"info","message":"User disconnected: XWDN_bvjCzW7e4zoAAAB","service":"bookletalk-api","timestamp":"2025-05-28 01:11:49"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 13)","service":"bookletalk-api","timestamp":"2025-05-28 01:15:10"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 13, 사용자 4, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 01:15:10"}
+{"level":"info","message":"💬 책 13의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:15:10"}
+{"level":"info","message":"User connected: 7HmNMDeKynVo5zYHAAAD","service":"bookletalk-api","timestamp":"2025-05-28 01:15:10"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 13 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 01:15:10"}
+{"level":"info","message":"User 7HmNMDeKynVo5zYHAAAD joined room for book 13","service":"bookletalk-api","timestamp":"2025-05-28 01:15:10"}
+{"level":"info","message":"User disconnected: 7HmNMDeKynVo5zYHAAAD","service":"bookletalk-api","timestamp":"2025-05-28 01:15:16"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 01:16:46"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 11)","service":"bookletalk-api","timestamp":"2025-05-28 01:17:01"}
+{"level":"info","message":"💬 책 11의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:17:01"}
+{"level":"info","message":"User connected: nzQ6aT0uuLro2X0vAAAB","service":"bookletalk-api","timestamp":"2025-05-28 01:17:01"}
+{"level":"error","message":"채팅 조회 오류: operator does not exist: integer = character varying","name":"SequelizeDatabaseError","original":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;"},"parameters":{},"parent":{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":213,"line":"656","name":"error","position":"272","routine":"op_error","severity":"ERROR","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;"},"service":"bookletalk-api","sql":"SELECT \"Chat\".\"id\", \"Chat\".\"book_id\", \"Chat\".\"user_id\", \"Chat\".\"message\", \"Chat\".\"created_at\", \"user\".\"id\" AS \"user.id\", \"user\".\"user_id\" AS \"user.user_id\", \"user\".\"nickname\" AS \"user.nickname\" FROM \"Chats\" AS \"Chat\" LEFT OUTER JOIN \"Users\" AS \"user\" ON \"Chat\".\"user_id\" = \"user\".\"user_id\" WHERE \"Chat\".\"book_id\" = 11 ORDER BY \"Chat\".\"created_at\" ASC;","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Chat.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async getChatsByBookId (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/chatController.js:23:19)","timestamp":"2025-05-28 01:17:01"}
+{"level":"info","message":"User nzQ6aT0uuLro2X0vAAAB joined room for book 11","service":"bookletalk-api","timestamp":"2025-05-28 01:17:01"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 01:28:53"}
+{"level":"info","message":"User connected: E1w5mIEdZAikp9p1AAAB","service":"bookletalk-api","timestamp":"2025-05-28 01:28:57"}
+{"level":"info","message":"User E1w5mIEdZAikp9p1AAAB joined room for book 11","service":"bookletalk-api","timestamp":"2025-05-28 01:28:57"}
+{"level":"info","message":"User disconnected: E1w5mIEdZAikp9p1AAAB","service":"bookletalk-api","timestamp":"2025-05-28 01:28:58"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 01:29:37"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 01:39:51"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:51"}
+{"level":"info","message":"User connected: todkp4N_tvsdEpNeAAAD","service":"bookletalk-api","timestamp":"2025-05-28 01:39:51"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:51"}
+{"level":"info","message":"User todkp4N_tvsdEpNeAAAD joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 01:39:51"}
+{"level":"info","message":"User disconnected: todkp4N_tvsdEpNeAAAD","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"User connected: gPPJHwjZG687ZIXgAAAF","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"User disconnected: gPPJHwjZG687ZIXgAAAF","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"User connected: JTm9Sx54Qs0HSTwkAAAH","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"User JTm9Sx54Qs0HSTwkAAAH joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 01:39:52"}
+{"level":"info","message":"User disconnected: JTm9Sx54Qs0HSTwkAAAH","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"User connected: 7wvjU8QOyE5MxAKsAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"User disconnected: 7wvjU8QOyE5MxAKsAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"User connected: IHVgw13RPgorNb6NAAAL","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"User IHVgw13RPgorNb6NAAAL joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 01:39:54"}
+{"level":"info","message":"User disconnected: IHVgw13RPgorNb6NAAAL","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"User connected: fLr6vjI4-xa_Rj13AAAN","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"User disconnected: fLr6vjI4-xa_Rj13AAAN","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"User connected: R9nnLoz4Al5W68YZAAAP","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"User R9nnLoz4Al5W68YZAAAP joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 01:39:56"}
+{"level":"info","message":"User disconnected: R9nnLoz4Al5W68YZAAAP","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"User connected: _aVsDDc6JAU_XwuXAAAR","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"User disconnected: _aVsDDc6JAU_XwuXAAAR","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"User connected: nPmJf5B5idO5Ibk3AAAT","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"User nPmJf5B5idO5Ibk3AAAT joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 01:40:01"}
+{"level":"info","message":"User disconnected: nPmJf5B5idO5Ibk3AAAT","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User connected: 6jeuBIz6Yb4EVeWwAAAV","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User disconnected: 6jeuBIz6Yb4EVeWwAAAV","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User connected: d8xNAkrxmP1oG7Y1AAAX","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User d8xNAkrxmP1oG7Y1AAAX joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User disconnected: d8xNAkrxmP1oG7Y1AAAX","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 10의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"📖 책 조회: Harry Potter Box Set: The Complete Collection 해리포터 영국판 박스세트 (ID: 10)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User connected: eeQxtmkEHlST890BAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 10의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User disconnected: eeQxtmkEHlST890BAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 10의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User connected: DH-nHm6wfRP24TzWAAAb","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"💬 책 10의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User DH-nHm6wfRP24TzWAAAb joined room for book 10","service":"bookletalk-api","timestamp":"2025-05-28 01:40:02"}
+{"level":"info","message":"User disconnected: DH-nHm6wfRP24TzWAAAb","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"User connected: 1VwkUMbM_Ux9EosKAAAe","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"User 1VwkUMbM_Ux9EosKAAAe joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 01:40:08"}
+{"level":"info","message":"User disconnected: 1VwkUMbM_Ux9EosKAAAe","service":"bookletalk-api","timestamp":"2025-05-28 01:40:09"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:09"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:09"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:09"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:10"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:10"}
+{"level":"info","message":"User connected: E20bebCHoVevjSVqAAAh","service":"bookletalk-api","timestamp":"2025-05-28 01:40:10"}
+{"level":"info","message":"User E20bebCHoVevjSVqAAAh joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 01:40:10"}
+{"level":"info","message":"User disconnected: E20bebCHoVevjSVqAAAh","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"User connected: DcZwPt6UJOqFSZCXAAAj","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"User disconnected: DcZwPt6UJOqFSZCXAAAj","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"User connected: KQrlDPRqWEa07Vx9AAAl","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"User KQrlDPRqWEa07Vx9AAAl joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 01:40:16"}
+{"level":"info","message":"User disconnected: KQrlDPRqWEa07Vx9AAAl","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 2(해리포터 20주년 개정판) (ID: 6)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"User connected: F-uDOEoxlhOvupWTAAAo","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"User F-uDOEoxlhOvupWTAAAo joined room for book 6","service":"bookletalk-api","timestamp":"2025-05-28 01:40:17"}
+{"level":"info","message":"User disconnected: F-uDOEoxlhOvupWTAAAo","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User connected: 4LkghbfzrHJG3-awAAAr","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User 4LkghbfzrHJG3-awAAAr joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User disconnected: 4LkghbfzrHJG3-awAAAr","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User connected: rQYt6oDacJ0wC_I5AAAt","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User disconnected: rQYt6oDacJ0wC_I5AAAt","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User connected: WBW5b2L9pM8n1TygAAAv","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User WBW5b2L9pM8n1TygAAAv joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 01:40:20"}
+{"level":"info","message":"User disconnected: WBW5b2L9pM8n1TygAAAv","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"User connected: i0x8fBkYY-wX1ufYAAAx","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"User disconnected: i0x8fBkYY-wX1ufYAAAx","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"User connected: sBmooVirrudo6I6uAAAz","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"User sBmooVirrudo6I6uAAAz joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:40:23"}
+{"level":"info","message":"User disconnected: sBmooVirrudo6I6uAAAz","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"User connected: f41pSg4Z753fxkqDAAA1","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"User disconnected: f41pSg4Z753fxkqDAAA1","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"User connected: yL-aDevPsE1Dy2SQAAA3","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"User yL-aDevPsE1Dy2SQAAA3 joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 01:40:24"}
+{"level":"info","message":"User disconnected: yL-aDevPsE1Dy2SQAAA3","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 2(해리포터 20주년 개정판) (ID: 9)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"User connected: 3P1r6mCfsl1CEKWEAAA5","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"User disconnected: 3P1r6mCfsl1CEKWEAAA5","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"User connected: A9OXcCVbsbqmaA-rAAA7","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"User A9OXcCVbsbqmaA-rAAA7 joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 01:40:26"}
+{"level":"info","message":"User disconnected: A9OXcCVbsbqmaA-rAAA7","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"💬 책 10의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"User connected: l6aTM4N57ZBjWeF-AAA9","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"📖 책 조회: Harry Potter Box Set: The Complete Collection 해리포터 영국판 박스세트 (ID: 10)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"💬 책 10의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"User disconnected: l6aTM4N57ZBjWeF-AAA9","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"💬 책 10의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"💬 책 10의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"User connected: 00mZsaumMPeaEhu-AAA_","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"User 00mZsaumMPeaEhu-AAA_ joined room for book 10","service":"bookletalk-api","timestamp":"2025-05-28 01:40:29"}
+{"level":"info","message":"User disconnected: 00mZsaumMPeaEhu-AAA_","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"User connected: tOJxxGFZ3iZqs8sUAABC","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"User tOJxxGFZ3iZqs8sUAABC joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 01:40:41"}
+{"level":"info","message":"User disconnected: tOJxxGFZ3iZqs8sUAABC","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"💬 책 7의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"User connected: tmGOmZRV4SNViz3EAABF","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"User tmGOmZRV4SNViz3EAABF joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:40:54"}
+{"level":"info","message":"💬 채팅 생성 시도: 책 7, 사용자 admin","service":"bookletalk-api","timestamp":"2025-05-28 01:41:03"}
+{"level":"info","message":"💬 채팅 생성 완료: ID 1","service":"bookletalk-api","timestamp":"2025-05-28 01:41:03"}
+{"level":"info","message":"User disconnected: tmGOmZRV4SNViz3EAABF","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"User connected: cZJXAO-EdoXbGFaWAABI","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"level":"info","message":"User cZJXAO-EdoXbGFaWAABI joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 01:42:10"}
+{"fields":null,"index":"Likes_user_id_fkey","level":"error","message":"Error rating book: insert or update on table \"Likes\" violates foreign key constraint \"Likes_user_id_fkey\"","name":"SequelizeForeignKeyConstraintError","original":{"code":"23503","constraint":"Likes_user_id_fkey","detail":"Key (user_id)=(1) is not present in table \"Users\".","file":"ri_triggers.c","length":242,"line":"2539","name":"error","parameters":[1,3,4],"routine":"ri_ReportViolation","schema":"public","severity":"ERROR","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","table":"Likes"},"parameters":[1,3,4],"parent":{"code":"23503","constraint":"Likes_user_id_fkey","detail":"Key (user_id)=(1) is not present in table \"Users\".","file":"ri_triggers.c","length":242,"line":"2539","name":"error","parameters":[1,3,4],"routine":"ri_ReportViolation","schema":"public","severity":"ERROR","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","table":"Likes"},"service":"bookletalk-api","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.upsert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:341:12)\n    at async Like.upsert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1533:20)\n    at async rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:477:29)","table":"Likes","timestamp":"2025-05-28 01:42:12"}
+{"level":"info","message":"User disconnected: cZJXAO-EdoXbGFaWAABI","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"User connected: tXV2uDEvv2kVSMybAABK","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"User disconnected: tXV2uDEvv2kVSMybAABK","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"User connected: 9S4wEU3hq9i6N_m7AABM","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"User 9S4wEU3hq9i6N_m7AABM joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:42:26"}
+{"level":"info","message":"User disconnected: 9S4wEU3hq9i6N_m7AABM","service":"bookletalk-api","timestamp":"2025-05-28 01:42:33"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 01:42:35"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 01:42:35"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 01:42:35"}
+{"level":"info","message":"User connected: aEr_4TPtt6tuc3KTAABO","service":"bookletalk-api","timestamp":"2025-05-28 01:42:35"}
+{"level":"info","message":"User aEr_4TPtt6tuc3KTAABO joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:42:35"}
+{"level":"info","message":"User disconnected: aEr_4TPtt6tuc3KTAABO","service":"bookletalk-api","timestamp":"2025-05-28 01:46:21"}
+{"level":"info","message":"User connected: vqE8BSuN2bfTHu8EAABQ","service":"bookletalk-api","timestamp":"2025-05-28 01:46:25"}
+{"level":"info","message":"User vqE8BSuN2bfTHu8EAABQ joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:46:25"}
+{"fields":null,"index":"Likes_user_id_fkey","level":"error","message":"Error rating book: insert or update on table \"Likes\" violates foreign key constraint \"Likes_user_id_fkey\"","name":"SequelizeForeignKeyConstraintError","original":{"code":"23503","constraint":"Likes_user_id_fkey","detail":"Key (user_id)=(1) is not present in table \"Users\".","file":"ri_triggers.c","length":242,"line":"2539","name":"error","parameters":[1,7,4],"routine":"ri_ReportViolation","schema":"public","severity":"ERROR","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","table":"Likes"},"parameters":[1,7,4],"parent":{"code":"23503","constraint":"Likes_user_id_fkey","detail":"Key (user_id)=(1) is not present in table \"Users\".","file":"ri_triggers.c","length":242,"line":"2539","name":"error","parameters":[1,7,4],"routine":"ri_ReportViolation","schema":"public","severity":"ERROR","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","table":"Likes"},"service":"bookletalk-api","sql":"INSERT INTO \"Likes\" (\"user_id\",\"book_id\",\"rating\") VALUES ($1,$2,$3) ON CONFLICT (\"user_id\",\"book_id\") DO UPDATE SET \"user_id\"=EXCLUDED.\"user_id\",\"book_id\"=EXCLUDED.\"book_id\",\"rating\"=EXCLUDED.\"rating\" RETURNING \"id\",\"user_id\",\"book_id\",\"rating\";","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.upsert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:341:12)\n    at async Like.upsert (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1533:20)\n    at async rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:477:29)","table":"Likes","timestamp":"2025-05-28 01:47:18"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 01:57:57"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 01:59:18"}
+{"level":"info","message":"User disconnected: vqE8BSuN2bfTHu8EAABQ","service":"bookletalk-api","timestamp":"2025-05-28 01:59:33"}
+{"level":"info","message":"User connected: tVjy40nKKavIKIBtAABS","service":"bookletalk-api","timestamp":"2025-05-28 01:59:34"}
+{"level":"info","message":"User tVjy40nKKavIKIBtAABS joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 01:59:34"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 10:53:50"}
+{"level":"info","message":"User disconnected: tVjy40nKKavIKIBtAABS","service":"bookletalk-api","timestamp":"2025-05-28 10:54:16"}
+{"level":"info","message":"User connected: s7d0LMA-KkANvtsLAABU","service":"bookletalk-api","timestamp":"2025-05-28 10:54:27"}
+{"level":"info","message":"User s7d0LMA-KkANvtsLAABU joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 10:54:27"}
+{"level":"info","message":"User disconnected: s7d0LMA-KkANvtsLAABU","service":"bookletalk-api","timestamp":"2025-05-28 10:55:37"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"info","message":"User connected: 1BkBf8IWlcRae7FYAABW","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"info","message":"User 1BkBf8IWlcRae7FYAABW joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 10:55:41"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 10:55:49"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 10:56:48"}
+{"level":"info","message":"User connected: YE0F6QOqlArUhDulAAAB","service":"bookletalk-api","timestamp":"2025-05-28 10:56:52"}
+{"level":"info","message":"User YE0F6QOqlArUhDulAAAB joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 10:56:52"}
+{"level":"info","message":"User disconnected: YE0F6QOqlArUhDulAAAB","service":"bookletalk-api","timestamp":"2025-05-28 10:56:58"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 10:57:00"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 10:57:00"}
+{"level":"info","message":"User connected: aFRAvGgVOpN3eeAWAAAD","service":"bookletalk-api","timestamp":"2025-05-28 10:57:00"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 10:57:00"}
+{"level":"info","message":"User aFRAvGgVOpN3eeAWAAAD joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 10:57:00"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 10:57:02"}
+{"level":"info","message":"User disconnected: aFRAvGgVOpN3eeAWAAAD","service":"bookletalk-api","timestamp":"2025-05-28 10:59:45"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 10:59:47"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 10:59:47"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 10:59:47"}
+{"level":"info","message":"User connected: wEtLJ_86odoAO3E_AAAF","service":"bookletalk-api","timestamp":"2025-05-28 10:59:47"}
+{"level":"info","message":"User wEtLJ_86odoAO3E_AAAF joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 10:59:47"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 10:59:49"}
+{"level":"info","message":"User disconnected: wEtLJ_86odoAO3E_AAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:00:06"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:00:07"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:00:07"}
+{"level":"info","message":"User connected: KIX6PPGh2jbzvnKQAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:00:07"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:00:07"}
+{"level":"info","message":"User KIX6PPGh2jbzvnKQAAAH joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:00:07"}
+{"level":"error","message":"Error rating book: Cannot read properties of undefined (reading 'not')","service":"bookletalk-api","stack":"TypeError: Cannot read properties of undefined (reading 'not')\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:487:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 11:00:08"}
+{"level":"info","message":"User disconnected: KIX6PPGh2jbzvnKQAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:00:52"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:01:03"}
+{"level":"info","message":"User connected: YVRj35TkPLZYc5fSAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:01:08"}
+{"level":"info","message":"User YVRj35TkPLZYc5fSAAAB joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:01:08"}
+{"level":"info","message":"User disconnected: YVRj35TkPLZYc5fSAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:01:08"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:01:09"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:01:09"}
+{"level":"info","message":"User connected: YfqPqXxI4txc2qqVAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:01:09"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:01:09"}
+{"level":"info","message":"User YfqPqXxI4txc2qqVAAAD joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:01:09"}
+{"level":"error","message":"Error rating book: invalid input syntax for type integer: \"[object Object]\"","name":"SequelizeDatabaseError","original":{"code":"22P02","file":"numutils.c","length":121,"line":"323","name":"error","position":"143","routine":"pg_strtoint32","severity":"ERROR","sql":"SELECT AVG(\"rating\") AS \"avgRating\", COUNT(\"rating\") AS \"ratingCount\" FROM \"Likes\" AS \"Like\" WHERE \"Like\".\"book_id\" = 2 AND \"Like\".\"rating\" = '[object Object]';"},"parameters":{},"parent":{"code":"22P02","file":"numutils.c","length":121,"line":"323","name":"error","position":"143","routine":"pg_strtoint32","severity":"ERROR","sql":"SELECT AVG(\"rating\") AS \"avgRating\", COUNT(\"rating\") AS \"ratingCount\" FROM \"Likes\" AS \"Like\" WHERE \"Like\".\"book_id\" = 2 AND \"Like\".\"rating\" = '[object Object]';"},"service":"bookletalk-api","sql":"SELECT AVG(\"rating\") AS \"avgRating\", COUNT(\"rating\") AS \"ratingCount\" FROM \"Likes\" AS \"Like\" WHERE \"Like\".\"book_id\" = 2 AND \"Like\".\"rating\" = '[object Object]';","stack":"Error\n    at Query.run (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async Like.findAll (/Users/gimbyeong-gon/proj/Bookle-Talk/be/node_modules/sequelize/lib/model.js:1140:21)\n    at async rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:485:25)","timestamp":"2025-05-28 11:01:10"}
+{"level":"info","message":"User disconnected: YfqPqXxI4txc2qqVAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:01:54"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:02:46"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"User connected: lIi9hxt_AsvPC8V8AAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"User lIi9hxt_AsvPC8V8AAAB joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:02:58"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:03:00"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:03:00"}
+{"level":"info","message":"User disconnected: lIi9hxt_AsvPC8V8AAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:03:07"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:03:08"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:03:08"}
+{"level":"info","message":"User connected: t7Kq9iclOUur5z5qAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:03:08"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:03:08"}
+{"level":"info","message":"User t7Kq9iclOUur5z5qAAAD joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:03:08"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:09:22"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:22"}
+{"level":"info","message":"User disconnected: t7Kq9iclOUur5z5qAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:09:25"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"User connected: OvdpDNdlEG99OlXDAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"User OvdpDNdlEG99OlXDAAAF joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:09:27"}
+{"level":"info","message":"User disconnected: OvdpDNdlEG99OlXDAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"User connected: 0T4mW4RqfeeUre0wAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"User disconnected: 0T4mW4RqfeeUre0wAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"User connected: _AuaPqx8MuS4msHjAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"User _AuaPqx8MuS4msHjAAAJ joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:09:29"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:09:30"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:30"}
+{"level":"info","message":"User disconnected: _AuaPqx8MuS4msHjAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:09:40"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"User connected: NQshVw9dt6EMDGt9AAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"User NQshVw9dt6EMDGt9AAAL joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:09:42"}
+{"level":"info","message":"User disconnected: NQshVw9dt6EMDGt9AAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"User connected: XEc_zcMASFpCWqogAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"User disconnected: XEc_zcMASFpCWqogAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"User connected: ABoTQpzQagNjwhJZAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"User ABoTQpzQagNjwhJZAAAP joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:09:44"}
+{"level":"info","message":"User disconnected: ABoTQpzQagNjwhJZAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"User connected: b8OcUX9mwUtj-NmfAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"User disconnected: b8OcUX9mwUtj-NmfAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"User connected: ZheGQKAk0TtDtNSjAAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"User ZheGQKAk0TtDtNSjAAAT joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 11:09:57"}
+{"level":"info","message":"User disconnected: ZheGQKAk0TtDtNSjAAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"User connected: 3WysztRmywwbkiKMAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"User disconnected: 3WysztRmywwbkiKMAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"User connected: my41WZ_s2VKLvOVAAAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"User my41WZ_s2VKLvOVAAAAX joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 11:09:59"}
+{"level":"info","message":"⭐ 평점 수정: 책 7, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:10:03"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 11:10:03"}
+{"level":"info","message":"User disconnected: my41WZ_s2VKLvOVAAAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:10:13"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 11:10:16"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:10:16"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:10:16"}
+{"level":"info","message":"User connected: fIA0OmZYPxQ4bmqbAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 11:10:16"}
+{"level":"info","message":"User fIA0OmZYPxQ4bmqbAAAZ joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 11:10:16"}
+{"level":"info","message":"User disconnected: fIA0OmZYPxQ4bmqbAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 11:11:40"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"User connected: XBo-VcFzZt6avro-AAAb","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"User XBo-VcFzZt6avro-AAAb joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:11:42"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:11:44"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:11:44"}
+{"level":"info","message":"User disconnected: XBo-VcFzZt6avro-AAAb","service":"bookletalk-api","timestamp":"2025-05-28 11:11:46"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:11:47"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:11:47"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:11:47"}
+{"level":"info","message":"User connected: j2G1I-CHrr2yq3SWAAAd","service":"bookletalk-api","timestamp":"2025-05-28 11:11:47"}
+{"level":"info","message":"User j2G1I-CHrr2yq3SWAAAd joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:11:47"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:12:00"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:12:00"}
+{"level":"info","message":"User disconnected: j2G1I-CHrr2yq3SWAAAd","service":"bookletalk-api","timestamp":"2025-05-28 11:12:02"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:12:15"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:12:15"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:12:15"}
+{"level":"info","message":"User connected: HztD5lUHsn1kxsGTAAAf","service":"bookletalk-api","timestamp":"2025-05-28 11:12:15"}
+{"level":"info","message":"User HztD5lUHsn1kxsGTAAAf joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:12:15"}
+{"level":"info","message":"User disconnected: HztD5lUHsn1kxsGTAAAf","service":"bookletalk-api","timestamp":"2025-05-28 11:13:33"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:13:34"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:13:34"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:13:34"}
+{"level":"info","message":"User connected: gHsOl_GPpT0KyY0RAAAh","service":"bookletalk-api","timestamp":"2025-05-28 11:13:34"}
+{"level":"info","message":"User gHsOl_GPpT0KyY0RAAAh joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:13:34"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:13:44"}
+{"level":"info","message":"User connected: NytqfOvfFHnJDxANAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:13:48"}
+{"level":"info","message":"User NytqfOvfFHnJDxANAAAB joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:13:48"}
+{"level":"info","message":"User disconnected: NytqfOvfFHnJDxANAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:13:50"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:15:12"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:15:12"}
+{"level":"info","message":"User connected: n8Jusi27FMEa1W4BAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:15:12"}
+{"level":"info","message":"User n8Jusi27FMEa1W4BAAAD joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:15:12"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:15:12"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:19:44"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:19:56"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:20:03"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:20:03"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:03"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:04"}
+{"level":"info","message":"User connected: llEWJ8ARvKydL8coAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:20:04"}
+{"level":"info","message":"User llEWJ8ARvKydL8coAAAB joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:20:04"}
+{"level":"info","message":"User disconnected: llEWJ8ARvKydL8coAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"User connected: U8uDGfjImDlzgb_LAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"User disconnected: U8uDGfjImDlzgb_LAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"User connected: 1YIVPdwjEKzfHbExAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"User 1YIVPdwjEKzfHbExAAAF joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 11:20:12"}
+{"level":"info","message":"User disconnected: 1YIVPdwjEKzfHbExAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌(미나리마 에디션) (ID: 7)","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"User connected: -SOXroyE6dlFWupGAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"User disconnected: -SOXroyE6dlFWupGAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 7, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"User connected: ec1OAdSFSDB5FBglAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"User ec1OAdSFSDB5FBglAAAJ joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 11:20:35"}
+{"level":"info","message":"User disconnected: ec1OAdSFSDB5FBglAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"User connected: fQPfykUZqH0irB_xAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"User disconnected: fQPfykUZqH0irB_xAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"User connected: V3kp36TLCUBnJ6QMAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"User V3kp36TLCUBnJ6QMAAAN joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:20:37"}
+{"level":"info","message":"User disconnected: V3kp36TLCUBnJ6QMAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"User connected: PKfJa_UksOwcXGNHAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"User disconnected: PKfJa_UksOwcXGNHAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"User connected: zl-DXqHiYNVirDhXAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"User zl-DXqHiYNVirDhXAAAR joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:20:40"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:26:02"}
+{"level":"info","message":"User connected: DrS1IUtaaxPaYDGrAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:26:02"}
+{"level":"info","message":"User DrS1IUtaaxPaYDGrAAAB joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:26:02"}
+{"level":"info","message":"User disconnected: DrS1IUtaaxPaYDGrAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:26:12"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"User connected: Zab1VQ_VRLOzhrVXAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"User Zab1VQ_VRLOzhrVXAAAD joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:26:15"}
+{"level":"info","message":"User disconnected: Zab1VQ_VRLOzhrVXAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"User connected: x4-bXBjVQhGmZnVXAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"User disconnected: x4-bXBjVQhGmZnVXAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"User connected: RblqVdX64OYEOUHKAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"User RblqVdX64OYEOUHKAAAH joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:26:22"}
+{"level":"info","message":"User disconnected: RblqVdX64OYEOUHKAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"User connected: 8uG6CAt6ZEz30A6MAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"User disconnected: 8uG6CAt6ZEz30A6MAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:26:23"}
+{"level":"info","message":"User connected: lThnXOG8QzYAqNnWAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:26:24"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:26:24"}
+{"level":"info","message":"User lThnXOG8QzYAqNnWAAAL joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 11:26:24"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:27:17"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:23"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:23"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:24"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:24"}
+{"level":"info","message":"User connected: 7aqoXQUKxVGhgvGnAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:27:24"}
+{"level":"info","message":"User 7aqoXQUKxVGhgvGnAAAB joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:27:24"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:27:24"}
+{"level":"info","message":"User disconnected: 7aqoXQUKxVGhgvGnAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"User connected: qIlk3-6Ywo_pqnjiAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"User disconnected: qIlk3-6Ywo_pqnjiAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"User connected: gDPsLfImLLm3iuffAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"User gDPsLfImLLm3iuffAAAF joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:27:25"}
+{"level":"info","message":"User disconnected: gDPsLfImLLm3iuffAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"User connected: HFuk_fc6aqE0hArxAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"User disconnected: HFuk_fc6aqE0hArxAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"User connected: TLhFlJF-L2IyC9_uAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"User TLhFlJF-L2IyC9_uAAAJ joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:27:28"}
+{"level":"info","message":"User disconnected: TLhFlJF-L2IyC9_uAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"User connected: FIu77cNI7KGAFPCUAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"User disconnected: FIu77cNI7KGAFPCUAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"User connected: GFYDH3z9vU19I6X2AAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"User GFYDH3z9vU19I6X2AAAN joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 11:27:30"}
+{"level":"info","message":"⭐ 평점 수정: 책 3, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:27:32"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:27:32"}
+{"level":"info","message":"⭐ 평점 수정: 책 3, 사용자 admin, 평점 5","service":"bookletalk-api","timestamp":"2025-05-28 11:28:36"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:28:36"}
+{"level":"info","message":"⭐ 평점 수정: 책 3, 사용자 admin, 평점 3","service":"bookletalk-api","timestamp":"2025-05-28 11:28:38"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:28:38"}
+{"level":"info","message":"User disconnected: GFYDH3z9vU19I6X2AAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:28:40"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"User connected: BoN0B7bgOQ9j8AzWAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:28:41"}
+{"level":"info","message":"User BoN0B7bgOQ9j8AzWAAAP joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 11:28:42"}
+{"level":"info","message":"⭐ 평점 수정: 책 5, 사용자 admin, 평점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:28:44"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 11:28:44"}
+{"level":"info","message":"User disconnected: BoN0B7bgOQ9j8AzWAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:31:13"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 5, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"User connected: vnB0ujO2rPx9Jo-hAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"User vnB0ujO2rPx9Jo-hAAAR joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:31:15"}
+{"level":"info","message":"User disconnected: vnB0ujO2rPx9Jo-hAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"User connected: DEbzlaMOHw2xEa41AAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"User disconnected: DEbzlaMOHw2xEa41AAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 5, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"User connected: VrUyhjbMuSENXRvhAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:31:16"}
+{"level":"info","message":"User VrUyhjbMuSENXRvhAAAV joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 11:31:17"}
+{"level":"info","message":"User disconnected: VrUyhjbMuSENXRvhAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"User connected: qxm9iFYlxTcSfAQ7AAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"User disconnected: qxm9iFYlxTcSfAQ7AAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"User connected: 8wwi6gdGGM3utehOAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"User 8wwi6gdGGM3utehOAAAZ joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:31:19"}
+{"level":"info","message":"⭐ 평점 수정: 책 8, 사용자 admin, 평점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:31:21"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:31:21"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:31:51"}
+{"level":"info","message":"User connected: TQ8Xshgk2ba5gmdMAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:31:51"}
+{"level":"info","message":"User TQ8Xshgk2ba5gmdMAAAB joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:31:51"}
+{"level":"info","message":"User disconnected: TQ8Xshgk2ba5gmdMAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:31:58"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:32:00"}
+{"level":"info","message":"📖 책 조회: Harry Potter Box Set: The Complete Collection 해리포터 영국판 박스세트 (ID: 10)","service":"bookletalk-api","timestamp":"2025-05-28 11:32:00"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:32:01"}
+{"level":"info","message":"💬 책 10의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:32:01"}
+{"level":"info","message":"💬 책 10의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:32:01"}
+{"level":"info","message":"User connected: pQtmPjGrqDdDri_rAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:32:01"}
+{"level":"info","message":"User pQtmPjGrqDdDri_rAAAD joined room for book 10","service":"bookletalk-api","timestamp":"2025-05-28 11:32:01"}
+{"level":"info","message":"⭐ 평점 수정: 책 10, 사용자 admin, 평점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:32:02"}
+{"level":"error","message":"Error rating book: updatedBook is not defined","service":"bookletalk-api","stack":"ReferenceError: updatedBook is not defined\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:513:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 11:32:02"}
+{"level":"info","message":"⭐ 평점 수정: 책 10, 사용자 admin, 평점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:32:07"}
+{"level":"error","message":"Error rating book: updatedBook is not defined","service":"bookletalk-api","stack":"ReferenceError: updatedBook is not defined\n    at rateBook (/Users/gimbyeong-gon/proj/Bookle-Talk/be/controllers/bookController.js:513:33)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-05-28 11:32:07"}
+{"level":"info","message":"User disconnected: pQtmPjGrqDdDri_rAAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:32:09"}
+{"level":"info","message":"📖 책 조회: Harry Potter Box Set: The Complete Collection 해리포터 영국판 박스세트 (ID: 10)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 10, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"User connected: vFddmttwWMTF_lmLAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"User vFddmttwWMTF_lmLAAAF joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:34:05"}
+{"level":"info","message":"User disconnected: vFddmttwWMTF_lmLAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:34:45"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 1(해리포터 20주년 개정판) (ID: 1)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"User connected: j-xNdhQADJAp2PfKAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"User j-xNdhQADJAp2PfKAAAH joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 11:34:47"}
+{"level":"info","message":"User disconnected: j-xNdhQADJAp2PfKAAAH","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"User connected: CMUtm0zFrT9-tuhiAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 아즈카반의 죄수(미나리마 에디션) (ID: 2)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"User disconnected: CMUtm0zFrT9-tuhiAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"User connected: BNsG8HGx8ItwNFLYAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"User BNsG8HGx8ItwNFLYAAAL joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 11:34:48"}
+{"level":"info","message":"User disconnected: BNsG8HGx8ItwNFLYAAAL","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"User connected: O0XcAqK0gk2LFZTfAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방 1(해리포터 20주년 개정판) (ID: 3)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"User disconnected: O0XcAqK0gk2LFZTfAAAN","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"User connected: nmO2KKL83iV95UteAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"User nmO2KKL83iV95UteAAAP joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 11:34:50"}
+{"level":"info","message":"User disconnected: nmO2KKL83iV95UteAAAP","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"User connected: 3HilY4q1hhIMIMTFAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"📖 책 조회: 해리포터 마법 주문 대백과 (ID: 4)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"User disconnected: 3HilY4q1hhIMIMTFAAAR","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"User connected: xf3auRigPHTHf6d7AAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"User xf3auRigPHTHf6d7AAAT joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 11:34:51"}
+{"level":"info","message":"User disconnected: xf3auRigPHTHf6d7AAAT","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 비밀의 방(미나리마 에디션) (ID: 5)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"User connected: 1NgOAo0kIfO2nsnwAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"User disconnected: 1NgOAo0kIfO2nsnwAAAV","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 5, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"User connected: LHla5F2fS9zwZ0LyAAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"User LHla5F2fS9zwZ0LyAAAX joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 11:34:52"}
+{"level":"info","message":"User disconnected: LHla5F2fS9zwZ0LyAAAX","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"User connected: zl7QWzwoix2gu7AGAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"User disconnected: zl7QWzwoix2gu7AGAAAZ","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"User connected: Md1mVXxuuVSyuT8OAAAb","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"User Md1mVXxuuVSyuT8OAAAb joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:34:54"}
+{"level":"info","message":"User disconnected: Md1mVXxuuVSyuT8OAAAb","service":"bookletalk-api","timestamp":"2025-05-28 11:37:32"}
+{"level":"info","message":"User connected: pJDqkNI2Tlr4tRkQAAAd","service":"bookletalk-api","timestamp":"2025-05-28 11:37:32"}
+{"level":"info","message":"User pJDqkNI2Tlr4tRkQAAAd joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:37:32"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:45:03"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:45:24"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:45:37"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 11:46:23"}
+{"level":"info","message":"User connected: UQzwK4Gh92zu4rHYAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:46:23"}
+{"level":"info","message":"User UQzwK4Gh92zu4rHYAAAB joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:46:24"}
+{"level":"info","message":"User disconnected: UQzwK4Gh92zu4rHYAAAB","service":"bookletalk-api","timestamp":"2025-05-28 11:46:53"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"User connected: S05_bH_XXQrSHul9AAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"User S05_bH_XXQrSHul9AAAD joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:46:54"}
+{"level":"info","message":"User disconnected: S05_bH_XXQrSHul9AAAD","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"User connected: hc6uglhqxtaKiztCAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"User hc6uglhqxtaKiztCAAAF joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 11:47:38"}
+{"level":"info","message":"User disconnected: hc6uglhqxtaKiztCAAAF","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 2(해리포터 20주년 개정판) (ID: 9)","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"User connected: X4hmwvimzRVUf8eJAAAI","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"User X4hmwvimzRVUf8eJAAAI joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 11:47:43"}
+{"level":"info","message":"⭐ 평점 수정: 책 9, 사용자 admin, 평점 3","service":"bookletalk-api","timestamp":"2025-05-28 11:47:46"}
+{"level":"info","message":"📖 책 조회: 해리 포터와 마법사의 돌 2(해리포터 20주년 개정판) (ID: 9)","service":"bookletalk-api","timestamp":"2025-05-28 11:47:47"}
+{"level":"info","message":"User disconnected: X4hmwvimzRVUf8eJAAAI","service":"bookletalk-api","timestamp":"2025-05-28 12:25:22"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:25:24"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 9, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:25:24"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:25:24"}
+{"level":"info","message":"User connected: mV2u6B2Bdw9loIe-AAAK","service":"bookletalk-api","timestamp":"2025-05-28 12:25:24"}
+{"level":"info","message":"User mV2u6B2Bdw9loIe-AAAK joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:25:24"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 12:29:25"}
+{"level":"info","message":"User connected: erPBSwgHjXazMKVOAAAB","service":"bookletalk-api","timestamp":"2025-05-28 12:29:27"}
+{"level":"info","message":"User erPBSwgHjXazMKVOAAAB joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:29:27"}
+{"level":"info","message":"User disconnected: erPBSwgHjXazMKVOAAAB","service":"bookletalk-api","timestamp":"2025-05-28 12:29:28"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:29:30"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 2","service":"bookletalk-api","timestamp":"2025-05-28 12:29:30"}
+{"level":"info","message":"User connected: tQagrYxrFIDFFxPEAAAD","service":"bookletalk-api","timestamp":"2025-05-28 12:29:30"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:29:30"}
+{"level":"info","message":"User tQagrYxrFIDFFxPEAAAD joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 12:29:30"}
+{"level":"info","message":"User disconnected: tQagrYxrFIDFFxPEAAAD","service":"bookletalk-api","timestamp":"2025-05-28 12:29:32"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:29:32"}
+{"level":"info","message":"User connected: iG6Qe0UMMZYAnUWpAAAF","service":"bookletalk-api","timestamp":"2025-05-28 12:29:32"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:29:32"}
+{"level":"info","message":"User iG6Qe0UMMZYAnUWpAAAF joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 12:29:32"}
+{"level":"info","message":"⭐ 평점 수정: 책 1, 사용자 admin, 평점 1","service":"bookletalk-api","timestamp":"2025-05-28 12:29:34"}
+{"level":"info","message":"📖 책 조회: 해리 포터 시리즈 1~4탄 세트(해리포터 20주년 개정판) (ID: 8)","service":"bookletalk-api","timestamp":"2025-05-28 12:29:34"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 8, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 12:29:34"}
+{"level":"info","message":"User disconnected: iG6Qe0UMMZYAnUWpAAAF","service":"bookletalk-api","timestamp":"2025-05-28 12:30:09"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:30:09"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:30:09"}
+{"level":"info","message":"User connected: 5S5TI2XS3UmqAlkOAAAH","service":"bookletalk-api","timestamp":"2025-05-28 12:30:09"}
+{"level":"info","message":"User 5S5TI2XS3UmqAlkOAAAH joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:30:09"}
+{"level":"info","message":"User disconnected: 5S5TI2XS3UmqAlkOAAAH","service":"bookletalk-api","timestamp":"2025-05-28 12:30:19"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 9, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:30:24"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:30:24"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:30:24"}
+{"level":"info","message":"User connected: -MffB18vssvZReVZAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 12:30:24"}
+{"level":"info","message":"User -MffB18vssvZReVZAAAJ joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:30:24"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 9, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:31:59"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 9, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:32:02"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 12:32:12"}
+{"level":"info","message":"User connected: MLrsfgakDkBDBlK2AAAB","service":"bookletalk-api","timestamp":"2025-05-28 12:32:12"}
+{"level":"info","message":"User MLrsfgakDkBDBlK2AAAB joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:32:12"}
+{"level":"info","message":"User disconnected: MLrsfgakDkBDBlK2AAAB","service":"bookletalk-api","timestamp":"2025-05-28 12:32:14"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 9, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:32:19"}
+{"level":"info","message":"💬 책 9의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:19"}
+{"level":"info","message":"💬 책 9의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:19"}
+{"level":"info","message":"User connected: VMqxyMZOesWdnzVCAAAD","service":"bookletalk-api","timestamp":"2025-05-28 12:32:19"}
+{"level":"info","message":"User VMqxyMZOesWdnzVCAAAD joined room for book 9","service":"bookletalk-api","timestamp":"2025-05-28 12:32:20"}
+{"level":"info","message":"User disconnected: VMqxyMZOesWdnzVCAAAD","service":"bookletalk-api","timestamp":"2025-05-28 12:32:25"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:25"}
+{"level":"info","message":"User connected: Klt6QRuALPNRf5fSAAAF","service":"bookletalk-api","timestamp":"2025-05-28 12:32:25"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:25"}
+{"level":"info","message":"User Klt6QRuALPNRf5fSAAAF joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 12:32:25"}
+{"level":"info","message":"User disconnected: Klt6QRuALPNRf5fSAAAF","service":"bookletalk-api","timestamp":"2025-05-28 12:32:26"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:26"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:26"}
+{"level":"info","message":"User connected: hhnqljPglv5fGtHOAAAH","service":"bookletalk-api","timestamp":"2025-05-28 12:32:26"}
+{"level":"info","message":"User hhnqljPglv5fGtHOAAAH joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 12:32:26"}
+{"level":"info","message":"User disconnected: hhnqljPglv5fGtHOAAAH","service":"bookletalk-api","timestamp":"2025-05-28 12:32:27"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:27"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:27"}
+{"level":"info","message":"User connected: C0SLaNlM0InmLqRyAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 12:32:27"}
+{"level":"info","message":"User C0SLaNlM0InmLqRyAAAJ joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 12:32:27"}
+{"level":"info","message":"User disconnected: C0SLaNlM0InmLqRyAAAJ","service":"bookletalk-api","timestamp":"2025-05-28 12:32:29"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:29"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:29"}
+{"level":"info","message":"User connected: ZJz_ylMeymr7w_nqAAAL","service":"bookletalk-api","timestamp":"2025-05-28 12:32:29"}
+{"level":"info","message":"User ZJz_ylMeymr7w_nqAAAL joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 12:32:29"}
+{"level":"info","message":"User disconnected: ZJz_ylMeymr7w_nqAAAL","service":"bookletalk-api","timestamp":"2025-05-28 12:32:31"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:31"}
+{"level":"info","message":"User connected: du9jSDK86ZtAln00AAAN","service":"bookletalk-api","timestamp":"2025-05-28 12:32:31"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:31"}
+{"level":"info","message":"User du9jSDK86ZtAln00AAAN joined room for book 6","service":"bookletalk-api","timestamp":"2025-05-28 12:32:31"}
+{"level":"info","message":"User disconnected: du9jSDK86ZtAln00AAAN","service":"bookletalk-api","timestamp":"2025-05-28 12:32:33"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:33"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:33"}
+{"level":"info","message":"User connected: Kdvo-30075k12Q_0AAAP","service":"bookletalk-api","timestamp":"2025-05-28 12:32:33"}
+{"level":"info","message":"User Kdvo-30075k12Q_0AAAP joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 12:32:33"}
+{"level":"info","message":"User disconnected: Kdvo-30075k12Q_0AAAP","service":"bookletalk-api","timestamp":"2025-05-28 12:32:39"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:39"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:39"}
+{"level":"info","message":"User connected: -Sq87SMU3JKJgZGmAAAR","service":"bookletalk-api","timestamp":"2025-05-28 12:32:39"}
+{"level":"info","message":"User -Sq87SMU3JKJgZGmAAAR joined room for book 6","service":"bookletalk-api","timestamp":"2025-05-28 12:32:39"}
+{"level":"info","message":"User disconnected: -Sq87SMU3JKJgZGmAAAR","service":"bookletalk-api","timestamp":"2025-05-28 12:32:40"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:40"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:40"}
+{"level":"info","message":"User connected: 0niRnO5NCMJHreDAAAAT","service":"bookletalk-api","timestamp":"2025-05-28 12:32:40"}
+{"level":"info","message":"User 0niRnO5NCMJHreDAAAAT joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 12:32:40"}
+{"level":"info","message":"User disconnected: 0niRnO5NCMJHreDAAAAT","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User connected: tkeMRLHrWm6ztlMuAAAV","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User tkeMRLHrWm6ztlMuAAAV joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User disconnected: tkeMRLHrWm6ztlMuAAAV","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"💬 책 7의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"💬 책 7의 채팅 1개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User connected: C0N2HCj8PmrV5EleAAAX","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User C0N2HCj8PmrV5EleAAAX joined room for book 7","service":"bookletalk-api","timestamp":"2025-05-28 12:32:42"}
+{"level":"info","message":"User disconnected: C0N2HCj8PmrV5EleAAAX","service":"bookletalk-api","timestamp":"2025-05-28 12:32:43"}
+{"level":"info","message":"💬 책 8의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:32:43"}
+{"level":"info","message":"💬 책 8의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:32:43"}
+{"level":"info","message":"User connected: MDuIjwmFp84gF1K_AAAZ","service":"bookletalk-api","timestamp":"2025-05-28 12:32:43"}
+{"level":"info","message":"User MDuIjwmFp84gF1K_AAAZ joined room for book 8","service":"bookletalk-api","timestamp":"2025-05-28 12:32:43"}
+{"level":"info","message":"User disconnected: MDuIjwmFp84gF1K_AAAZ","service":"bookletalk-api","timestamp":"2025-05-28 12:36:19"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:36:21"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:36:21"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:36:21"}
+{"level":"info","message":"User connected: TsCjX_hAl_ZthALuAAAb","service":"bookletalk-api","timestamp":"2025-05-28 12:36:21"}
+{"level":"info","message":"User TsCjX_hAl_ZthALuAAAb joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:36:21"}
+{"level":"info","message":"User disconnected: TsCjX_hAl_ZthALuAAAb","service":"bookletalk-api","timestamp":"2025-05-28 12:36:22"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:36:22"}
+{"level":"info","message":"User connected: 0vPawQl5bPYjuAJsAAAd","service":"bookletalk-api","timestamp":"2025-05-28 12:36:22"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:36:22"}
+{"level":"info","message":"User 0vPawQl5bPYjuAJsAAAd joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 12:36:22"}
+{"level":"info","message":"User disconnected: 0vPawQl5bPYjuAJsAAAd","service":"bookletalk-api","timestamp":"2025-05-28 12:36:24"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:36:24"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:36:24"}
+{"level":"info","message":"User connected: _p8YLtWCHszkoHjiAAAf","service":"bookletalk-api","timestamp":"2025-05-28 12:36:24"}
+{"level":"info","message":"User _p8YLtWCHszkoHjiAAAf joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 12:36:24"}
+{"level":"info","message":"User disconnected: _p8YLtWCHszkoHjiAAAf","service":"bookletalk-api","timestamp":"2025-05-28 12:36:26"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:36:26"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:36:26"}
+{"level":"info","message":"User connected: BS9z6uUqffiGNiBiAAAh","service":"bookletalk-api","timestamp":"2025-05-28 12:36:26"}
+{"level":"info","message":"User BS9z6uUqffiGNiBiAAAh joined room for book 6","service":"bookletalk-api","timestamp":"2025-05-28 12:36:26"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:52:38"}
+{"level":"info","message":"User disconnected: BS9z6uUqffiGNiBiAAAh","service":"bookletalk-api","timestamp":"2025-05-28 12:52:51"}
+{"level":"info","message":"💬 책 6의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:52:51"}
+{"level":"info","message":"💬 책 6의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:52:51"}
+{"level":"info","message":"User connected: Rd6Z9KzWa7VxIUkmAAAj","service":"bookletalk-api","timestamp":"2025-05-28 12:52:51"}
+{"level":"info","message":"User Rd6Z9KzWa7VxIUkmAAAj joined room for book 6","service":"bookletalk-api","timestamp":"2025-05-28 12:52:51"}
+{"level":"info","message":"User disconnected: Rd6Z9KzWa7VxIUkmAAAj","service":"bookletalk-api","timestamp":"2025-05-28 12:52:56"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 12:52:58"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:52:58"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:52:58"}
+{"level":"info","message":"User connected: cdn_zcj5kMWADKiOAAAl","service":"bookletalk-api","timestamp":"2025-05-28 12:52:58"}
+{"level":"info","message":"User cdn_zcj5kMWADKiOAAAl joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 12:52:58"}
+{"level":"info","message":"User disconnected: cdn_zcj5kMWADKiOAAAl","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"User connected: B13ka7Wfbvdp1qi8AAAn","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"User B13ka7Wfbvdp1qi8AAAn joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:53:00"}
+{"level":"info","message":"User disconnected: B13ka7Wfbvdp1qi8AAAn","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"User connected: 64V0KylkKcwYQGdSAAAp","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"User 64V0KylkKcwYQGdSAAAp joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 12:53:02"}
+{"level":"info","message":"User disconnected: 64V0KylkKcwYQGdSAAAp","service":"bookletalk-api","timestamp":"2025-05-28 12:54:42"}
+{"level":"info","message":"User connected: -8tQDtPkJ2urg3AEAAAr","service":"bookletalk-api","timestamp":"2025-05-28 12:54:43"}
+{"level":"info","message":"User -8tQDtPkJ2urg3AEAAAr joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 12:54:43"}
+{"level":"info","message":"User disconnected: -8tQDtPkJ2urg3AEAAAr","service":"bookletalk-api","timestamp":"2025-05-28 12:55:17"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:56:00"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:56:00"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:56:00"}
+{"level":"info","message":"User connected: 2_9OdiqpuLs2cIiNAAAt","service":"bookletalk-api","timestamp":"2025-05-28 12:56:00"}
+{"level":"info","message":"User 2_9OdiqpuLs2cIiNAAAt joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:56:00"}
+{"level":"info","message":"User disconnected: 2_9OdiqpuLs2cIiNAAAt","service":"bookletalk-api","timestamp":"2025-05-28 12:56:42"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:56:44"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:56:44"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:56:44"}
+{"level":"info","message":"User connected: D3iX1JTG-u5BV2MfAAAv","service":"bookletalk-api","timestamp":"2025-05-28 12:56:44"}
+{"level":"info","message":"User D3iX1JTG-u5BV2MfAAAv joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:56:44"}
+{"level":"info","message":"User disconnected: D3iX1JTG-u5BV2MfAAAv","service":"bookletalk-api","timestamp":"2025-05-28 12:57:23"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:57:25"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:57:25"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:57:25"}
+{"level":"info","message":"User connected: oBAd0dMuzUHPE0pQAAAx","service":"bookletalk-api","timestamp":"2025-05-28 12:57:25"}
+{"level":"info","message":"User oBAd0dMuzUHPE0pQAAAx joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:57:25"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:57:43"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:57:49"}
+{"level":"info","message":"User disconnected: oBAd0dMuzUHPE0pQAAAx","service":"bookletalk-api","timestamp":"2025-05-28 12:57:51"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:57:52"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:57:52"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:57:52"}
+{"level":"info","message":"User connected: HJdhz4cf3bVJC2mFAAAz","service":"bookletalk-api","timestamp":"2025-05-28 12:57:52"}
+{"level":"info","message":"User HJdhz4cf3bVJC2mFAAAz joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:57:52"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:58:13"}
+{"level":"info","message":"User disconnected: HJdhz4cf3bVJC2mFAAAz","service":"bookletalk-api","timestamp":"2025-05-28 12:58:16"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:58:18"}
+{"level":"info","message":"💬 책 3의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:58:18"}
+{"level":"info","message":"💬 책 3의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:58:18"}
+{"level":"info","message":"User connected: iH1Uu2Ga4JLi4xnJAAA1","service":"bookletalk-api","timestamp":"2025-05-28 12:58:18"}
+{"level":"info","message":"User iH1Uu2Ga4JLi4xnJAAA1 joined room for book 3","service":"bookletalk-api","timestamp":"2025-05-28 12:58:18"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:58:36"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:58:57"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:59:06"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:59:08"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:59:17"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 3, 사용자 admin, 별점 3","service":"bookletalk-api","timestamp":"2025-05-28 12:59:47"}
+{"level":"info","message":"User disconnected: iH1Uu2Ga4JLi4xnJAAA1","service":"bookletalk-api","timestamp":"2025-05-28 12:59:56"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 12:59:57"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 12:59:57"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 12:59:57"}
+{"level":"info","message":"User connected: mW2TO2hboUrr_9jKAAA3","service":"bookletalk-api","timestamp":"2025-05-28 12:59:57"}
+{"level":"info","message":"User mW2TO2hboUrr_9jKAAA3 joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 12:59:57"}
+{"level":"info","message":"User disconnected: mW2TO2hboUrr_9jKAAA3","service":"bookletalk-api","timestamp":"2025-05-28 13:00:47"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:00:47"}
+{"level":"info","message":"User connected: sjPKN7iHOE_kM9R-AAA5","service":"bookletalk-api","timestamp":"2025-05-28 13:00:47"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:00:47"}
+{"level":"info","message":"User sjPKN7iHOE_kM9R-AAA5 joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 13:00:47"}
+{"level":"info","message":"User disconnected: sjPKN7iHOE_kM9R-AAA5","service":"bookletalk-api","timestamp":"2025-05-28 13:00:52"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:00:52"}
+{"level":"info","message":"User connected: DU_d16tRqyaFp1o3AAA7","service":"bookletalk-api","timestamp":"2025-05-28 13:00:52"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:00:52"}
+{"level":"info","message":"User DU_d16tRqyaFp1o3AAA7 joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 13:00:52"}
+{"level":"info","message":"User disconnected: DU_d16tRqyaFp1o3AAA7","service":"bookletalk-api","timestamp":"2025-05-28 13:00:57"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:00:57"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:00:57"}
+{"level":"info","message":"User connected: QDn1Eb96fk1B01iMAAA9","service":"bookletalk-api","timestamp":"2025-05-28 13:00:57"}
+{"level":"info","message":"User QDn1Eb96fk1B01iMAAA9 joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 13:00:57"}
+{"level":"info","message":"User disconnected: QDn1Eb96fk1B01iMAAA9","service":"bookletalk-api","timestamp":"2025-05-28 13:01:32"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:01:32"}
+{"level":"info","message":"User connected: FgiqNe0Z0vr1u9v4AAA_","service":"bookletalk-api","timestamp":"2025-05-28 13:01:32"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:01:32"}
+{"level":"info","message":"User FgiqNe0Z0vr1u9v4AAA_ joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 13:01:32"}
+{"level":"info","message":"User disconnected: FgiqNe0Z0vr1u9v4AAA_","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"User connected: h3-isBIouwdME0qRAABB","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"User h3-isBIouwdME0qRAABB joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 13:01:36"}
+{"level":"info","message":"User disconnected: h3-isBIouwdME0qRAABB","service":"bookletalk-api","timestamp":"2025-05-28 13:02:39"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 2, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"💬 책 2의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"💬 책 2의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User connected: oRAQFcy_Mmh-2f2KAABD","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User oRAQFcy_Mmh-2f2KAABD joined room for book 2","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User disconnected: oRAQFcy_Mmh-2f2KAABD","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"💬 책 1의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"💬 책 1의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User connected: dyGjtgZ13RLTBISMAABF","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 1, 사용자 admin, 별점 1","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User dyGjtgZ13RLTBISMAABF joined room for book 1","service":"bookletalk-api","timestamp":"2025-05-28 13:02:41"}
+{"level":"info","message":"User disconnected: dyGjtgZ13RLTBISMAABF","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"💬 책 5의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"💬 책 5의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"User connected: QkLexa4o0CqJOfECAABH","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"🔍 사용자 별점 조회: 책 5, 사용자 admin, 별점 4","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"User QkLexa4o0CqJOfECAABH joined room for book 5","service":"bookletalk-api","timestamp":"2025-05-28 13:02:45"}
+{"level":"info","message":"User disconnected: QkLexa4o0CqJOfECAABH","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
+{"level":"info","message":"💬 책 4의 채팅 조회 시작","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
+{"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
+{"level":"info","message":"User connected: 2hWMp3iGACL4DCjDAABJ","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
+{"level":"info","message":"User 2hWMp3iGACL4DCjDAABJ joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}

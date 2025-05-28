@@ -47,19 +47,30 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
     const handleRatingUpdate = async (event) => {
       const { bookId: eventBookId } = event.detail;
       
-      if (!book || !book.id || book.id !== eventBookId || !bookId || !API_URL) {
-        return;
-      }
+      // if (!book || !book.id || book.id !== eventBookId || !bookId || !API_URL) {
+      //   console.log('📊 평점 업데이트 이벤트 무시:', {
+      //     bookExists: !!book,
+      //     bookId: book?.id,
+      //     eventBookId,
+      //     currentBookId: bookId
+      //   });
+      //   return;
+      // }
       
-      console.log(`📊 책 ${eventBookId}의 평점이 업데이트됨 - 데이터 새로고침 시작`);
+      // console.log(`📊 책 ${eventBookId}의 평점이 업데이트됨 - 데이터 새로고침 시작`);
       
       try {
         const response = await fetch(`${API_URL}/api/books/${bookId}`);
         const data = await response.json();
         
         if (response.ok && data.success) {
+          // console.log('📚 업데이트된 책 데이터:', {
+          //   title: data.data.title,
+          //   id: data.data.id,
+          //   avg: data.data.avg
+          // });
           setBook(data.data);
-          console.log('✅ 평점 업데이트 후 책 데이터 새로고침 완료');
+          // console.log('✅ 평점 업데이트 후 책 데이터 새로고침 완료');
         }
       } catch (error) {
         console.error('❌ 평점 업데이트 후 데이터 새로고침 실패:', error);
@@ -73,9 +84,10 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
     };
   }, [book?.id, bookId, API_URL]);
 
-  // 책 데이터 가져오기 (props로 받지 못한 경우)
+  // 🔧 책 데이터 가져오기 (props로 받지 못한 경우)
   useEffect(() => {
     const fetchBook = async () => {
+      // props로 받은 데이터가 있거나 bookId가 없으면 실행하지 않음
       if (propBookData || !bookId) {
         setLoading(false);
         return;
@@ -84,11 +96,20 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
       try {
         setLoading(true);
         setError(null);
+        setBook(null); // ✅ 이전 book 데이터 완전히 초기화
+        
+        // console.log('🔄 새로운 책 데이터 요청:', bookId);
         
         const response = await fetch(`${API_URL}/api/books/${bookId}`);
         const data = await response.json();
 
         if (response.ok && data.success) {
+          // console.log('📖 새로운 책 데이터 수신:', {
+          //   title: data.data.title,
+          //   id: data.data.id,
+          //   avg: data.data.avg,
+          //   avgType: typeof data.data.avg
+          // });
           setBook(data.data);
         } else {
           throw new Error(data.message || `책을 찾을 수 없습니다. (상태코드: ${response.status})`);
@@ -102,7 +123,21 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
     };
 
     fetchBook();
-  }, [bookId, propBookData, API_URL]);
+  }, [bookId, propBookData, API_URL]); // 🔧 bookId가 바뀔 때마다 새로 로드
+
+  // 🔧 props로 받은 bookData가 바뀔 때 처리
+  useEffect(() => {
+    if (propBookData && propBookData.id !== book?.id) {
+      // console.log('📚 Props에서 새로운 책 데이터 수신:', {
+      //   title: propBookData.title,
+      //   id: propBookData.id,
+      //   avg: propBookData.avg
+      // });
+      setBook(propBookData);
+      setLoading(false);
+      setError(null);
+    }
+  }, [propBookData, book?.id]);
 
   // 로딩 상태
   if (loading) {
@@ -191,11 +226,13 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
                   <small>
                     <strong>Book ID:</strong> {bookId}<br/>
                     <strong>Book Title:</strong> {book.title}<br/>
-                    <strong>Average Rating:</strong> {book.avg || 'N/A'}<br/>
+                    <strong>Average Rating:</strong> {book.avg || 'N/A'} (타입: {typeof book.avg})<br/>
                     <strong>Authors:</strong> {book.authors || 'N/A'}<br/>
                     <strong>ISBN:</strong> {book.isbn || 'N/A'}<br/>
-                    <strong>Current User:</strong> {currentUser ? `${currentUser.nickname} (ID: ${currentUser.id})` : 'Not logged in'}<br/>
-                    <strong>API URL:</strong> {API_URL || 'Default (proxy)'}
+                    <strong>Current User:</strong> {currentUser ? `${currentUser.nickname} (ID: ${currentUser.id}, user_id: ${currentUser.user_id})` : 'Not logged in'}<br/>
+                    <strong>API URL:</strong> {API_URL || 'Default (proxy)'}<br/>
+                    <strong>Props BookId:</strong> {propBookId || 'N/A'}<br/>
+                    <strong>URL BookId:</strong> {urlId || 'N/A'}
                   </small>
                 </Card.Body>
               </Card>

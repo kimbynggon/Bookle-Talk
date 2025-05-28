@@ -99,6 +99,15 @@ const BookSummary = ({ book }) => {
                 }
               </div>
             )}
+            {book.price && (
+              <div className="col-md-6 mb-2">
+                <strong>가격:</strong> {
+                  Array.isArray(book.price) 
+                    ? book.price.join(', ') 
+                    : book.price
+                }
+              </div>
+            )}
           </div>
         </div>
         

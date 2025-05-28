@@ -17,9 +17,9 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
   const firstLoad = useRef(true);
 
   // API URL 안전하게 가져오기
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
   
-  console.log('🔧 SearchForm API_URL:', API_URL); // 디버깅용
+  // console.log('🔧 SearchForm API_URL:', API_URL); // 디버깅용
 
   const sortMap = {
     latest: 'latest',
@@ -55,7 +55,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
     try {
       // URL 안전하게 구성
       const searchUrl = `${API_URL}/api/search`;
-      console.log('🔍 API 호출 URL:', searchUrl);
+      // console.log('🔍 API 호출 URL:', searchUrl);
       
       const response = await axios.get(searchUrl, {
         params: {
@@ -66,7 +66,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
         timeout: 10000 // 10초 타임아웃
       });
       
-      console.log('📥 API 응답:', response.data);
+      // console.log('📥 API 응답:', response.data);
       
       setDocuments(response.data.documents);
       const total = response.data.meta.pageable_count;
@@ -109,7 +109,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
   };
 
   const handleBookSelect = (book) => {
-    console.log('📚 책 선택됨:', book);
+    // console.log('📚 책 선택됨:', book);
     onBookSelect(book);
   };
   

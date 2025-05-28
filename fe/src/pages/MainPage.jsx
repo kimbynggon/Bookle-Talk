@@ -76,8 +76,10 @@ const MainSearchPage = () => {
   };
 
   const handleBookSelect = useCallback(async (book) => {
-    console.log('선택된 책:', book);
-    
+    // console.log('🚀 책 클릭됨! 함수 진입');
+    // console.log('📚 선택된 책 전체 데이터:', book);
+    // console.log('📖 책 제목:', book.title);
+    // console.log('🔢 원본 ISBN:', book.isbn);
     try {
       // ISBN으로 실제 DB에서 책 정보 조회
       const isbn = book.isbn?.split(' ')[0]; // 첫 번째 ISBN만 사용

@@ -26,7 +26,7 @@ const server = http.createServer(app);
 // Initialize Socket.io with secure CORS settings
 const io = new Server(server, {
   cors: {
-    origin: process.env.NODE_ENV === 'development' ? "*" : "http://localhost:8080",
+    origin: process.env.NODE_ENV === 'development' ? "*" : "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true
   }

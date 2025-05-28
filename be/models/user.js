@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
+    id: { 
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     user_id: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,9 +31,16 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Chat, { foreignKey: 'user_id', as: 'chats' });
-    User.hasMany(models.Like, { foreignKey: 'user_id', as: 'likes' });
-    User.hasMany(models.Bookmark, { foreignKey: 'user_id', as: 'bookmarks' });
+    User.hasMany(models.Chat, { 
+      foreignKey: 'user_id', 
+      sourceKey: 'user_id', 
+      as: 'chats' 
+    });
+    User.hasMany(models.Like, { 
+      foreignKey: 'user_id', 
+      sourceKey: 'user_id', 
+      as: 'likes' 
+    });
   };
 
   return User;

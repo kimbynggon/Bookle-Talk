@@ -42,30 +42,30 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
   useEffect(() => {
     if (!bookId) return;
     
-    console.log('🔌 Socket 연결 시도:', SOCKET_URL);
+    // console.log('🔌 Socket 연결 시도:', SOCKET_URL);
     const newSocket = io(SOCKET_URL);
     setSocket(newSocket);
     
     newSocket.on('connect', () => {
-      console.log('✅ Socket 연결 성공!', newSocket.id);
+      console.log('✅ Socket 연결 성공!');
       setIsConnected(true);
       newSocket.emit('join_room', bookId);
     });
     
     newSocket.on('connect_error', (error) => {
-      console.error('❌ Socket 연결 실패:', error);
+      // console.error('❌ Socket 연결 실패:', error);
       setIsConnected(false);
       setError('실시간 채팅 연결에 실패했습니다.');
     });
     
     newSocket.on('disconnect', () => {
-      console.log('🔌 Socket 연결 해제');
+      // console.log('🔌 Socket 연결 해제');
       setIsConnected(false);
     });
     
     // 새로운 메시지 수신
     newSocket.on('receive_message', (message) => {
-      console.log('📨 새 메시지 수신:', message);
+      // console.log('📨 새 메시지 수신:', message);
       setComments(prevComments => [...prevComments, {
         id: Date.now(), // 임시 ID
         username: message.username,
@@ -127,7 +127,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            userId: currentUser.id,
+            userId: currentUser.user_id,
             reason: '부적절한 내용',
           }),
         });
@@ -162,7 +162,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            userId: currentUser.id,
+            userId: currentUser.user_id,
             message: comment.trim()
           })
         });
@@ -183,12 +183,12 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
       // Socket을 통한 실시간 전송
       const messageData = {
         bookId: bookId,
-        userId: currentUser.id,
+        userId: currentUser.user_id,
         username: currentUser.nickname,
         message: comment.trim(),
       };
       
-      console.log('📤 메시지 전송:', messageData);
+      // console.log('📤 메시지 전송:', messageData);
       socket.emit('send_message', messageData);
       setComment("");
     }
@@ -229,7 +229,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
         
         <div className="d-flex align-items-center">
           <span className="text-info me-2">
-            {currentUser.nickname} ({currentUser.user_id})
+            ID : {currentUser.user_id}
           </span>
         </div>
       </Card.Header>

@@ -25,17 +25,17 @@ const getChatsByBookId = async (req, res) => {
       order: [['created_at', 'ASC']],
       include: [
         {
-          model: User,  // 수정: Users -> User
+          model: User,
           as: 'user',
           attributes: ['id', 'user_id', 'nickname']
         }
       ]
     });
     
-    // 채팅 데이터 변환
+    // ✅ 채팅 데이터 변환 - user_id만 표시
     const chatsData = chats.map((chat) => ({
       id: chat.id,
-      username: chat.user?.nickname || chat.user?.user_id || '익명',
+      username: chat.user?.user_id || chat.user_id || '익명',  // ✅ user_id 표시 (nickname 대신)
       message: chat.message,
       comment: chat.message,
       created_at: chat.created_at,
@@ -64,13 +64,13 @@ const getChatsByBookId = async (req, res) => {
   }
 };
 
-// 채팅 메시지 생성
+// ✅ 수정된 채팅 메시지 생성 함수
 const createChat = async (bookId, userId, message) => {
   try {
     logger.info(`💬 채팅 생성 시도: 책 ${bookId}, 사용자 ${userId}`);
     
-    // Check if user exists
-    const user = await User.findByPk(userId);
+    // ✅ user_id (문자열)로 사용자 확인
+    const user = await User.findOne({ where: { user_id: userId } });
     if (!user) {
       throw new Error(`User not found: ${userId}`);
     }
@@ -83,7 +83,7 @@ const createChat = async (bookId, userId, message) => {
 
     const chat = await Chat.create({
       book_id: bookId,
-      user_id: userId,
+      user_id: userId,  // ✅ 문자열 user_id 저장
       message: message
     });
     
@@ -95,14 +95,14 @@ const createChat = async (bookId, userId, message) => {
   }
 };
 
-// 채팅 메시지 전송
+// ✅ 수정된 채팅 메시지 전송 함수
 const sendMessage = async (req, res) => {
   try {
     const { bookId } = req.params;
     const { userId, message } = req.body;
     
-    // JWT에서 사용자 정보 가져오기 (인증된 사용자만 채팅 가능)
-    const actualUserId = req.user?.id || userId;
+    // ✅ JWT에서 user_id (문자열) 가져오기
+    const actualUserId = req.user?.user_id || userId;
     
     if (!actualUserId || !message?.trim()) {
       return res.status(400).json({
@@ -124,14 +124,15 @@ const sendMessage = async (req, res) => {
     
     const newChat = await createChat(numericBookId, actualUserId, message.trim());
     
-    // 사용자 정보 조회
-    const user = await User.findByPk(actualUserId, {
+    // ✅ 사용자 정보 조회 (user_id로)
+    const user = await User.findOne({ 
+      where: { user_id: actualUserId },
       attributes: ['id', 'user_id', 'nickname']
     });
     
     const responseData = {
       id: newChat.id,
-      username: user?.nickname || user?.user_id || '익명',
+      username: user?.user_id || actualUserId,  // ✅ user_id 표시 (nickname 대신)
       message: newChat.message,
       comment: newChat.message,
       created_at: newChat.created_at,
@@ -139,7 +140,7 @@ const sendMessage = async (req, res) => {
       book_id: numericBookId
     };
     
-    logger.info(`💬 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${user?.nickname || actualUserId}`);
+    logger.info(`💬 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${user?.user_id || actualUserId}`);
     
     return res.status(201).json({
       success: true,

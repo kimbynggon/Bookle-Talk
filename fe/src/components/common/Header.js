@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <button className="logo">BookleTalk</button>
+        <a href="/" className="logo">BookleTalk</a>
         <nav className="nav">
           {!nickname ? (
             <button className="auth-btn" onClick={handleModalOpen}>

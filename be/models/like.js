@@ -1,10 +1,15 @@
 // models/like.js
 module.exports = (sequelize, DataTypes) => {
   const Like = sequelize.define('Like', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true 
-      
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    user_id: { 
+      type: DataTypes.STRING, 
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'user_id'
+      } 
     },
-    user_id: { type: DataTypes.INTEGER, allowNull: false },
     book_id: { type: DataTypes.INTEGER, allowNull: false },
     rating: {
       type: DataTypes.INTEGER,
@@ -18,10 +23,13 @@ module.exports = (sequelize, DataTypes) => {
     indexes: [{ unique: true, fields: ['user_id', 'book_id'] }]
   });
   Like.associate = function(models) {
-    Like.belongsTo(models.User, { foreignKey: 'user_id' });
+    Like.belongsTo(models.User, { 
+      foreignKey: 'user_id',
+      targetKey: 'user_id' 
+    });
     Like.belongsTo(models.Book, { 
       foreignKey: 'book_id',
-      as: 'book'  // 소문자 alias 명시 (필요시)
+      as: 'book'  
     });
   };
 
