@@ -15,6 +15,8 @@ const indexRoutes = require('./routes/index');
 const bookRoutes = require('./routes/book');
 const searchRoutes = require('./routes/search');
 const userRoutes = require('./routes/users');
+const chatRoutes = require('./routes/chat');
+
 
 const express = require('express');
 const cors = require('cors');
@@ -23,7 +25,7 @@ const FRONT_API = process.env.REACT_APP_API_URL
 var app = express();
 
 app.use(cors({
-  origin: `${FRONT_API}`,  // 프론트엔드 주소
+  origin: FRONT_API,  // 프론트엔드 주소
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
@@ -50,6 +52,8 @@ app.use('/', indexRoutes);
 app.use('/api/books', book);
 app.use('/api/search', searchRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/chat', chatRoutes);
+
 app.use('/api', routes);
 const chatController = require('./controllers/chatController');
 app.get('/api/books/:bookId/chat', chatController.getChatMessages);

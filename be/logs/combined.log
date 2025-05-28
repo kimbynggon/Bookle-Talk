@@ -1826,3 +1826,17 @@
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 18:06:58"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-26 18:10:21"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 08:57:08"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 14:54:59"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 14:58:26"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:09:09"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:24:14"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:35:51"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:36:45"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:37:03"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:43:49"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:51:18"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 15:53:33"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 16:07:58"}
+{"level":"info","message":"User connected: 8QoCzUmuTPjQABhLAAAB","service":"bookletalk-api","timestamp":"2025-05-28 16:08:03"}
+{"level":"info","message":"User 8QoCzUmuTPjQABhLAAAB joined room for book 22","service":"bookletalk-api","timestamp":"2025-05-28 16:08:03"}
+{"level":"info","message":"User disconnected: 8QoCzUmuTPjQABhLAAAB","service":"bookletalk-api","timestamp":"2025-05-28 16:08:09"}

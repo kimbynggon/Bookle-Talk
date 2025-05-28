@@ -1,142 +1,194 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { io } from 'socket.io-client';
 import '../App.css';
 
-// 더미 사용자 데이터 (컴포넌트 외부로 이동하여 의존성 문제 해결)
-const DUMMY_USERS = [
-  { id: 1, user_id: 'user001', nickname: '책읽는호랑이' },
-  { id: 2, user_id: 'user002', nickname: '문학소녀' },
-  { id: 3, user_id: 'user003', nickname: '북마니아' },
-  { id: 4, user_id: 'user004', nickname: '소설탐험가' },
-  { id: 5, user_id: 'user005', nickname: '역사학자' }
-];
-
-export const ChatSection = ({ bookId }) => {
+export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(propCurrentUser || null);
+  const [error, setError] = useState(null);
   const chatRef = useRef(null);
   
   // 백엔드 API URL
   const API_URL = process.env.REACT_APP_API_URL || '';
-  const SOCKET_URL = 'http://localhost:8080';
+  const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'http://localhost:8080';
   
-  // 🔧 현재 사용자 설정 (무한 루프 방지)
+  // 현재 사용자 설정 (props에서 받지 못한 경우)
   useEffect(() => {
-    // 🔧 이미 사용자가 설정되어 있다면 중복 설정 방지
-    if (currentUser) {
-      console.log('👤 사용자 이미 설정됨:', currentUser.nickname);
-      return;
+    if (!currentUser) {
+      const token = localStorage.getItem('token');
+      const nickname = localStorage.getItem('nickname');
+      
+      if (token && nickname) {
+        try {
+          const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+          setCurrentUser({
+            id: tokenPayload.id,
+            user_id: tokenPayload.user_id,
+            nickname: tokenPayload.nickname || nickname
+          });
+        } catch (error) {
+          console.error('토큰 파싱 오류:', error);
+          setError('인증 정보가 유효하지 않습니다. 다시 로그인해주세요.');
+        }
+      }
     }
-
-    // 임시로 랜덤 사용자 선택 또는 고정 사용자 사용
-    const randomUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
-    // 또는 고정 사용자: const fixedUser = DUMMY_USERS[0];
-    
-    setCurrentUser(randomUser);
-    // console.log('🧪 ChatSection - 임시 사용자 설정:', randomUser);
-  }, []); // 🔧 빈 의존성 배열로 한 번만 실행
+  }, [currentUser]);
   
-  // Connect to socket when component mounts
+  // Socket 연결
   useEffect(() => {
-    console.log('🔌 Socket 연결 시도:', SOCKET_URL);
+    if (!bookId) return;
+    
+    // console.log('🔌 Socket 연결 시도:', SOCKET_URL);
     const newSocket = io(SOCKET_URL);
     setSocket(newSocket);
     
     newSocket.on('connect', () => {
-      console.log('✅ Socket 연결 성공!', newSocket.id);
+      console.log('✅ Socket 연결 성공!');
+      setIsConnected(true);
+      newSocket.emit('join_room', bookId);
     });
     
     newSocket.on('connect_error', (error) => {
-      console.error('❌ Socket 연결 실패:', error);
+      // console.error('❌ Socket 연결 실패:', error);
+      setIsConnected(false);
+      setError('실시간 채팅 연결에 실패했습니다.');
+    });
+    
+    newSocket.on('disconnect', () => {
+      // console.log('🔌 Socket 연결 해제');
+      setIsConnected(false);
+    });
+    
+    // 새로운 메시지 수신
+    newSocket.on('receive_message', (message) => {
+      // console.log('📨 새 메시지 수신:', message);
+      setComments(prevComments => [...prevComments, {
+        id: Date.now(), // 임시 ID
+        username: message.username,
+        message: message.message,
+        comment: message.message,
+        created_at: message.created_at || new Date().toISOString(),
+        user_id: message.userId || '익명',
+        book_id: message.bookId
+      }]);
     });
     
     return () => {
       newSocket.disconnect();
     };
-  }, [SOCKET_URL]);
+  }, [bookId, SOCKET_URL]);
   
-  // Join book room when socket is ready and bookId is available
+  // 기존 메시지 로드
   useEffect(() => {
-    if (socket && bookId) {
-      socket.on('connect', () => {
-        setIsConnected(true);
-        socket.emit('join_book', bookId);
-      });
+    const loadMessages = async () => {
+      if (!bookId || !API_URL) return;
       
-      socket.on('disconnect', () => {
-        setIsConnected(false);
-      });
-      
-      // Listen for new messages
-      socket.on('receive_message', (message) => {
-        setComments(prevComments => [...prevComments, message]);
-      });
-    }
-  }, [socket, bookId]);
-  
-  // Load previous messages
-  useEffect(() => {
-    if (bookId) {
-      fetch(`${API_URL}/api/books/${bookId}/chat`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            setComments(data.data || []);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching chat messages:', error);
-        });
-    }
+      try {
+        const response = await fetch(`${API_URL}/api/books/${bookId}/chat`);
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          setComments(data.data || []);
+        } else {
+          console.error('채팅 메시지 로드 실패:', data.message);
+        }
+      } catch (error) {
+        console.error('채팅 메시지 로드 오류:', error);
+        setError('채팅 기록을 불러오는데 실패했습니다.');
+      }
+    };
+
+    loadMessages();
   }, [bookId, API_URL]);
   
-  // Scroll to bottom when new messages arrive
+  // 자동 스크롤
   useEffect(() => {
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
   }, [comments]);
   
-  const 신고 = (messageId) => {
+  // 메시지 신고
+  const handleReport = async (messageId) => {
+    if (!currentUser) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
+    
     if (window.confirm('이 메시지를 신고하시겠습니까?')) {
-      fetch(`${API_URL}/api/books/messages/${messageId}/report`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: currentUser?.id || 1,
-          reason: '부적절한 내용',
-        }),
-      })
-      .then(response => {
+      try {
+        const response = await fetch(`${API_URL}/api/messages/${messageId}/report`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: currentUser.user_id,
+            reason: '부적절한 내용',
+          }),
+        });
+        
         if (response.ok) {
           alert('메시지가 신고되었습니다.');
         } else {
           alert('신고 처리 중 오류가 발생했습니다.');
         }
-      })
-      .catch(error => {
-        console.error('Error reporting message:', error);
+      } catch (error) {
+        console.error('신고 처리 오류:', error);
         alert('신고 처리 중 오류가 발생했습니다.');
-      });
+      }
     }
   };
   
-  const handleSubmit = () => {
-    if (comment.trim() !== "" && socket && isConnected && currentUser) {
+  // 메시지 전송
+  const handleSubmit = async () => {
+    if (!comment.trim()) return;
+    
+    if (!currentUser) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
+    
+    if (!isConnected) {
+      // Socket이 연결되지 않은 경우 HTTP API 사용
+      try {
+        const response = await fetch(`${API_URL}/api/books/${bookId}/chat`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: currentUser.user_id,
+            message: comment.trim()
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          setComments(prevComments => [...prevComments, data.data]);
+          setComment("");
+        } else {
+          alert('메시지 전송에 실패했습니다.');
+        }
+      } catch (error) {
+        console.error('메시지 전송 오류:', error);
+        alert('메시지 전송 중 오류가 발생했습니다.');
+      }
+    } else {
+      // Socket을 통한 실시간 전송
       const messageData = {
-        bookId: bookId || 1,
-        userId: currentUser.id,
+        bookId: bookId,
+        userId: currentUser.user_id,
         username: currentUser.nickname,
-        comment: comment,
+        message: comment.trim(),
       };
       
-      console.log('📤 메시지 전송:', messageData);
+      // console.log('📤 메시지 전송:', messageData);
       socket.emit('send_message', messageData);
       setComment("");
     }
@@ -149,14 +201,22 @@ export const ChatSection = ({ bookId }) => {
     }
   };
 
-  // 사용자 전환 함수 (테스트용)
-  const switchUser = (userId) => {
-    const newUser = DUMMY_USERS.find(user => user.id === userId);
-    if (newUser) {
-      setCurrentUser(newUser);
-      console.log('👤 사용자 전환:', newUser);
-    }
-  };
+  // 로그인하지 않은 사용자를 위한 안내
+  if (!currentUser) {
+    return (
+      <Card className="h-100">
+        <Card.Header className="bg-white border-bottom">
+          <h6 className="mb-0 fw-bold">북 토크 (채팅)</h6>
+        </Card.Header>
+        <Card.Body className="d-flex align-items-center justify-content-center">
+          <Alert variant="info" className="text-center">
+            <Alert.Heading>로그인이 필요합니다</Alert.Heading>
+            <p>채팅에 참여하려면 로그인해주세요.</p>
+          </Alert>
+        </Card.Body>
+      </Card>
+    );
+  }
 
   return (
     <Card className="h-100">
@@ -164,28 +224,22 @@ export const ChatSection = ({ bookId }) => {
         <h6 className="mb-0 fw-bold">
           북 토크 (채팅)
           {!isConnected && <span className="text-muted"> - 연결 중...</span>}
-          {isConnected && <span className="text-success"> - 연결됨</span>}
+          {isConnected && <span className="text-success"> - 실시간 연결됨</span>}
         </h6>
         
-        {/* 테스트용 사용자 전환 드롭다운 */}
         <div className="d-flex align-items-center">
           <span className="text-info me-2">
-            {currentUser ? `${currentUser.nickname} (${currentUser.user_id})` : '로딩중...'}
+            ID : {currentUser.user_id}
           </span>
-          <select 
-            className="form-select form-select-sm" 
-            style={{ width: 'auto', fontSize: '0.8rem' }}
-            value={currentUser?.id || ''}
-            onChange={(e) => switchUser(parseInt(e.target.value))}
-          >
-            {DUMMY_USERS.map(user => (
-              <option key={user.id} value={user.id}>
-                {user.nickname}
-              </option>
-            ))}
-          </select>
         </div>
       </Card.Header>
+      
+      {/* 에러 메시지 */}
+      {error && (
+        <Alert variant="warning" className="m-3">
+          {error}
+        </Alert>
+      )}
       
       {/* 채팅 메시지 영역 */}
       <div 
@@ -203,16 +257,21 @@ export const ChatSection = ({ bookId }) => {
             <div key={item.id || index} className="mb-3">
               <div className="d-flex justify-content-between align-items-center mb-1">
                 <div className="d-flex align-items-center">
-                  <span className="fw-bold me-2">{item.username || '익명'}</span>
+                  <span className="fw-bold me-2">{item.user_id}</span>
+                  <small className="text-muted">
+                    {new Date(item.created_at).toLocaleString()}
+                  </small>
                 </div>
-                <Button 
-                  variant="link" 
-                  className="p-0 text-danger" 
-                  onClick={() => 신고(item.id)}
-                  style={{ fontSize: '0.75rem' }}
-                >
-                  신고
-                </Button>
+                {item.user_id !== currentUser.id && (
+                  <Button 
+                    variant="link" 
+                    className="p-0 text-danger" 
+                    onClick={() => handleReport(item.id)}
+                    style={{ fontSize: '0.75rem' }}
+                  >
+                    신고
+                  </Button>
+                )}
               </div>
               <Card className="mb-2">
                 <Card.Body className="py-2 px-3">
@@ -226,36 +285,31 @@ export const ChatSection = ({ bookId }) => {
       
       {/* 메시지 입력 */}
       <Card.Footer className="bg-white">
-        {/* 댓글 입력 */}
         <div className="d-flex" style={{ gap: '10px' }}>
           <Form.Control
             type="text"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="메시지를 입력"
+            placeholder="메시지를 입력하세요"
             className="talk-input"
-            disabled={!isConnected || !currentUser}
+            disabled={!currentUser}
             style={{ flex: 1 }}
           />
           <Button 
             variant="primary" 
             onClick={handleSubmit}
-            disabled={!isConnected || comment.trim() === "" || !currentUser}
+            disabled={comment.trim() === "" || !currentUser}
           >
             전송
           </Button>
         </div>
         
-        {!isConnected && (
+        {!isConnected && currentUser && (
           <div className="text-center mt-2">
-            <small className="text-muted">서버에 연결 중입니다...</small>
-          </div>
-        )}
-        
-        {!currentUser && (
-          <div className="text-center mt-2">
-            <small className="text-warning">사용자 정보를 불러오는 중...</small>
+            <small className="text-muted">
+              실시간 연결이 끊어졌습니다. 메시지는 여전히 전송됩니다.
+            </small>
           </div>
         )}
       </Card.Footer>

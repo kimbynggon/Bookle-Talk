@@ -26,9 +26,16 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Chat, { foreignKey: 'user_id' });
-    User.hasMany(models.Like, { foreignKey: 'user_id' });
-    User.hasMany(models.Bookmark, { foreignKey: 'user_id' });
+    User.hasMany(models.Chat, { 
+      foreignKey: 'user_id', 
+      sourceKey: 'user_id', 
+      as: 'chats' 
+    });
+    User.hasMany(models.Like, { 
+      foreignKey: 'user_id', 
+      sourceKey: 'user_id', 
+      as: 'likes' 
+    });
   };
 
   return User;
