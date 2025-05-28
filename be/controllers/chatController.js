@@ -25,7 +25,7 @@ const getChatsByBookId = async (req, res) => {
       order: [['created_at', 'ASC']],
       include: [
         {
-          model: Users,
+          model: User,  // 수정: Users -> User
           as: 'user',
           attributes: ['id', 'user_id', 'nickname']
         }
@@ -101,7 +101,10 @@ const sendMessage = async (req, res) => {
     const { bookId } = req.params;
     const { userId, message } = req.body;
     
-    if (!userId || !message?.trim()) {
+    // JWT에서 사용자 정보 가져오기 (인증된 사용자만 채팅 가능)
+    const actualUserId = req.user?.id || userId;
+    
+    if (!actualUserId || !message?.trim()) {
       return res.status(400).json({
         success: false,
         message: 'User ID and message are required'
@@ -119,11 +122,10 @@ const sendMessage = async (req, res) => {
       });
     }
     
-    // 🔧 this.createChat → createChat 함수 직접 호출로 수정
-    const newChat = await createChat(numericBookId, userId, message.trim());
+    const newChat = await createChat(numericBookId, actualUserId, message.trim());
     
     // 사용자 정보 조회
-    const user = await User.findByPk(userId, {
+    const user = await User.findByPk(actualUserId, {
       attributes: ['id', 'user_id', 'nickname']
     });
     
@@ -133,11 +135,11 @@ const sendMessage = async (req, res) => {
       message: newChat.message,
       comment: newChat.message,
       created_at: newChat.created_at,
-      user_id: userId,
+      user_id: actualUserId,
       book_id: numericBookId
     };
     
-    logger.info(`💬 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${user?.nickname || userId}`);
+    logger.info(`💬 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${user?.nickname || actualUserId}`);
     
     return res.status(201).json({
       success: true,
@@ -176,7 +178,6 @@ const reportMessage = async (req, res) => {
   }
 };
 
-// 🚀 exports 방식을 module.exports로 통일
 module.exports = {
   getChatsByBookId,
   createChat,

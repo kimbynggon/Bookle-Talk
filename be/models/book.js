@@ -1,12 +1,17 @@
+// models/book.js
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
     static associate(models) {
       Book.hasMany(models.Chat, { foreignKey: 'book_id' });
-      Book.hasMany(models.Like, { foreignKey: 'book_id' });
+      Book.hasMany(models.Like, { 
+        foreignKey: 'book_id',
+        as: 'likes'  // 소문자 alias 명시
+      });
       Book.hasMany(models.Bookmark, { foreignKey: 'book_id' });
     }
   }
+  
   Book.init({
     title: DataTypes.STRING,
     authors: DataTypes.STRING,
@@ -30,5 +35,6 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'Books',
     timestamps: false
   });
+  
   return Book;
 };

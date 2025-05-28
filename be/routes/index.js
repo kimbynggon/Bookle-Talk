@@ -1,18 +1,15 @@
+// routes/index.js 수정 (중복 라우트 제거)
 const express = require('express');
 const router = express.Router();
 const bookRoutes = require('./book');
 const searchRoutes = require('./search');
 const userRoutes = require('./users');
 const authRoutes = require('./auth');
-const chatController = require('../controllers/chatController');
 
-//체팅 라우트 연결
-router.get('/api/books/:bookId/chat', chatController.getChatsByBookId);
-router.post('/api/books/:bookId/chat', chatController.sendMessage);
-
+// 인증 라우트
 router.use('/api/auth', authRoutes);
 
-// API routes (채팅 라우트 다음에 배치)
+// API 라우트
 router.use('/api/books', bookRoutes);
 router.use('/api/search', searchRoutes);
 router.use('/api/users', userRoutes);
@@ -25,9 +22,9 @@ router.get('/health', (req, res) => {
     timestamp: new Date().toISOString(),
     endpoints: {
       books: '/api/books',
-      chat: '/api/books/:bookId/chat',
       search: '/api/search',
-      users: '/api/users'
+      users: '/api/users',
+      auth: '/api/auth'
     }
   });
 });
@@ -40,9 +37,9 @@ router.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       books: '/api/books',
-      chat: '/api/books/:bookId/chat',
       search: '/api/search',
       users: '/api/users',
+      auth: '/api/auth',
       health: '/health'
     }
   });

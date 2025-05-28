@@ -1,4 +1,3 @@
-// fe > src > pages > bookreviewpage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Row, Col, Alert, Spinner } from 'react-bootstrap';
@@ -9,70 +8,58 @@ import BookSummary from '../components/BookSummary.jsx';
 import BookInfo from '../components/BookInfo.jsx';
 import '../App.css';
 
-// 🆕 더미 사용자 데이터 (컴포넌트 외부로 이동하여 의존성 문제 해결)
-const DUMMY_USERS = [
-  { id: 1, user_id: 'user001', nickname: '책읽는호랑이' },
-  { id: 2, user_id: 'user002', nickname: '문학소녀' },
-  { id: 3, user_id: 'user003', nickname: '북마니아' },
-  { id: 4, user_id: 'user004', nickname: '소설탐험가' },
-  { id: 5, user_id: 'user005', nickname: '역사학자' }
-];
-
-export default function BookReviewPage() {
-  const { id } = useParams(); 
-  const [book, setBook] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function BookReviewPage({ bookId: propBookId, bookData: propBookData, currentUser: propCurrentUser }) {
+  const { id: urlId } = useParams(); 
+  const [book, setBook] = useState(propBookData || null);
+  const [loading, setLoading] = useState(!propBookData);
   const [error, setError] = useState(null);
-  // 🆕 현재 사용자 상태 추가
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(propCurrentUser || null);
 
-  // 🆕 API URL 설정 (환경변수 사용)
+  // bookId 결정 (props 우선, URL params 다음)
+  const bookId = propBookId || urlId;
+
+  // API URL 설정
   const API_URL = process.env.REACT_APP_API_URL || '';
 
-  // 🔧 현재 사용자 설정 (무한 루프 방지)
+  // 현재 사용자 정보 가져오기 (props에서 받지 못한 경우)
   useEffect(() => {
-    // 🔧 이미 사용자가 설정되어 있다면 중복 설정 방지
-    if (currentUser) {
-      console.log('👤 BookReviewPage - 사용자 이미 설정됨:', currentUser.nickname);
-      return;
+    if (!currentUser) {
+      const token = localStorage.getItem('token');
+      const nickname = localStorage.getItem('nickname');
+      
+      if (token && nickname) {
+        try {
+          const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+          setCurrentUser({
+            id: tokenPayload.id,
+            user_id: tokenPayload.user_id,
+            nickname: tokenPayload.nickname || nickname
+          });
+        } catch (error) {
+          console.error('토큰 파싱 오류:', error);
+        }
+      }
     }
+  }, [currentUser]);
 
-    // 임시로 랜덤 사용자 선택 또는 고정 사용자 사용
-    const randomUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
-    // 또는 고정 사용자 사용: const fixedUser = DUMMY_USERS[0];
-    
-    setCurrentUser(randomUser);
-    // console.log('🧪 BookReviewPage - 임시 사용자 설정:', randomUser);
-  }, []); // 🔧 빈 의존성 배열로 한 번만 실행
-
-  // 🆕 책 평점 업데이트 이벤트 리스너 (무한 루프 방지)
+  // 책 평점 업데이트 이벤트 리스너
   useEffect(() => {
     const handleRatingUpdate = async (event) => {
-      const { bookId } = event.detail;
+      const { bookId: eventBookId } = event.detail;
       
-      // 🔧 조건 체크 강화
-      if (!book || !book.id || book.id !== bookId || !id || !API_URL) {
-        console.log('📍 평점 업데이트 조건 미충족:', { 
-          hasBook: !!book, 
-          bookId: book?.id, 
-          eventBookId: bookId,
-          pageId: id
-        });
+      if (!book || !book.id || book.id !== eventBookId || !bookId || !API_URL) {
         return;
       }
       
-      console.log(`📊 책 ${bookId}의 평점이 업데이트됨 - 데이터 새로고침 시작`);
+      console.log(`📊 책 ${eventBookId}의 평점이 업데이트됨 - 데이터 새로고침 시작`);
       
       try {
-        const apiUrl = `${API_URL}/api/books/${id}`;
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${API_URL}/api/books/${bookId}`);
         const data = await response.json();
         
         if (response.ok && data.success) {
           setBook(data.data);
           console.log('✅ 평점 업데이트 후 책 데이터 새로고침 완료');
-        } else {
-          console.warn('⚠️ 평점 업데이트 후 데이터 새로고침 실패:', data.message);
         }
       } catch (error) {
         console.error('❌ 평점 업데이트 후 데이터 새로고침 실패:', error);
@@ -84,13 +71,12 @@ export default function BookReviewPage() {
     return () => {
       window.removeEventListener('bookRatingUpdated', handleRatingUpdate);
     };
-  }, [book?.id, id, API_URL]); // 🔧 의존성 배열 최소화
+  }, [book?.id, bookId, API_URL]);
 
-  // 책 데이터 가져오기
+  // 책 데이터 가져오기 (props로 받지 못한 경우)
   useEffect(() => {
     const fetchBook = async () => {
-      if (!id) {
-        setError('책 ID가 제공되지 않았습니다.');
+      if (propBookData || !bookId) {
         setLoading(false);
         return;
       }
@@ -99,18 +85,11 @@ export default function BookReviewPage() {
         setLoading(true);
         setError(null);
         
-        // 🔧 API URL 수정 (환경변수 사용)
-        const apiUrl = `${API_URL}/api/books/${id}`;
-        // console.log(`📚 책 데이터 요청: ${apiUrl}`);
-        
-        const response = await fetch(apiUrl); 
+        const response = await fetch(`${API_URL}/api/books/${bookId}`);
         const data = await response.json();
-
-        // console.log('📚 API 응답:', data);
 
         if (response.ok && data.success) {
           setBook(data.data);
-          // console.log('✅ 책 데이터 로드 성공:', data.data.title);
         } else {
           throw new Error(data.message || `책을 찾을 수 없습니다. (상태코드: ${response.status})`);
         }
@@ -123,7 +102,7 @@ export default function BookReviewPage() {
     };
 
     fetchBook();
-  }, [id, API_URL]); // 의존성 배열에 API_URL 추가 
+  }, [bookId, propBookData, API_URL]);
 
   // 로딩 상태
   if (loading) {
@@ -137,23 +116,33 @@ export default function BookReviewPage() {
     );
   }
 
+  // 에러 상태
+  if (error) {
+    return (
+      <Alert variant="danger" className="text-center">
+        <Alert.Heading>오류 발생</Alert.Heading>
+        <p>{error}</p>
+      </Alert>
+    );
+  }
+
   // 책 데이터가 없는 경우
   if (!book) {
     return (
       <Alert variant="warning" className="text-center">
         <Alert.Heading>책을 찾을 수 없습니다</Alert.Heading>
-        <p>요청하신 책 정보를 찾을 수 없습니다. (ID: {id})</p>
+        <p>요청하신 책 정보를 찾을 수 없습니다. (ID: {bookId})</p>
       </Alert>
     );
   }
 
   return (
-    <Card className="">
+    <Card>
       <BookTitle 
         title={book.title}
         averageRating={book.avg || book.average_rating || 0}
         book={book}
-        bookId={parseInt(id)}
+        bookId={parseInt(bookId)}
         currentUser={currentUser}  
       />
 
@@ -173,19 +162,24 @@ export default function BookReviewPage() {
               </Col>
 
               {/* 도서 정보 */}
-              <Col md={12} className="">
+              <Col md={12}>
                 <BookInfo book={book} />
               </Col>
             </Row>
           </Col>
         </Row>
+        
+        {/* 채팅 섹션 */}
         <Row className="mt-4">
           <Col md={12}>
-            <ChatSection bookId={parseInt(id)} />
+            <ChatSection 
+              bookId={parseInt(bookId)} 
+              currentUser={currentUser}
+            />
           </Col>
         </Row>
 
-        {/* 디버그 정보 (개발 환경에서만) - 🆕 currentUser 정보 추가 */}
+        {/* 디버그 정보 (개발 환경에서만) */}
         {process.env.NODE_ENV === 'development' && (
           <Row className="mt-3">
             <Col md={12}>
@@ -195,11 +189,12 @@ export default function BookReviewPage() {
                 </Card.Header>
                 <Card.Body>
                   <small>
-                    <strong>Book ID:</strong> {id}<br/>
+                    <strong>Book ID:</strong> {bookId}<br/>
                     <strong>Book Title:</strong> {book.title}<br/>
                     <strong>Average Rating:</strong> {book.avg || 'N/A'}<br/>
-                    <strong>Author:</strong> {book.author || 'N/A'}<br/>
-                    <strong>Current User:</strong> {currentUser ? `${currentUser.nickname} (ID: ${currentUser.id})` : 'Loading...'}<br/>
+                    <strong>Authors:</strong> {book.authors || 'N/A'}<br/>
+                    <strong>ISBN:</strong> {book.isbn || 'N/A'}<br/>
+                    <strong>Current User:</strong> {currentUser ? `${currentUser.nickname} (ID: ${currentUser.id})` : 'Not logged in'}<br/>
                     <strong>API URL:</strong> {API_URL || 'Default (proxy)'}
                   </small>
                 </Card.Body>

@@ -15,20 +15,20 @@ module.exports = (sequelize, DataTypes) => {
     },
     createdAt: {
       type: DataTypes.DATE,
-      field: 'cratedAt'  
+      field: 'createdAt'  
     }
   }, {
     tableName: "Users",
-    timestamps: true,     // createdAt을 자동 관리
-    updatedAt: false,     // updatedAt 없음
+    timestamps: true,
+    updatedAt: false,
     paranoid: false,
-    underscored: false,   // 개별 field로 처리하므로 false여도 OK
+    underscored: false,
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Chat, { foreignKey: 'user_id' });
-    User.hasMany(models.Like, { foreignKey: 'user_id' });
-    User.hasMany(models.Bookmark, { foreignKey: 'user_id' });
+    User.hasMany(models.Chat, { foreignKey: 'user_id', as: 'chats' });
+    User.hasMany(models.Like, { foreignKey: 'user_id', as: 'likes' });
+    User.hasMany(models.Bookmark, { foreignKey: 'user_id', as: 'bookmarks' });
   };
 
   return User;
