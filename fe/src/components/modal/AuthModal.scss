@@ -44,17 +44,17 @@
   }
 
   .form {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 
     .submit-btn {
       &:disabled {
         background-color: #ccc;
         cursor: not-allowed;
       }
+      padding: 0 0 2rem 0; 
+      font-size: 13px;
     }
     
     .input-with-button {
@@ -70,7 +70,7 @@
       border: 1px solid #aaa;
       cursor: pointer;
       white-space: nowrap;
-      height: 36.1px; 
+      height: 40px; 
       margin: auto;
       margin-bottom: 10px;
       border-radius: 0 10px 10px 0;
@@ -89,8 +89,14 @@
       margin-top: -10px;
       text-align: right;
     }
+  }
 
+  .login-form {
+    margin-top: 100px;
+  }
 
+  .signup-form {
+    margin-top: 30px;
   }
 }
 

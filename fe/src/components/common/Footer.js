@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import './style/Footer.scss'
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <h5>BookleTalk</h5>
+            <h6>BookleTalk</h6>
             <p className="text-muted">
               실시간으로 책에 대해 이야기하고 의견을 나눌 수 있는 플랫폼입니다.
             </p>
