@@ -8,10 +8,14 @@ form {
   border: 1px solid #ccc;
   border-radius: 9999px;
   outline: none;
+  width: 500px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   &:focus {
     border-color: #4b85f0;
     box-shadow: 0 0 0 2px rgba(75, 133, 240, 0.3);
+  }
+  &:hover {
+    color: #4b85f0;
   }
   input {
     width: 90%;
