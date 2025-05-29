@@ -49,7 +49,10 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
     newSocket.on('connect', () => {
       console.log('✅ Socket 연결 성공!');
       setIsConnected(true);
-      newSocket.emit('join_room', bookId);
+      newSocket.emit('join_room', bookId, () => {
+        console.log('✅ join_room 완료됨');
+        // 여기서부터 메시지 보내는 작업이 안전하게 가능
+      });      
     });
     
     newSocket.on('connect_error', (error) => {
