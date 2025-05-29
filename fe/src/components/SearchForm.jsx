@@ -22,7 +22,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
   const firstLoad = useRef(true);
 
   const sortMap = {
-    rating: 'rating',          // 백엔드에서는 처리 안됨, 향후 DB 기반 별점 추가 필요
+    rating: 'rating',
     title_asc: 'title_asc',
     price_desc: 'price_desc',
     price_asc: 'price_asc',
@@ -36,8 +36,8 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
         return '이름순';
       case 'price_desc':
         return '높은가격순';
-      // case 'price_asc':
-      //   return '낮은가격순';
+      case 'price_asc':
+        return '낮은가격순';
       default:
         return '정렬';
     }
@@ -58,10 +58,20 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
     
     } catch (error) {
       console.error('검색 실패: ', error);
+
+      let errorMessage = '검색 중 오류가 발생했습니다.';
+      
+      if (error.code === 'ECONNREFUSED') {
+        errorMessage = '서버에 연결할 수 없습니다. 백엔드 서버가 실행 중인지 확인해주세요.';
+      } else if (error.response) {
+        errorMessage = `서버 오류: ${error.response.status} - ${error.response.data?.message || error.message}`;
+      } else if (error.request) {
+        errorMessage = '서버 응답이 없습니다. 네트워크 연결을 확인해주세요.';
+      }
     }
   }, [query, page, sortType]);
 
-  useEffect(()=>{ // 질문하기..
+  useEffect(()=>{ 
     if (!query.trim()) return;
 
     // if (searchTriggered || firstLoad.current || page >= 1) {

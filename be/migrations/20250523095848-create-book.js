@@ -43,6 +43,12 @@ module.exports = {
       },
       url: {
         type: Sequelize.TEXT
+      },
+      avg: {
+        type: Sequelize.DECIMAL(3, 2),
+        allowNull: true,
+        defaultValue: 0.0,
+        validate: { min: 0.0, max: 5.0 }
       }
     });
   },

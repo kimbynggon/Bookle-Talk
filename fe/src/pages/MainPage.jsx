@@ -150,27 +150,12 @@ const MainSearchPage = () => {
   );
 
   return (
-    <div className="main-container">
+    <div className={`main-container ${isSearched ? 'searched' : 'initial'}`}>
       <main className="content px-4">
         <div className="max-w-2xl w-full text-center mb-12">
-          {/* 로고 */}
-          <div className="mb-8 flex justify-center">
-            <div className="relative">
-              {/* <svg className="w-40 h-40 text-blue-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M20 15 L80 15 L80 85 L20 85 Z" />
-                <path fill="#fff" d="M30 15 L30 85 Z" />
-                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M20 15 L80 15 L80 85 L20 85 Z" />
-                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M30 15 L30 85" />
-                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 35 C50 25, 60 25, 70 35" />
-                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 50 C50 40, 60 40, 70 50" />
-                <path stroke="#4b85f0" strokeWidth="1" fill="none" d="M40 65 C50 55, 60 55, 70 65" />
-              </svg> */}
-            </div>
-          </div>
-
           {/* 검색창 */}
           <div className="w-full">
-            <div className="search-wrapper">
+          <div className={`search-wrapper ${isSearched ? 'searched' : 'initial'}`}>
               {!isSearched && (
                 <div className="search-bar">
                   <div className="logo-text">
