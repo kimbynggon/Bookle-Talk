@@ -19,23 +19,25 @@ const getChatsByBookId = async (req, res) => {
       });
     }
     
-    // 채팅 메시지 조회
+    // 채팅 메시지 조회 (최신 100개만)
     const chats = await Chat.findAll({
       where: { book_id: numericBookId },
       order: [['created_at', 'ASC']],
+      limit: 100, // 성능을 위해 제한
       include: [
         {
           model: User,
           as: 'user',
-          attributes: ['id', 'user_id', 'nickname']
+          attributes: ['id', 'user_id', 'nickname'],
+          required: false // LEFT JOIN으로 변경
         }
       ]
     });
     
-    // ✅ 채팅 데이터 변환 - user_id만 표시
+    // 채팅 데이터 변환
     const chatsData = chats.map((chat) => ({
       id: chat.id,
-      username: chat.user?.user_id || chat.user_id || '익명',  // ✅ user_id 표시 (nickname 대신)
+      username: chat.user?.user_id || chat.user_id || '익명',
       message: chat.message,
       comment: chat.message,
       created_at: chat.created_at,
@@ -64,46 +66,66 @@ const getChatsByBookId = async (req, res) => {
   }
 };
 
-// ✅ 수정된 채팅 메시지 생성 함수
+// 채팅 메시지 생성 함수 (개선됨)
 const createChat = async (bookId, userId, message) => {
+  const transaction = await sequelize.transaction();
+  
   try {
     logger.info(`💬 채팅 생성 시도: 책 ${bookId}, 사용자 ${userId}`);
     
-    // ✅ user_id (문자열)로 사용자 확인
-    const user = await User.findOne({ where: { user_id: userId } });
+    // 입력 검증
+    if (!bookId || !userId || !message?.trim()) {
+      throw new Error('Missing required parameters: bookId, userId, or message');
+    }
+    
+    const numericBookId = parseInt(bookId, 10);
+    if (isNaN(numericBookId)) {
+      throw new Error('Invalid bookId: must be a number');
+    }
+    
+    // 사용자 존재 확인
+    const user = await User.findOne({ 
+      where: { user_id: userId },
+      transaction
+    });
     if (!user) {
       throw new Error(`User not found: ${userId}`);
     }
 
-    // Check if book exists
-    const book = await Book.findByPk(bookId);
+    // 책 존재 확인
+    const book = await Book.findByPk(numericBookId, { transaction });
     if (!book) {
-      throw new Error(`Book not found: ${bookId}`);
+      throw new Error(`Book not found: ${numericBookId}`);
     }
 
+    // 채팅 생성
     const chat = await Chat.create({
-      book_id: bookId,
-      user_id: userId,  // ✅ 문자열 user_id 저장
-      message: message
-    });
+      book_id: numericBookId,
+      user_id: userId,
+      message: message.trim()
+    }, { transaction });
+    
+    await transaction.commit();
     
     logger.info(`💬 채팅 생성 완료: ID ${chat.id}`);
     return chat;
   } catch (error) {
+    await transaction.rollback();
     logger.error('채팅 생성 오류:', error);
     throw error;
   }
 };
 
-// ✅ 수정된 채팅 메시지 전송 함수
+// 채팅 메시지 전송 함수 (개선됨)
 const sendMessage = async (req, res) => {
   try {
     const { bookId } = req.params;
     const { userId, message } = req.body;
     
-    // ✅ JWT에서 user_id (문자열) 가져오기
+    // JWT에서 user_id 가져오기 (우선순위: JWT > body)
     const actualUserId = req.user?.user_id || userId;
     
+    // 입력 검증
     if (!actualUserId || !message?.trim()) {
       return res.status(400).json({
         success: false,
@@ -111,20 +133,25 @@ const sendMessage = async (req, res) => {
       });
     }
     
-    const numericBookId = parseInt(bookId, 10);
-    
-    // Check if book exists
-    const book = await Book.findByPk(numericBookId);
-    if (!book) {
-      return res.status(404).json({
+    if (message.trim().length > 500) {
+      return res.status(400).json({
         success: false,
-        message: 'Book not found'
+        message: 'Message too long (max 500 characters)'
       });
     }
     
+    const numericBookId = parseInt(bookId, 10);
+    if (isNaN(numericBookId)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid book ID'
+      });
+    }
+    
+    // 채팅 생성
     const newChat = await createChat(numericBookId, actualUserId, message.trim());
     
-    // ✅ 사용자 정보 조회 (user_id로)
+    // 사용자 정보 조회
     const user = await User.findOne({ 
       where: { user_id: actualUserId },
       attributes: ['id', 'user_id', 'nickname']
@@ -132,7 +159,7 @@ const sendMessage = async (req, res) => {
     
     const responseData = {
       id: newChat.id,
-      username: user?.user_id || actualUserId,  // ✅ user_id 표시 (nickname 대신)
+      username: user?.user_id || actualUserId,
       message: newChat.message,
       comment: newChat.message,
       created_at: newChat.created_at,
@@ -149,21 +176,57 @@ const sendMessage = async (req, res) => {
     });
   } catch (error) {
     logger.error('메시지 전송 오류:', error);
+    
+    // 구체적인 에러 메시지 제공
+    let errorMessage = 'Failed to send message';
+    if (error.message.includes('User not found')) {
+      errorMessage = 'User not found';
+    } else if (error.message.includes('Book not found')) {
+      errorMessage = 'Book not found';
+    }
+    
     return res.status(500).json({
       success: false,
-      message: 'Failed to send message',
-      error: error.message
+      message: errorMessage,
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };
 
-// 메시지 신고 기능
+// 메시지 신고 기능 (개선됨)
 const reportMessage = async (req, res) => {
   try {
     const { messageId } = req.params;
     const { userId, reason } = req.body;
     
+    // 입력 검증
+    if (!messageId || !userId || !reason) {
+      return res.status(400).json({
+        success: false,
+        message: 'Message ID, user ID, and reason are required'
+      });
+    }
+    
+    // 메시지 존재 확인
+    const message = await Chat.findByPk(messageId);
+    if (!message) {
+      return res.status(404).json({
+        success: false,
+        message: 'Message not found'
+      });
+    }
+    
+    // 자기 메시지 신고 방지
+    if (message.user_id === userId) {
+      return res.status(400).json({
+        success: false,
+        message: 'Cannot report your own message'
+      });
+    }
+    
     logger.info(`🚨 메시지 신고: ID ${messageId}, 신고자 ${userId}, 사유: ${reason}`);
+    
+    // TODO: 실제 신고 로직 구현 (데이터베이스에 저장 등)
     
     return res.status(200).json({
       success: true,
@@ -174,7 +237,7 @@ const reportMessage = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: 'Failed to report message',
-      error: error.message
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };

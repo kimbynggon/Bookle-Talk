@@ -215,7 +215,7 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
         </Row>
 
         {/* 디버그 정보 (개발 환경에서만) */}
-        {process.env.NODE_ENV === 'development' && (
+        {/* {process.env.NODE_ENV === 'development' && (
           <Row className="mt-3">
             <Col md={12}>
               <Card className="bg-light">
@@ -238,7 +238,7 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
               </Card>
             </Col>
           </Row>
-        )}
+        )} */}
       </Card.Body>
     </Card>
   );

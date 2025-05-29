@@ -49,7 +49,10 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
     newSocket.on('connect', () => {
       console.log('✅ Socket 연결 성공!');
       setIsConnected(true);
-      newSocket.emit('join_room', bookId);
+      newSocket.emit('join_room', bookId, () => {
+        console.log('✅ join_room 완료됨');
+        // 여기서부터 메시지 보내는 작업이 안전하게 가능
+      });      
     });
     
     newSocket.on('connect_error', (error) => {
@@ -229,7 +232,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
         
         <div className="d-flex align-items-center">
           <span className="text-info me-2">
-            ID : {currentUser.user_id}
+          닉네임 : {currentUser.nickname}
           </span>
         </div>
       </Card.Header>
@@ -257,7 +260,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
             <div key={item.id || index} className="mb-3">
               <div className="d-flex justify-content-between align-items-center mb-1">
                 <div className="d-flex align-items-center">
-                  <span className="fw-bold me-2">{item.user_id}</span>
+                  <span className="fw-bold me-2">{item.nickname}</span>
                   <small className="text-muted">
                     {new Date(item.created_at).toLocaleString()}
                   </small>

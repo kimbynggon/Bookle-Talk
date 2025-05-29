@@ -6,9 +6,10 @@ const setupSocketIO = (io) => {
     logger.info(`User connected: ${socket.id}`);
 
     // Join a book chat room
-    socket.on('join_room', (bookId) => {
+    socket.on('join_room', (bookId,callback) => {
       socket.join(`book_${bookId}`);
       logger.info(`User ${socket.id} joined room for book ${bookId}`);
+      if (callback) callback();
     });
 
     // Handle chat messages
