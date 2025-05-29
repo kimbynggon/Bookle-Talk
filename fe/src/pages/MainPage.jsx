@@ -187,7 +187,6 @@ const MainSearchPage = () => {
                   <SearchForm 
                     query={searchQuery} 
                     onBookSelect={handleBookSelect} 
-                    bookDB={selectedBook} 
                   />
                   </div>
                   <div className='book-detail' style={{ flex: '2', width: '60%' }}>

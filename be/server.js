@@ -6,53 +6,40 @@ const logger = require('./utils/logger');
 const routes = require('./routes');
 const { setupSocketIO } = require('./socket');
 const os = require('os');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 8080;
 
-// 네트워크 인터페이스에서 로컬 IP 주소 가져오기
+// 1. 로컬 IP 탐색 함수
 const getLocalIP = () => {
   const interfaces = os.networkInterfaces();
-  for (const name of Object.keys(interfaces)) {
-    for (const interface of interfaces[name]) {
-      if (interface.family === 'IPv4' && !interface.internal) {
-        return interface.address;
-      }
+  for (const iface of Object.values(interfaces).flat()) {
+    if (iface.family === 'IPv4' && !iface.internal) {
+      return iface.address;
     }
   }
   return 'localhost';
 };
 
 const LOCAL_IP = getLocalIP();
+
+// 2. 허용된 Origin 리스트
 const ALLOWED_ORIGINS = [
   'http://localhost:3000',
-  'http://localhost:3001',
   `http://${LOCAL_IP}:3000`,
   `http://${LOCAL_IP}:3001`,
   process.env.REACT_APP_API_URL
 ].filter(Boolean);
 
 const app = express();
-const cors = require('cors');
 
-// 개선된 CORS 미들웨어 설정
+// 3. CORS 설정
 app.use(cors({
   origin: function (origin, callback) {
-    // origin이 없는 경우 (모바일 앱, Postman 등) 허용
-    if (!origin) return callback(null, true);
-    
-    // 개발 환경에서는 모든 localhost와 로컬 IP 허용
-    if (process.env.NODE_ENV === 'development') {
-      if (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes(LOCAL_IP)) {
-        return callback(null, true);
-      }
-    }
-    
-    // 허용된 origin 목록 확인
-    if (ALLOWED_ORIGINS.includes(origin)) {
+    if (!origin || ALLOWED_ORIGINS.includes(origin) || origin.includes('localhost') || origin.includes(LOCAL_IP)) {
       return callback(null, true);
     }
-    
-    logger.warn(`CORS: Origin ${origin} not allowed`);
+    logger.warn(`❌ CORS 차단: ${origin}`);
     callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
@@ -62,78 +49,57 @@ app.use(cors({
 
 app.use(express.json());
 
-// IP 주소 로깅 미들웨어
+// 4. 요청 로그
 app.use((req, res, next) => {
-  const clientIP = req.ip || req.connection.remoteAddress || req.headers['x-forwarded-for'];
-  logger.info(`Request from IP: ${clientIP} to ${req.method} ${req.path}`);
+  logger.info(`📥 Request: ${req.ip} ${req.method} ${req.originalUrl}`);
   next();
 });
 
 app.use('/', routes);
 
+// 5. HTTP 서버 생성 및 Socket.IO 설정
 const server = http.createServer(app);
 
-// 개선된 Socket.io 설정
 const io = new Server(server, {
   cors: {
     origin: function (origin, callback) {
-      // origin이 없는 경우 허용
-      if (!origin) return callback(null, true);
-      
-      // 개발 환경에서는 모든 localhost와 로컬 IP 허용
-      if (process.env.NODE_ENV === 'development') {
-        if (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes(LOCAL_IP)) {
-          return callback(null, true);
-        }
-      }
-      
-      // 허용된 origin 목록 확인
-      if (ALLOWED_ORIGINS.includes(origin)) {
+      if (!origin || ALLOWED_ORIGINS.includes(origin) || origin.includes('localhost') || origin.includes(LOCAL_IP)) {
         return callback(null, true);
       }
-      
-      logger.warn(`Socket.io CORS: Origin ${origin} not allowed`);
-      callback(null, false);
+      logger.warn(`❌ Socket.IO CORS 차단: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
     },
-    methods: ["GET", "POST"],
-    credentials: true,
-    allowEIO3: true
+    methods: ['GET', 'POST'],
+    credentials: true
   },
   transports: ['websocket', 'polling'],
   pingTimeout: 60000,
-  pingInterval: 25000,
-  // 추가 설정
-  allowRequest: (req, callback) => {
-    const origin = req.headers.origin;
-    logger.info(`Socket.io connection attempt from: ${origin || 'unknown'}`);
-    callback(null, true);
-  }
+  pingInterval: 25000
 });
 
-// Setup Socket.io handlers
+// 6. 소켓 이벤트 등록
 setupSocketIO(io);
 
-// Socket.io 연결 모니터링
-io.engine.on("connection_error", (err) => {
-  logger.error("Socket.io connection error:", {
+// 7. 연결 에러 로깅
+io.engine.on('connection_error', (err) => {
+  logger.error('❌ Socket.IO 연결 에러:', {
     message: err.message,
     type: err.type,
     description: err.description
   });
 });
 
-io.on("connection", (socket) => {
-  const clientIP = socket.handshake.address;
-  logger.info(`Socket connected from IP: ${clientIP}, Socket ID: ${socket.id}`);
-  
-  socket.on("disconnect", (reason) => {
-    logger.info(`Socket disconnected: ${socket.id}, Reason: ${reason}`);
+// 8. 연결/종료 로깅
+io.on('connection', (socket) => {
+  logger.info(`🔌 Socket 연결됨: ${socket.id} (IP: ${socket.handshake.address})`);
+  socket.on('disconnect', (reason) => {
+    logger.info(`❌ Socket 연결 종료: ${socket.id} - 이유: ${reason}`);
   });
 });
 
-// Error handling middleware
+// 9. 에러 핸들러
 app.use((err, req, res, next) => {
-  logger.error(err.stack);
+  logger.error('서버 에러:', err.stack);
   res.status(500).json({
     success: false,
     message: 'Internal server error',
@@ -141,7 +107,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 404 handler
+// 10. 404 처리
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
@@ -149,39 +115,32 @@ app.use('*', (req, res) => {
   });
 });
 
-// Start server
+// 11. 서버 실행
 const startServer = async () => {
   try {
     await sequelize.sync({ force: false });
-    
-    // 모든 네트워크 인터페이스에 바인딩 (0.0.0.0)
+
     server.listen(PORT, '0.0.0.0', () => {
-      logger.info(`🚀 Server running on port ${PORT}`);
-      logger.info(`📱 Local access: http://localhost:${PORT}`);
-      logger.info(`🌐 Network access: http://${LOCAL_IP}:${PORT}`);
-      logger.info(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
-      logger.info(`✅ Allowed origins:`, ALLOWED_ORIGINS);
+      logger.info(`🚀 서버 실행: http://localhost:${PORT}`);
+      logger.info(`🌐 네트워크 접근: http://${LOCAL_IP}:${PORT}`);
+      logger.info(`✅ 허용된 Origins: ${ALLOWED_ORIGINS.join(', ')}`);
+      logger.info(`🔧 실행 환경: ${process.env.NODE_ENV || 'development'}`);
     });
-  } catch (error) {
-    logger.error('Failed to start server:', error);
+  } catch (err) {
+    logger.error('❌ 서버 실행 실패:', err);
     process.exit(1);
   }
 };
 
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM received, shutting down gracefully');
-  server.close(() => {
-    logger.info('Process terminated');
-  });
-});
-
+// 12. 종료 처리
 process.on('SIGINT', () => {
-  logger.info('SIGINT received, shutting down gracefully');
-  server.close(() => {
-    logger.info('Process terminated');
-  });
+  logger.info('🛑 SIGINT 수신: 서버 종료 중...');
+  server.close(() => logger.info('🔚 서버 종료 완료'));
 });
 
-// Start the server
+process.on('SIGTERM', () => {
+  logger.info('🛑 SIGTERM 수신: 서버 종료 중...');
+  server.close(() => logger.info('🔚 서버 종료 완료'));
+});
+
 startServer();
