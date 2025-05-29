@@ -82,6 +82,7 @@ const AuthModal = ({ onClose }) => {
         userId: signupData.userId,
         password: signupData.password,
         nickname: signupData.nickname,
+        email: signupData.email
       });
       console.log("회원가입 성공:", res.data);
       setServerError("");

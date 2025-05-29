@@ -25,6 +25,7 @@ exports.signup = async ({ userId, password, email, nickname }) => {
     user_id: userId,
     password: passwordWithSalt,
     nickname,
+    email
   });
 
   return newUser;
