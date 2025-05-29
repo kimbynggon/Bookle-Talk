@@ -1,6 +1,30 @@
 const { Chat, Book, User, sequelize } = require('../models');
 const logger = require('../utils/logger');
 
+// ✅ 닉네임 정제 함수 추가
+const sanitizeNickname = (nickname) => {
+  if (!nickname) return '익명사용자';
+  
+  // 문제가 되는 문자들 제거
+  let cleaned = nickname
+    .replace(/[ᅟᅠ\u1160\u1161\u115F\u3164]/g, '') // 한글 채움 문자 제거
+    .replace(/[\u200B-\u200D\uFEFF]/g, '') // 제로 폭 문자 제거
+    .replace(/[^\w\sㄱ-ㅎ가-힣\u4e00-\u9fff]/g, '') // 허용된 문자만 남기기
+    .trim();
+  
+  // 빈 문자열이거나 너무 짧으면 기본값 사용
+  if (!cleaned || cleaned.length < 1) {
+    return '사용자' + Math.floor(Math.random() * 1000);
+  }
+  
+  // 너무 긴 닉네임은 자르기
+  if (cleaned.length > 20) {
+    cleaned = cleaned.substring(0, 20);
+  }
+  
+  return cleaned;
+};
+
 // 특정 책의 채팅 메시지 조회
 const getChatsByBookId = async (req, res) => {
   try {
@@ -23,21 +47,22 @@ const getChatsByBookId = async (req, res) => {
     const chats = await Chat.findAll({
       where: { book_id: numericBookId },
       order: [['created_at', 'ASC']],
-      limit: 100, // 성능을 위해 제한
+      limit: 100,
       include: [
         {
           model: User,
           as: 'user',
           attributes: ['id', 'user_id', 'nickname'],
-          required: false // LEFT JOIN으로 변경
+          required: false
         }
       ]
     });
     
-    // 채팅 데이터 변환
+    // ✅ 채팅 데이터 변환 시 닉네임 정제
     const chatsData = chats.map((chat) => ({
       id: chat.id,
-      username: chat.user?.user_id || chat.user_id || '익명',
+      username: sanitizeNickname(chat.nickname || chat.user?.nickname),
+      nickname: sanitizeNickname(chat.nickname || chat.user?.nickname),
       message: chat.message,
       comment: chat.message,
       created_at: chat.created_at,
@@ -57,25 +82,24 @@ const getChatsByBookId = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: 'Failed to fetch chats',
-      error: error.message,
-      debug: process.env.NODE_ENV === 'development' ? {
-        stack: error.stack,
-        bookId: req.params.bookId
-      } : undefined
+      error: error.message
     });
   }
 };
 
-// 채팅 메시지 생성 함수 (개선됨)
-const createChat = async (bookId, userId, message) => {
+// ✅ 강화된 채팅 메시지 생성 함수
+const createChat = async (bookId, userId, nickname, message) => {
   const transaction = await sequelize.transaction();
   
   try {
-    logger.info(`💬 채팅 생성 시도: 책 ${bookId}, 사용자 ${userId}`);
+    // ✅ 닉네임 정제
+    const cleanNickname = sanitizeNickname(nickname);
+    
+    logger.info(`💬 채팅 생성 시도: 책 ${bookId}, 사용자 ${userId}, 원본 닉네임: "${nickname}", 정제된 닉네임: "${cleanNickname}"`);
     
     // 입력 검증
-    if (!bookId || !userId || !message?.trim()) {
-      throw new Error('Missing required parameters: bookId, userId, or message');
+    if (!bookId || !userId || !cleanNickname || !message?.trim()) {
+      throw new Error('Missing required parameters: bookId, userId, nickname, or message');
     }
     
     const numericBookId = parseInt(bookId, 10);
@@ -83,13 +107,20 @@ const createChat = async (bookId, userId, message) => {
       throw new Error('Invalid bookId: must be a number');
     }
     
-    // 사용자 존재 확인
-    const user = await User.findOne({ 
-      where: { user_id: userId },
-      transaction
-    });
-    if (!user) {
-      throw new Error(`User not found: ${userId}`);
+    // 개발 모드에서는 사용자 확인 건너뛰기
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🔧 개발 모드: 사용자 확인 건너뛰기');
+    } else {
+      // 프로덕션에서는 사용자 확인
+      const user = await User.findOne({ 
+        where: { user_id: userId },
+        transaction,
+        attributes: ['id', 'user_id', 'nickname']
+      });
+      
+      if (!user) {
+        logger.warn(`⚠️ 사용자 정보 없음: ${userId}`);
+      }
     }
 
     // 책 존재 확인
@@ -98,16 +129,17 @@ const createChat = async (bookId, userId, message) => {
       throw new Error(`Book not found: ${numericBookId}`);
     }
 
-    // 채팅 생성
+    // ✅ 채팅 생성 (정제된 닉네임 사용)
     const chat = await Chat.create({
       book_id: numericBookId,
       user_id: userId,
+      nickname: cleanNickname, // ✅ 정제된 닉네임 저장
       message: message.trim()
     }, { transaction });
     
     await transaction.commit();
     
-    logger.info(`💬 채팅 생성 완료: ID ${chat.id}`);
+    logger.info(`✅ 채팅 생성 완료: ID ${chat.id}, 닉네임: "${cleanNickname}"`);
     return chat;
   } catch (error) {
     await transaction.rollback();
@@ -116,20 +148,27 @@ const createChat = async (bookId, userId, message) => {
   }
 };
 
-// 채팅 메시지 전송 함수 (개선됨)
+// ✅ 수정된 메시지 전송 함수 
 const sendMessage = async (req, res) => {
   try {
     const { bookId } = req.params;
-    const { userId, message } = req.body;
+    const { userId, nickname, message } = req.body;
     
     // JWT에서 user_id 가져오기 (우선순위: JWT > body)
     const actualUserId = req.user?.user_id || userId;
+    const actualNickname = req.user?.nickname || nickname;
+    
+    // ✅ 닉네임 정제
+    const cleanNickname = sanitizeNickname(actualNickname);
+    
+    logger.info(`💬 메시지 전송 요청: 사용자 ${actualUserId}, 원본 닉네임 "${actualNickname}", 정제된 닉네임 "${cleanNickname}"`);
     
     // 입력 검증
-    if (!actualUserId || !message?.trim()) {
+    if (!actualUserId || !cleanNickname || !message?.trim()) {
       return res.status(400).json({
         success: false,
-        message: 'User ID and message are required'
+        message: 'User ID, nickname and message are required',
+        debug: { actualUserId, cleanNickname, hasMessage: !!message?.trim() }
       });
     }
     
@@ -148,18 +187,13 @@ const sendMessage = async (req, res) => {
       });
     }
     
-    // 채팅 생성
-    const newChat = await createChat(numericBookId, actualUserId, message.trim());
-    
-    // 사용자 정보 조회
-    const user = await User.findOne({ 
-      where: { user_id: actualUserId },
-      attributes: ['id', 'user_id', 'nickname']
-    });
+    // ✅ 정제된 닉네임으로 채팅 생성
+    const newChat = await createChat(numericBookId, actualUserId, cleanNickname, message.trim());
     
     const responseData = {
       id: newChat.id,
-      username: user?.user_id || actualUserId,
+      nickname: cleanNickname,
+      username: cleanNickname,
       message: newChat.message,
       comment: newChat.message,
       created_at: newChat.created_at,
@@ -167,7 +201,7 @@ const sendMessage = async (req, res) => {
       book_id: numericBookId
     };
     
-    logger.info(`💬 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${user?.user_id || actualUserId}`);
+    logger.info(`✅ 메시지 전송 완료: 책 ${numericBookId}, 사용자 ${actualUserId}, 닉네임 "${cleanNickname}"`);
     
     return res.status(201).json({
       success: true,
@@ -177,7 +211,6 @@ const sendMessage = async (req, res) => {
   } catch (error) {
     logger.error('메시지 전송 오류:', error);
     
-    // 구체적인 에러 메시지 제공
     let errorMessage = 'Failed to send message';
     if (error.message.includes('User not found')) {
       errorMessage = 'User not found';
@@ -193,21 +226,19 @@ const sendMessage = async (req, res) => {
   }
 };
 
-// 메시지 신고 기능 (개선됨)
+// 메시지 신고 기능
 const reportMessage = async (req, res) => {
   try {
     const { messageId } = req.params;
-    const { userId, reason } = req.body;
+    const { userId, nickname, reason } = req.body;
     
-    // 입력 검증
-    if (!messageId || !userId || !reason) {
+    if (!messageId || !userId || !nickname || !reason) {
       return res.status(400).json({
         success: false,
         message: 'Message ID, user ID, and reason are required'
       });
     }
     
-    // 메시지 존재 확인
     const message = await Chat.findByPk(messageId);
     if (!message) {
       return res.status(404).json({
@@ -216,17 +247,14 @@ const reportMessage = async (req, res) => {
       });
     }
     
-    // 자기 메시지 신고 방지
-    if (message.user_id === userId) {
+    if (message.user_id === userId || message.nickname === nickname) {
       return res.status(400).json({
         success: false,
         message: 'Cannot report your own message'
       });
     }
     
-    logger.info(`🚨 메시지 신고: ID ${messageId}, 신고자 ${userId}, 사유: ${reason}`);
-    
-    // TODO: 실제 신고 로직 구현 (데이터베이스에 저장 등)
+    logger.info(`🚨 메시지 신고: ID ${messageId}, 신고자 ${userId || nickname}, 사유: ${reason}`);
     
     return res.status(200).json({
       success: true,
@@ -246,5 +274,6 @@ module.exports = {
   getChatsByBookId,
   createChat,
   sendMessage,
-  reportMessage
+  reportMessage,
+  sanitizeNickname // ✅ 유틸리티 함수로 export
 };

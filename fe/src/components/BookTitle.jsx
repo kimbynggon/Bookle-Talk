@@ -194,8 +194,16 @@ export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) =
           {/* 평균 별점 표시 */}
           <div className="d-flex align-items-center me-3">
             <div className="d-flex text-warning me-1">
-              {[...Array(fullStars)].map((_, i) => (
-                <Star key={i} size={16} fill="currentColor" />
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  size={16}
+                  color="#FFC107"
+                  fill={star <= bookRating ? "#FFC107" : "none"}
+                  stroke="#FFC107"
+                  strokeWidth={1}
+                  style={{ marginRight: 2 }}
+                />
               ))}
             </div>
             <span className="text-muted"> {formattedRating}</span>
