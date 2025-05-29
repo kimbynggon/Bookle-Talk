@@ -114,6 +114,7 @@ form {
 
 .documents{
   margin-top: -1rem;
+  overflow-y: scroll;
 
   &.grid {
     display: grid;
