@@ -11,6 +11,14 @@ require('dotenv').config();
  * @param {number} params.size - 페이지 크기
  * @returns {Promise<Object>} - 검색 결과
  */
+
+// 별점 평균 가져오는 함수 (isbn 기준)
+const getAverageRating = async (isbn) => {
+  const book = await Book.findOne({ where: { isbn } });
+  if (!book || book.avg == null) return null;
+  return (Number(book.avg).toFixed(1));
+};
+
 const searchBooks = async (params) => {
   try {
     // 쿼리 파라미터에서 검색어와 페이지 정보 가져오기
@@ -35,6 +43,20 @@ const searchBooks = async (params) => {
     });
 
     let books = response.data.documents;
+
+    // 각 도서에 평균 별점(avg) 추가
+    books = await Promise.all(
+      books.map(async (book) => {
+        const isbn = book.isbn?.split(' ')[0]; // ISBN 정리
+        const avg = await getAverageRating(isbn);
+
+        return {
+          ...book,
+          isbn,
+          avg,
+        };
+      })
+    );
 
     // API 응답 후 추가 정렬 처리
     switch (sort) {
