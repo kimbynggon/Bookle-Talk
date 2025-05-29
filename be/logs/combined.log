@@ -2992,3 +2992,7 @@
 {"level":"info","message":"💬 책 4의 채팅 0개 조회 완료","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
 {"level":"info","message":"User connected: 2hWMp3iGACL4DCjDAABJ","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
 {"level":"info","message":"User 2hWMp3iGACL4DCjDAABJ joined room for book 4","service":"bookletalk-api","timestamp":"2025-05-28 13:02:46"}
+{"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-29 11:23:35"}
+{"level":"info","message":"User connected: 5E30mgiFXW_3lyWqAAAB","service":"bookletalk-api","timestamp":"2025-05-29 11:23:36"}
+{"level":"info","message":"User 5E30mgiFXW_3lyWqAAAB joined room for book 22","service":"bookletalk-api","timestamp":"2025-05-29 11:23:36"}
+{"level":"info","message":"User disconnected: 5E30mgiFXW_3lyWqAAAB","service":"bookletalk-api","timestamp":"2025-05-29 11:23:54"}

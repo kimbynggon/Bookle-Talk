@@ -4,7 +4,7 @@ import './SearchForm.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
-const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selectedBookId = null }) => {
+const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
   const [query, setQuery] = useState(initialQuery);
   const [page, setPage] = useState(1);
   const [sortType, setSortType] = useState('latest');
@@ -13,6 +13,8 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
   const [viewMode, setViewMode] = useState('grid');
   const [showSortOptions, setShowSortOptions] = useState(false);
   const [searchTriggered, setSearchTriggered] = useState(false);
+  const [selectedBookId, setSelectedBookId] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   
@@ -296,7 +298,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, selecte
             key={book.isbn || index}
             className={`box ${selectedBookId && book.id === selectedBookId ? 'selected' : ''}`}
             onClick={() => handleBookSelect(book)}
-            style={{ cursor: 'pointer' }}  
+            style={{ cursor: 'pointer' }} 
           >
                     <div className='book-info-1'>
                     <img 
