@@ -115,6 +115,7 @@ form {
 .documents{
   margin-top: -1rem;
   overflow-y: scroll;
+  height: 90vh;
 
   &.grid {
     display: grid;

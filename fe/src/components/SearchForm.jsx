@@ -213,10 +213,10 @@ const handleImageError = (e) => {
         </div>
         
         <div className={`documents ${viewMode}`}>
-            {documents.map(book=>(
+            {documents.map((book, index)=>(
                 <div 
-                  key={book.isbn ||book.id}
-                  className='box'
+                  key={book.isbn || index}
+                  className={`box ${selectedBookId && book.id === selectedBookId ? 'selected' : ''}`}
                   onClick={() => handleBookSelect(book)}
                   style={{ cursor: 'pointer' }}  
                   >
@@ -228,8 +228,8 @@ const handleImageError = (e) => {
                     </div>
                     <div className='book-info-2'>
                       <div className='ellipsis'>
-                        {/* <div id='rating'>{'⭐️'.repeat(Math.trunc(book.avg))}{''.repeat(5-Math.trunc(book.avg))} {book.avg}점 ({book.user}명)</div> */}
-                        <div id='rating'>⭐️⭐️⭐️ 3점</div>
+                        <div id='rating'>{'⭐️'.repeat(Math.trunc(book.avg))}{''.repeat(5-Math.trunc(book.avg))} {book.avg}점</div>
+                        {/* <div id='rating'>⭐️⭐️⭐️ 3점</div> */}
                       </div>
                       <div className='ellipsis title' data-tooltip={book.title}>
                         <div id='category'>제목</div> 
