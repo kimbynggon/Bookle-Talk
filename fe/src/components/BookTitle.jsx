@@ -198,7 +198,7 @@ export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) =
                 <Star key={i} size={16} fill="currentColor" />
               ))}
             </div>
-            <span className="text-muted">★ {formattedRating}</span>
+            <span className="text-muted"> {formattedRating}</span>
             <small className="text-muted ms-1">(평균)</small>
           </div>
         </div>
