@@ -8,14 +8,14 @@ form {
   border: 1px solid #ccc;
   border-radius: 9999px;
   outline: none;
-  width: 500px;
+  width: 550px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  &:focus {
-    border-color: #4b85f0;
-    box-shadow: 0 0 0 2px rgba(75, 133, 240, 0.3);
-  }
   &:hover {
     color: #4b85f0;
+  }
+  &:has(input:focus) {
+    border-color: #4b85f0;
+    box-shadow: 0 0 0 1px rgba(75, 133, 240, 0.3);
   }
   input {
     width: 90%;
@@ -25,9 +25,8 @@ form {
   }
 }
 
-.search-icon {
+.search-icon-2 {
   position: relative;
-  top: 1rem;
   background: none;
   border: none;
   color: #666;
@@ -142,19 +141,20 @@ form {
         padding: 0 1px;
       }
 
-      .box:hover {
-        transform: translateY(-5px); /* 위로 살짝 올라감 */
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
-      }
-
+      
       .book-info-1 {
         justify-content: center;
         align-items: center;
       }
-    
+      
       .book-info-2 {
         font-size: small
       }
+    }
+    
+    .box:hover {
+      transform: translateY(-5px); /* 위로 살짝 올라감 */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
     }
     
     .ellipsis {
@@ -238,6 +238,11 @@ form {
         width: 70%;
         padding: 1rem 1rem 0rem 0rem;
       }
+    }
+
+    .box:hover {
+      transform: translateY(-5px); /* 위로 살짝 올라감 */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
     }
     
     .ellipsis {
