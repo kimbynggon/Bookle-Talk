@@ -183,13 +183,13 @@ const MainSearchPage = () => {
 
               {isSearched ? (
                 <section className="bookContainer" style={{ display: 'flex', gap: '50px', padding: '0px' }}>
-                  <div className='book-list' style={{ flex: '1', width: '40%' }}>
+                  <div className='book-list' style={{ flex: '1'}}>
                   <SearchForm 
                     query={searchQuery} 
                     onBookSelect={handleBookSelect} 
                   />
                   </div>
-                  <div className='book-detail' style={{ flex: '2', width: '60%' }}>
+                  <div className='book-detail' style={{ flex: '2' }}>
                   {selectedBook && selectedBookId ? (
                     <BookReviewPage 
                       bookId={selectedBookId} 

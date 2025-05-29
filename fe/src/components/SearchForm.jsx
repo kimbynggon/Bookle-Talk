@@ -161,7 +161,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
               placeholder='검색어를 입력하세요' 
               value={query} 
               onChange={(e)=>setQuery(e.target.value)}/>
-            <button className="search-icon" disabled={query.trim() === ""}>
+            <button className="search-icon-2" disabled={query.trim() === ""}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
         </form>
