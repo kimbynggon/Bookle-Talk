@@ -66,19 +66,20 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
       setIsConnected(false);
     });
     
-    // 새로운 메시지 수신
-    newSocket.on('receive_message', (message) => {
-      // console.log('📨 새 메시지 수신:', message);
-      setComments(prevComments => [...prevComments, {
-        id: Date.now(), // 임시 ID
-        username: message.username,
-        message: message.message,
-        comment: message.message,
-        created_at: message.created_at || new Date().toISOString(),
-        user_id: message.userId || '익명',
-        book_id: message.bookId
-      }]);
-    });
+    // 메시지 수신 이벤트 리스너 수정
+newSocket.on('receive_message', (message) => {
+  console.log('📨 새 메시지 수신:', message);
+  setComments(prevComments => [...prevComments, {
+    id: Date.now(),
+    nickname: message.username || message.nickname || '익명', // ✅ 수정
+    username: message.username || message.nickname || '익명',
+    message: message.message,
+    comment: message.message,
+    created_at: message.created_at || new Date().toISOString(),
+    user_id: message.userId || '익명',
+    book_id: message.bookId
+  }]);
+});
     
     return () => {
       newSocket.disconnect();
