@@ -24,6 +24,10 @@ module.exports = {
         },
         onDelete: 'CASCADE'
       },
+      nickname: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       message: {
         type: Sequelize.TEXT,
         allowNull: false

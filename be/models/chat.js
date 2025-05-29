@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         key: 'user_id'        
       }
     },
+    nickname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     message: { type: DataTypes.TEXT, allowNull: false },
     created_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
   }, {
