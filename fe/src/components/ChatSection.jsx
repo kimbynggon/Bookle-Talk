@@ -229,7 +229,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
         
         <div className="d-flex align-items-center">
           <span className="text-info me-2">
-            ID : {currentUser.user_id}
+          닉네임 : {currentUser.nickname}
           </span>
         </div>
       </Card.Header>
@@ -257,7 +257,7 @@ export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
             <div key={item.id || index} className="mb-3">
               <div className="d-flex justify-content-between align-items-center mb-1">
                 <div className="d-flex align-items-center">
-                  <span className="fw-bold me-2">{item.user_id}</span>
+                  <span className="fw-bold me-2">{item.nickname}</span>
                   <small className="text-muted">
                     {new Date(item.created_at).toLocaleString()}
                   </small>
