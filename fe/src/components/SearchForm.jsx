@@ -6,7 +6,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
 const testApi = process.env.REACT_APP_API_URL
 
-const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, bookDB: propBookData}) => {
+const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
   const [query,setQuery] = useState(initialQuery);
   const [inputValue, setInputValue] = useState('');
   const [page,setPage] = useState(1);
@@ -18,20 +18,8 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, bookDB:
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
   const [searchTriggered, setSearchTriggered] = useState(false);
-  const [book, setBook] = useState(propBookData || null);
   
   const firstLoad = useRef(true);
-
-  // 별점 관련 데이터 (api에 없어서 db에서 가져와서 매핑)
-  const ratingMap = useMemo(() => {
-    const map = new Map();
-    if (Array.isArray(propBookData)) {
-      propBookData.forEach(book => {
-        if (book.isbn) map.set(book.isbn, parseFloat(book.avg));
-      });
-    }
-    return map;
-  }, [propBookData]);
 
   const sortMap = {
     rating: 'rating',
@@ -226,7 +214,6 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, bookDB:
         
         <div className={`documents ${viewMode}`}>
           {documents.map((book, index)=>{
-            const avgRating = ratingMap.get(book.isbn) ?? 0;
             return(
               <div 
                 key={book.isbn || index}
@@ -243,7 +230,11 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}, bookDB:
                   <div className='book-info-2'>
                     <div className='ellipsis'>
                       <div id='rating'>
-                        {'⭐️'.repeat(Math.trunc(avgRating)) + '☆'.repeat(5 - Math.trunc(avgRating))} {avgRating.toFixed(1)}
+                        {book.avg !== null && book.avg !== undefined
+                        ? <>
+                        {'⭐️'.repeat(Math.trunc(book.avg)) + '☆'.repeat(5 - Math.trunc(book.avg))} {Number(book.avg).toFixed(1)}
+                        </>
+                        : '평점 없음'}                      
                       </div>
                     </div>
                     <div className='ellipsis title' data-tooltip={book.title}>
