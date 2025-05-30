@@ -153,7 +153,6 @@ npm run dev
   - Socket.IO-client
   - React Bootstrap
   - Styled Components
-  - SASS
 
 - **Backend**: 
   - Node.js
