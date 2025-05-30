@@ -137,7 +137,7 @@ const MainSearchPage = () => {
   const PlaceholderCard = () => (
     <Card className="h-100 d-flex align-items-center justify-content-center" style={{ minHeight: '400px' }}>
       <Card.Body className="text-center">
-        <div className="mb-4" style={{ fontSize: '4rem', opacity: 0.3 }}>
+        <div className="" style={{ fontSize: '8rem', opacity: 0.3 }}>
           📚
         </div>
         <h5 className="text-muted mb-3">책을 선택해주세요</h5>
@@ -189,7 +189,7 @@ const MainSearchPage = () => {
                     onBookSelect={handleBookSelect} 
                   />
                   </div>
-                  <div className='book-detail' style={{ flex: '2' }}>
+                  <div className='book-detail' style={{ flex: '2', width: 'fit-content' }}>
                   {selectedBook && selectedBookId ? (
                     <BookReviewPage 
                       bookId={selectedBookId} 
@@ -202,7 +202,7 @@ const MainSearchPage = () => {
                   </div>
                 </section>
               ) : (
-                <section className="bookContainer">
+                <section className="bookContainer" style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center'}}>
                   <div className="bookList">
                   </div>
                 </section>

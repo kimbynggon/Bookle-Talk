@@ -136,11 +136,7 @@ const startServer = async () => {
 process.on('SIGINT', () => {
   logger.info('🛑 SIGINT 수신: 서버 종료 중...');
   server.close(() => logger.info('🔚 서버 종료 완료'));
-});
-
-process.on('SIGTERM', () => {
-  logger.info('🛑 SIGTERM 수신: 서버 종료 중...');
-  server.close(() => logger.info('🔚 서버 종료 완료'));
+  process.exit(0);
 });
 
 startServer();
