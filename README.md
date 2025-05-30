@@ -27,7 +27,6 @@ Bookle-Talk/
 │   │   ├── config.js                  # DB 및 환경 설정
 │   │   └── kaka.js                    # 카카오 API 설정
 │   ├── controllers/                   # 요청 핸들러
-<<<<<<< HEAD
 │   │   ├── authController.js          # 회원가입 / 로그인
 │   │   ├── bookController.js          # 책 관련 로직
 │   │   ├── chatController.js          # 채팅 관련 로직
@@ -41,11 +40,9 @@ Bookle-Talk/
 │   │   ├── create-book.js             # books
 │   │   ├── create-chat.js             # chats
 │   │   └── create-like.js             # likes
-=======
 │   ├── dao/                           # Data Access Objects
 │   ├── middleware/                    # 미들웨어
 │   ├── migrations/                    # DB 테이블 자동생성 
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
 │   ├── models/                        # Sequelize 모델
 │   │   ├── user.js, book.js ...
 │   ├── routes/                        # API 라우트 정의
@@ -63,12 +60,9 @@ Bookle-Talk/
 │   │   ├── components/                # 공통 UI 컴포넌트
 │   │   ├── pages/                     # 라우팅 페이지 구성
 │   │   ├── router/                    # React Router 설정
-<<<<<<< HEAD
 │   │   ├── store/                     # Zustand 기반 전역 상태 관리
 │   │   ├── styles/                    # SCSS 스타일링
 │   │   ├── utils/                     # 공통 유틸 함수
-=======
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
 │   │   └── App.jsx                    # 앱 루트
 │   ├── .env                           # 환경 변수
 │   └── package.json                   # 의존성 관리
@@ -124,18 +118,12 @@ graph TB
     B <--> E
 ```
 
-=======
-
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
 #### 주요 컴포넌트 설명
 
 1. **프론트엔드 (Client)**
    - **Pages**: 메인 페이지, 책 상세 페이지, 채팅 페이지 등 라우팅 기반 페이지 컴포넌트
    - **Components**: 재사용 가능한 UI 컴포넌트 (헤더, 네비게이션, 카드 등)
-<<<<<<< HEAD
    - **Store**: Zustand를 사용한 전역 상태 관리
-=======
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
    - **API**: Axios를 통한 백엔드 통신
    - **Socket.IO-client**: 실시간 채팅 구현
 
@@ -154,19 +142,15 @@ graph TB
    - **Users**: 사용자 정보
    - **Books**: 도서 정보
    - **Chats**: 채팅방 및 메시지
-<<<<<<< HEAD
    - **Likes**: 북마크/좋아요
 
 4. **외부 서비스 (External Services)**
    - **Kakao API**: 소셜 로그인
    - **Book Search API**: 도서 정보 검색
-
-=======
    - **Likes**: 평점
 
 4. **외부 서비스 (External Services)**
    - **Kakao Book API**: 도서 정보 API
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
 #### 데이터 흐름
 1. 클라이언트 요청 → Express 서버
 2. 서버의 Controller에서 요청 처리
@@ -223,22 +207,14 @@ npm run dev
   - Socket.IO-client
   - React Bootstrap
   - Styled Components
-<<<<<<< HEAD
   - SASS
-=======
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
-
 - **Backend**: 
   - Node.js
   - Express.js
   - Sequelize ORM
   - Socket.IO
   - JWT (jsonwebtoken)
-<<<<<<< HEAD
   - Winston (로깅)
-=======
->>>>>>> 890684ba09b1f7bff34ed12e5eeaf6572725ff4a
-
 - **Database**: 
   - PostgreSQL
   - Sequelize CLI
