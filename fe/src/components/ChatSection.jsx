@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { io } from 'socket.io-client';
-import '../App.css';
+import '../App.scss';
 
 export const ChatSection = ({ bookId, currentUser: propCurrentUser }) => {
   const [comment, setComment] = useState("");

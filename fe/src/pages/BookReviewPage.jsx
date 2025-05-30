@@ -6,7 +6,7 @@ import BookCover from '../components/BookCover.jsx';
 import ChatSection from '../components/ChatSection.jsx';
 import BookSummary from '../components/BookSummary.jsx';
 import BookInfo from '../components/BookInfo.jsx';
-import '../App.css';
+import '../App.scss';
 
 export default function BookReviewPage({ bookId: propBookId, bookData: propBookData, currentUser: propCurrentUser }) {
   const { id: urlId } = useParams(); 
@@ -184,7 +184,7 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
       <Card.Body>
         <Row>
           {/* 책 표지 이미지 */}
-          <Col md={4} className="mb-3 mb-md-0">
+          <Col md={4} className="bookimg">
             <BookCover book={book} />
           </Col>
 
@@ -192,7 +192,7 @@ export default function BookReviewPage({ bookId: propBookId, bookData: propBookD
           <Col md={8}>
             <Row>
               {/* 책 줄거리 */}
-              <Col md={12} className="mb-4">
+              <Col md={12} className="bookcontent">
                 <BookSummary book={book} />
               </Col>
 

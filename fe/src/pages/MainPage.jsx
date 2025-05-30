@@ -189,7 +189,7 @@ const MainSearchPage = () => {
                     onBookSelect={handleBookSelect} 
                   />
                   </div>
-                  <div className='book-detail' style={{ flex: '2', width: 'fit-content' }}>
+                  <div className='book-detail' style={{ flex: '1' }}>
                   {selectedBook && selectedBookId ? (
                     <BookReviewPage 
                       bookId={selectedBookId} 

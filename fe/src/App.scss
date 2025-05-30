@@ -287,3 +287,91 @@ body {
     color: #ccc;
   }
 }
+.App {
+  text-align: center;
+  max-width: 750px;
+  margin: 120px auto
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.shadow-sm{
+  width: fit-content;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.kakaobooktitle{
+  font-size: 1rem;
+}
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.talk-input{
+  margin-right: 0rem !important;
+  margin: 0rem !important;
+}
+.w-full{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.text-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.relative{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.searchmain{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logotitle{
+  font-size: 50px;
+}
+.card-text{
+  font-size: 15px;
+}
+.text-muted{
+  text-align: left;
+}
+.bookimg{
+  margin-top: 0.5rem;
+  width: 25%;
+}
+.bookcontent{
+  margin-top: -0.5rem;
+  flex: 1;
+}
