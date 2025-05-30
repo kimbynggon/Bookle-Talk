@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
-import '../App.css';
+import '../App.scss';
 
 const BookCover = ({ book }) => {
   const [imageError, setImageError] = useState(false);
@@ -35,10 +35,10 @@ const BookCover = ({ book }) => {
     <div 
       className="d-flex flex-column align-items-center justify-content-center text-muted book-cover-placeholder"
       style={{ 
-        height: '300px', 
         backgroundColor: '#f8f9fa',
         border: '2px dashed #dee2e6',
-        borderRadius: '8px'
+        borderRadius: '5px',
+        overflow: 'hidden'
       }}
     >
       <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📚</div>
@@ -57,14 +57,14 @@ const BookCover = ({ book }) => {
   );
 
   return (
-    <Card className="h-100 book-cover-card border-0" style={{ width: '86%', borderRadius: '5px', overflow: 'hidden' }}>
+    <Card className="h-100 book-cover-card border-0" style={{borderRadius: '5px', overflow: 'hidden'}}>
       <div className="book-cover-img-container">
         {imageUrl && !imageError ? (
           <>
             {imageLoading && (
               <div 
                 className="d-flex align-items-center justify-content-center text-muted"
-                style={{ height: '300px', backgroundColor: '#f8f9fa' }}
+                style={{ backgroundColor: '#f8f9fa' }}
               >
                 <div className="text-center">
                   <div className="spinner-border spinner-border-sm" role="status">

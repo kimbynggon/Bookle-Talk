@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import '../App.css';
+import '../App.scss';
 
 const BookSummary = ({ book }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -47,7 +47,7 @@ const BookSummary = ({ book }) => {
 
   return (
     <Card className="border-0 h-100">
-      <Card.Body>
+      <Card.Body style={{flex: 1}}>
         <h5 className="card-title fw-bold mb-3">책 소개
         {book.url && (
           <div className="">
@@ -56,7 +56,7 @@ const BookSummary = ({ book }) => {
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-outline-secondary btn-sm"
-              style={{position: 'absolute', right: '6%', top: '2%'}}
+              style={{position: 'absolute', right: '6%', top: '2%', padding:'4px'}}
             >
             🔗
             </a>

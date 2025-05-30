@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Badge, Button } from 'react-bootstrap';
 import { Star } from 'lucide-react';
-import '../App.css';
+import '../App.scss';
 
 export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) => {
   // console.log('=== BookTitle 렌더링 ===');
@@ -252,7 +252,7 @@ export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) =
                 size="sm"
                 onClick={handleRatingReset}
                 disabled={isSubmitting}
-                style={{ fontSize: '0.75rem' }}
+                style={{ fontSize: '8px' , padding:'4px'}}
               >
                 삭제
               </Button>
