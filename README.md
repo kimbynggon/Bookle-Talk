@@ -27,19 +27,9 @@ Bookle-Talk/
 │   │   ├── config.js                  # DB 및 환경 설정
 │   │   └── kaka.js                    # 카카오 API 설정
 │   ├── controllers/                   # 요청 핸들러
-│   │   ├── authController.js          # 회원가입 / 로그인
-│   │   ├── bookController.js          # 책 관련 로직
-│   │   ├── chatController.js          # 채팅 관련 로직
-│   │   └── searchController.js        # 검색 로직
 │   ├── dao/                           # Data Access Objects
-│   │   └── userDao.js                 # 사용자 DB 접근 객체
 │   ├── middleware/                    # 미들웨어
-│   │   └── authMiddleware.js          # 인증 미들웨어 (JWT)
 │   ├── migrations/                    # DB 테이블 자동생성 
-│   │   ├── create-user.js             # users
-│   │   ├── create-book.js             # books
-│   │   ├── create-chat.js             # chats
-│   │   └── create-like.js             # likes
 │   ├── models/                        # Sequelize 모델
 │   │   ├── user.js, book.js ...
 │   ├── routes/                        # API 라우트 정의
@@ -47,10 +37,7 @@ Bookle-Talk/
 │   ├── utils/                         # 유틸리티 함수
 │   ├── views/                         # 서버 사이드 렌더링 뷰
 │   ├── logs/                          # 로그 디렉토리
-│   │   ├── combined.log
-│   │   └── error.log
 │   ├── book/, bruno_bookList/         # API 테스트 시나리오 (Bruno)
-│   └── index.html                     # 테스트용 HTML
 │
 ├── fe/                                # 프론트엔드 (React)
 │   ├── public/                        # 정적 리소스
@@ -60,9 +47,6 @@ Bookle-Talk/
 │   │   ├── components/                # 공통 UI 컴포넌트
 │   │   ├── pages/                     # 라우팅 페이지 구성
 │   │   ├── router/                    # React Router 설정
-│   │   ├── store/                     # Zustand 기반 전역 상태 관리
-│   │   ├── styles/                    # SCSS 스타일링
-│   │   ├── utils/                     # 공통 유틸 함수
 │   │   └── App.jsx                    # 앱 루트
 │   ├── .env                           # 환경 변수
 │   └── package.json                   # 의존성 관리
@@ -74,7 +58,6 @@ Bookle-Talk/
 1. **프론트엔드 (Client)**
    - **Pages**: 메인 페이지, 책 상세 페이지, 채팅 페이지 등 라우팅 기반 페이지 컴포넌트
    - **Components**: 재사용 가능한 UI 컴포넌트 (헤더, 네비게이션, 카드 등)
-   - **Store**: Zustand를 사용한 전역 상태 관리
    - **API**: Axios를 통한 백엔드 통신
    - **Socket.IO-client**: 실시간 채팅 구현
 
@@ -96,8 +79,7 @@ Bookle-Talk/
    - **Likes**: 평점
 
 4. **외부 서비스 (External Services)**
-   - **Kakao API**: 소셜 로그인
-
+   - **Kakao Book API**: 도서 정보 API
 #### 데이터 흐름
 1. 클라이언트 요청 → Express 서버
 2. 서버의 Controller에서 요청 처리
@@ -160,7 +142,6 @@ npm run dev
   - Sequelize ORM
   - Socket.IO
   - JWT (jsonwebtoken)
-  - Winston (로깅)
 
 - **Database**: 
   - PostgreSQL
