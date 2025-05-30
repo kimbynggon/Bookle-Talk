@@ -20,7 +20,9 @@ Bookle-Talk/
 │
 ├── be/                                # 백엔드 (Node.js + Express + Sequelize)
 │   ├── app.js                         # Express 앱의 진입점
-│   ├── bin/www                        # 서버 실행 스크립트
+│   ├── server.js                      # 서버 설정 및 소켓 통신
+│   ├── socket.js                      # WebSocket 설정
+│   ├── bin/                           # 서버 실행 스크립트
 │   ├── config/                        # 설정 파일
 │   │   ├── config.js                  # DB 및 환경 설정
 │   │   └── kaka.js                    # 카카오 API 설정
@@ -29,18 +31,21 @@ Bookle-Talk/
 │   │   ├── bookController.js          # 책 관련 로직
 │   │   ├── chatController.js          # 채팅 관련 로직
 │   │   └── searchController.js        # 검색 로직
-│   ├── dao/
+│   ├── dao/                           # Data Access Objects
 │   │   └── userDao.js                 # 사용자 DB 접근 객체
-│   ├── middleware/
+│   ├── middleware/                    # 미들웨어
 │   │   └── authMiddleware.js          # 인증 미들웨어 (JWT)
-│   ├── migrations/                    # DB 테이블 생성 내역
+│   ├── migrations/                    # DB 테이블 자동생성 
 │   │   ├── create-user.js             # users
 │   │   ├── create-book.js             # books
 │   │   ├── create-chat.js             # chats
-│   │   ├── create-like.js             # likes
-│   │   └── create-bookmark.js         # bookmarks
+│   │   └── create-like.js             # likes
 │   ├── models/                        # Sequelize 모델
 │   │   ├── user.js, book.js ...
+│   ├── routes/                        # API 라우트 정의
+│   ├── services/                      # 비즈니스 로직
+│   ├── utils/                         # 유틸리티 함수
+│   ├── views/                         # 서버 사이드 렌더링 뷰
 │   ├── logs/                          # 로그 디렉토리
 │   │   ├── combined.log
 │   │   └── error.log
@@ -52,17 +57,54 @@ Bookle-Talk/
 │   ├── src/
 │   │   ├── api/                       # API 요청 모듈 (Axios)
 │   │   ├── assets/                    # 이미지, 아이콘 등
-│   │   ├── components/               # 공통 UI 컴포넌트
-│   │   ├── pages/                    # 라우팅 페이지 구성
-│   │   ├── router/                   # React Router 설정
-│   │   ├── store/                    # Zustand 기반 전역 상태 관리
-│   │   ├── styles/                   # SCSS 스타일링
-│   │   ├── utils/                    # 공통 유틸 함수
-│   │   └── App.jsx                   # 앱 루트
-│   ├── .env                          # 환경 변수
-│  
+│   │   ├── components/                # 공통 UI 컴포넌트
+│   │   ├── pages/                     # 라우팅 페이지 구성
+│   │   ├── router/                    # React Router 설정
+│   │   ├── store/                     # Zustand 기반 전역 상태 관리
+│   │   ├── styles/                    # SCSS 스타일링
+│   │   ├── utils/                     # 공통 유틸 함수
+│   │   └── App.jsx                    # 앱 루트
+│   ├── .env                           # 환경 변수
+│   └── package.json                   # 의존성 관리
+```
+---
 
-``` 
+#### 주요 컴포넌트 설명
+
+1. **프론트엔드 (Client)**
+   - **Pages**: 메인 페이지, 책 상세 페이지, 채팅 페이지 등 라우팅 기반 페이지 컴포넌트
+   - **Components**: 재사용 가능한 UI 컴포넌트 (헤더, 네비게이션, 카드 등)
+   - **Store**: Zustand를 사용한 전역 상태 관리
+   - **API**: Axios를 통한 백엔드 통신
+   - **Socket.IO-client**: 실시간 채팅 구현
+
+2. **백엔드 (Server)**
+   - **Controllers**: 
+     - `authController`: 회원가입/로그인 처리
+     - `bookController`: 도서 관련 CRUD
+     - `chatController`: 채팅방 관리
+     - `searchController`: 도서 검색
+   - **Services**: 비즈니스 로직 처리
+   - **Models**: Sequelize ORM 기반 데이터 모델
+   - **Socket.IO**: 실시간 양방향 통신
+   - **Middleware**: JWT 인증, 에러 처리 등
+
+3. **데이터베이스 (Database)**
+   - **Users**: 사용자 정보
+   - **Books**: 도서 정보
+   - **Chats**: 채팅방 및 메시지
+   - **Likes**: 평점
+
+4. **외부 서비스 (External Services)**
+   - **Kakao API**: 소셜 로그인
+
+#### 데이터 흐름
+1. 클라이언트 요청 → Express 서버
+2. 서버의 Controller에서 요청 처리
+3. Service 레이어에서 비즈니스 로직 실행
+4. Model을 통한 데이터베이스 작업
+5. Socket.IO를 통한 실시간 통신
+6. 외부 API 연동 (카카오, 도서 검색)
 
 ---
 
@@ -97,19 +139,40 @@ npm run dev
 - 기본 포트: http://localhost:8080
 
 
-## RDB
-
-
-
-
+## ERD
+---
+![bookletalk](https://github.com/user-attachments/assets/bcf9d430-fb68-47f8-9fdb-220a8a3c0f6f)
+---
 
 ## 🧠 사용 기술 스택
 
-- **Frontend**: React, Axios, Socket.IO-client
-- **Backend**: Express.js, Sequelize, Socket.IO
-- **DB**: PostgreSQL (RDS), Sequelize ORM
-- **DevOps**: dotenv
-- **Tooling**: ESLint, nodemon
+- **Frontend**: 
+  - React 19
+  - React Router DOM 7
+  - Axios
+  - Socket.IO-client
+  - React Bootstrap
+  - Styled Components
+  - SASS
+
+- **Backend**: 
+  - Node.js
+  - Express.js
+  - Sequelize ORM
+  - Socket.IO
+  - JWT (jsonwebtoken)
+  - Winston (로깅)
+
+- **Database**: 
+  - PostgreSQL
+  - Sequelize CLI
+
+- **DevOps & Tools**: 
+  - dotenv (환경변수 관리)
+  - ESLint
+  - Prettier
+  - Nodemon
+  - Winston Daily Rotate File (로그 관리)
 
 ---
 
