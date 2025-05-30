@@ -122,7 +122,9 @@ npm run dev
 
 ## ERD
 ---
-![bookletalk](https://github.com/user-attachments/assets/bcf9d430-fb68-47f8-9fdb-220a8a3c0f6f)
+
+  <img src="https://github.com/user-attachments/assets/bcf9d430-fb68-47f8-9fdb-220a8a3c0f6f" alt="bookletalk" style="width:400px;">
+
 ---
 
 ## 🧠 사용 기술 스택
