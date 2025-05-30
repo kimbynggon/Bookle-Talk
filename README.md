@@ -68,7 +68,6 @@ Bookle-Talk/
 │   └── package.json                   # 의존성 관리
 ```
 ---
-<<<<<<< HEAD
 ### 아키텍처 구조도
 
 ```mermaid
