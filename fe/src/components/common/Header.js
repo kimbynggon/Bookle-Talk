@@ -35,7 +35,6 @@ const Header = () => {
             </button>
           ) : (
             <div className="user-info">
-              <button className="alarm">알람</button>
               <span className="nickname">{nickname}님</span>
               <button className="logout" onClick={handleLogout}>
                 로그아웃
