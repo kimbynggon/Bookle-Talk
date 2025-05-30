@@ -6,7 +6,7 @@ import "./AuthModal.scss";
 
 const AuthModal = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState("login");
-
+  const [inputValue, setInputValue] = useState("");
   const [loginData, setLoginData] = useState({
     userId: "",
     password: "",
@@ -29,6 +29,17 @@ const AuthModal = ({ onClose }) => {
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeTab === "login") {
+        handleLogin();
+      } else if (activeTab === "signup") {
+        handleSignup();
+      }
+    }
+  };
+
   const isSignupValid =
     signupData.userId &&
     signupData.password &&
@@ -40,11 +51,11 @@ const AuthModal = ({ onClose }) => {
     isUserIdChecked;
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
     };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
   const handleOverlayClick = (e) => {
@@ -117,7 +128,7 @@ const AuthModal = ({ onClose }) => {
         <div className="modal-header">
           <div className="tabs">
             <button
-              className=  {activeTab === "login" ? "active" : ""}
+              className={activeTab === "login" ? "active" : ""}
               onClick={() => setActiveTab("login")}
             >
               로그인
@@ -140,6 +151,7 @@ const AuthModal = ({ onClose }) => {
               onChange={(e) =>
                 setLoginData({ ...loginData, userId: e.target.value })
               }
+              onKeyDown={handleKeyDown}
             />
             <Input
               type="password"
@@ -148,6 +160,7 @@ const AuthModal = ({ onClose }) => {
               onChange={(e) =>
                 setLoginData({ ...loginData, password: e.target.value })
               }
+              onKeyDown={handleKeyDown}
             />
             {loginError && <div className="error-message">{loginError}</div>}
             <Button className="submit-btn" onClick={handleLogin}>
