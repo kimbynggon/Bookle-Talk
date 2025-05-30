@@ -27,7 +27,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.kakaobooktitle{
+  font-size: 1rem;
+}
 .App-link {
   color: #61dafb;
 }
@@ -69,4 +71,10 @@
 }
 .logotitle{
   font-size: 50px;
+}
+.card-text{
+  font-size: 15px;
+}
+.text-muted{
+  text-align: left;
 }

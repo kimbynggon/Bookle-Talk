@@ -57,7 +57,7 @@ const BookCover = ({ book }) => {
   );
 
   return (
-    <Card className="h-100 book-cover-card border-0">
+    <Card className="h-100 book-cover-card border-0" style={{ width: '86%', borderRadius: '5px', overflow: 'hidden' }}>
       <div className="book-cover-img-container">
         {imageUrl && !imageError ? (
           <>
@@ -85,7 +85,7 @@ const BookCover = ({ book }) => {
               onLoad={handleImageLoad}
               style={{ 
                 display: imageLoading ? 'none' : 'block',
-                maxHeight: '400px',
+                maxHeight: '100%',
                 objectFit: 'contain'
               }}
             />
