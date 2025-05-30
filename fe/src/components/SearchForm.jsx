@@ -224,7 +224,7 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
                 style={{ cursor: 'pointer' }}  
                 >
                   <div className='book-info-1'>
-                    <img d='book-img' 
+                    <img id='book-img' 
                     src={book.thumbnail || 'http://via.placeholder.com/120X150?text=No+Image'} 
                     alt={book.title || "책 표지"}
                     onError={handleImageError}/>
