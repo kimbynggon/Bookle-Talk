@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Badge, Button } from 'react-bootstrap';
 import { Star } from 'lucide-react';
+import '../App.css';
 
 export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) => {
   // console.log('=== BookTitle 렌더링 ===');
@@ -189,7 +190,7 @@ export const BookTitle = ({ title, averageRating, book, bookId, currentUser }) =
     <Card.Header className="bg-light">
       <div className="d-flex align-items-center justify-content-between flex-wrap">
         <div className="d-flex align-items-center flex-wrap">
-          <h5 className="mb-0 me-3">제목: {bookTitle}</h5>
+          <h5 className="mb-0 me-3 kakaobooktitle">{bookTitle}</h5>
           
           {/* 평균 별점 표시 */}
           <div className="d-flex align-items-center me-3">
