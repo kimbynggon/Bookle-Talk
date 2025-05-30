@@ -3,6 +3,8 @@ import axios from 'axios';
 import './SearchForm.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
+import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 const testApi = process.env.REACT_APP_API_URL
 
@@ -227,19 +229,28 @@ const SearchForm = ({ query: initialQuery = '', onBookSelect = () => {}}) => {
                     alt={book.title || "책 표지"}
                     onError={handleImageError}/>
                   </div>
-                  <div className='book-info-2'>
+                  <div className='book-info-2' title={book.title}>
                     <div className='ellipsis'>
                       <div id='rating'>
                         {book.avg !== null && book.avg !== undefined
-                        ? <>
-                        {'⭐️'.repeat(Math.trunc(book.avg)) + '☆'.repeat(5 - Math.trunc(book.avg))} {Number(book.avg).toFixed(1)}
+                        ?
+                        <>
+                          {[...Array(Math.trunc(book.avg))].map((_, idx) => (
+                            <FontAwesomeIcon key={idx} icon={faStarSolid} style={{color: "#FFD43B"}}/>
+                          ))}
+                          {[...Array(5 - Math.trunc(book.avg))].map((_, idx) => (
+                            <FontAwesomeIcon key={idx} icon={faStarRegular} style={{color: "#FFD43B"}}/>
+                          ))}
+                          <div id='book_avg'>{Number(book.avg).toFixed(1)}</div>
                         </>
                         : '평점 없음'}                      
                       </div>
                     </div>
-                    <div className='ellipsis title' data-tooltip={book.title}>
+                    <div className='ellipsis'>
                       <div id='category'>제목</div> 
-                      <div id='detail'>{book.title}</div>
+                      <div id='detail'>
+                        {book.title}
+                      </div>
                     </div>
                     <div className='ellipsis'>
                       <div id='category'>저자/역자</div> 
