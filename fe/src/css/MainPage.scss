@@ -32,15 +32,11 @@
     flex-direction: column;
   }
 }
-.logo-text {
-  position: absolute;
-  bottom: 150%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  font-weight: 700;
-  color: #4b85f0;
-  user-select: none;
+.logo-img {
+  margin-bottom:40px;
+}
+.logo-img > img{
+  width: 400px;
 }
 .search-wrapper {
   position: relative;

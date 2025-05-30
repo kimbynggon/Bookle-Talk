@@ -1842,3 +1842,7 @@
 {"level":"info","message":"User disconnected: 8QoCzUmuTPjQABhLAAAB","service":"bookletalk-api","timestamp":"2025-05-28 16:08:09"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-28 16:14:38"}
 {"level":"info","message":"Server running on port 8080","service":"bookletalk-api","timestamp":"2025-05-29 09:15:30"}
+{"level":"info","message":"🚀 서버 실행: http://localhost:8080","service":"bookletalk-api","timestamp":"2025-05-30 15:37:42"}
+{"level":"info","message":"🌐 네트워크 접근: http://192.168.0.9:8080","service":"bookletalk-api","timestamp":"2025-05-30 15:37:42"}
+{"level":"info","message":"✅ 허용된 Origins: http://localhost:3000, http://192.168.0.9:3000, http://192.168.0.9:3001, http://192.168.0.44:3001","service":"bookletalk-api","timestamp":"2025-05-30 15:37:42"}
+{"level":"info","message":"🔧 실행 환경: development","service":"bookletalk-api","timestamp":"2025-05-30 15:37:42"}
