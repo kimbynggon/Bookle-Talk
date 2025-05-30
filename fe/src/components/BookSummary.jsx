@@ -47,7 +47,21 @@ const BookSummary = ({ book }) => {
   return (
     <Card className="border-0 h-100">
       <Card.Body>
-        <h5 className="card-title fw-bold mb-3">책 소개</h5>
+        <h5 className="card-title fw-bold mb-3">책 소개
+        {book.url && (
+          <div className="">
+            <a 
+              href={book.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-outline-secondary btn-sm"
+              style={{position: 'absolute', right: '6%', top: '2%'}}
+            >
+            🔗
+            </a>
+          </div>
+        )}
+        </h5>
         
         <div className="book-description" style={{ lineHeight: '1.6' }}>
           <p className="card-text text-muted mb-3">
@@ -121,18 +135,7 @@ const BookSummary = ({ book }) => {
         </div>
         
         {/* 외부 링크 */}
-        {book.url && (
-          <div className="mt-3 pt-3 border-top">
-            <a 
-              href={book.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-outline-secondary btn-sm"
-            >
-              원본 페이지에서 보기 🔗
-            </a>
-          </div>
-        )}
+        
       </Card.Body>
     </Card>
   );
