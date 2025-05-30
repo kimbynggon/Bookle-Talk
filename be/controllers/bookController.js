@@ -448,16 +448,23 @@ const searchBooks = async (req, res) => {
 
 // ✅ 수정된 rateBook 함수 (user_id 문자열 사용)
 const rateBook = async (req, res) => {
-
   try {
     const { bookId, rating, userId } = req.body;
     
+    // ✅ 요청 정보 로깅
+    console.log('=== 별점 저장 요청 ===');
+    console.log('Request body:', req.body);
+    console.log('JWT user:', req.user);
+    
     const actualUserId = req.user?.user_id || userId;
 
+    // ✅ 입력 검증 강화
     if (!bookId || !rating || !actualUserId) {
+      console.log('❌ 필수 파라미터 누락:', { bookId, rating, actualUserId });
       return res.status(400).json({
         success: false,
-        message: 'Book ID, user ID, and rating are required'
+        message: 'Book ID, user ID, and rating are required',
+        debug: { bookId, rating, actualUserId, hasJwtUser: !!req.user }
       });
     }
 
@@ -468,14 +475,20 @@ const rateBook = async (req, res) => {
       });
     }
 
+    // ✅ 책 존재 확인
     const book = await Book.findByPk(bookId);
     if (!book) {
+      console.log('❌ 책을 찾을 수 없음:', bookId);
       return res.status(404).json({
         success: false,
         message: 'Book not found'
       });
     }
 
+    console.log('✅ 책 확인 완료:', book.title);
+    console.log('💾 별점 저장 시도:', { bookId, actualUserId, rating });
+
+    // ✅ 별점 저장/업데이트
     const [like, created] = await Like.upsert({
       user_id: actualUserId,
       book_id: bookId,
@@ -493,23 +506,25 @@ const rateBook = async (req, res) => {
       },
       attributes: [
         [sequelize.fn('AVG', sequelize.col('rating')), 'avgRating'],
-        [sequelize.fn('COUNT', sequelize.col('rating')), 'ratingCount']  // 계산만 하고 저장 X
+        [sequelize.fn('COUNT', sequelize.col('rating')), 'ratingCount']
       ],
       raw: true
     });
-    console.log('ratingStats 결과:', ratingStats);
+    
+    console.log('📊 별점 통계:', ratingStats);
 
     const newAvg = ratingStats[0].avgRating ? parseFloat(ratingStats[0].avgRating).toFixed(2) : 0.0;
-    const ratingCount = parseInt(ratingStats[0].ratingCount) || 0;  // 응답용
+    const ratingCount = parseInt(ratingStats[0].ratingCount) || 0;
 
-    console.log('계산된 평균:', newAvg);
-console.log('별점 개수:', ratingCount);
+    console.log('📈 계산된 평균:', newAvg);
+    console.log('📊 별점 개수:', ratingCount);
 
     // ✅ avg만 업데이트
     await book.update({ avg: newAvg });
-    console.log('DB 업데이트 완료');
+    console.log('✅ DB 업데이트 완료');
 
     logger.info(`⭐ 평점 ${created ? '등록' : '수정'}: 책 ${bookId}, 사용자 ${actualUserId}, 평점 ${rating}`);
+    
     return res.status(200).json({
       success: true,
       message: `평점이 성공적으로 ${created ? '등록' : '수정'}되었습니다.`,
@@ -519,16 +534,21 @@ console.log('별점 개수:', ratingCount);
         rating: parseFloat(rating), 
         created,
         newAverageRating: parseFloat(newAvg),
-        ratingCount: ratingCount  // 실시간 계산값 반환
+        ratingCount: ratingCount
       }
     });
     
   } catch (error) {
+    console.error('❌ 별점 저장 오류:', error);
     logger.error('Error rating book:', error);
     return res.status(500).json({
       success: false,
       message: 'Failed to rate book',
-      error: error.message
+      error: error.message,
+      debug: process.env.NODE_ENV === 'development' ? {
+        stack: error.stack,
+        body: req.body
+      } : undefined
     });
   }
 };
@@ -539,9 +559,15 @@ const deleteUserRating = async (req, res) => {
     const { bookId } = req.params;
     const { userId } = req.body;
     
+    console.log('=== 별점 삭제 요청 ===');
+    console.log('bookId:', bookId);
+    console.log('body userId:', userId);
+    console.log('JWT user:', req.user);
+    
     const actualUserId = req.user?.user_id || userId;
     
     if (!actualUserId) {
+      console.log('❌ 사용자 ID 누락');
       return res.status(400).json({
         success: false,
         message: 'User ID is required'
@@ -550,6 +576,7 @@ const deleteUserRating = async (req, res) => {
     
     const book = await Book.findByPk(bookId);
     if (!book) {
+      console.log('❌ 책을 찾을 수 없음:', bookId);
       return res.status(404).json({
         success: false,
         message: 'Book not found'
@@ -564,12 +591,14 @@ const deleteUserRating = async (req, res) => {
     });
     
     if (!like) {
+      console.log('❌ 삭제할 별점 없음');
       return res.status(404).json({
         success: false,
         message: 'No rating found to delete'
       });
     }
     
+    console.log('🗑️ 별점 삭제 중...');
     await like.destroy();
     
     // 평균 별점 재계산
@@ -588,8 +617,13 @@ const deleteUserRating = async (req, res) => {
     const newAvg = ratingStats[0].avgRating ? parseFloat(ratingStats[0].avgRating).toFixed(2) : 0.0;
     const ratingCount = parseInt(ratingStats[0].ratingCount) || 0;
 
+    console.log('📈 재계산된 평균:', newAvg);
+    console.log('📊 남은 별점 개수:', ratingCount);
+
     // ✅ avg만 업데이트
     await book.update({ avg: newAvg });
+    
+    console.log('✅ 별점 삭제 완료');
     
     return res.status(200).json({
       success: true,
@@ -598,10 +632,11 @@ const deleteUserRating = async (req, res) => {
         bookId: parseInt(bookId),
         userId: actualUserId,
         newAverageRating: parseFloat(newAvg),
-        ratingCount: ratingCount  // 실시간 계산값
+        ratingCount: ratingCount
       }
     });
   } catch (error) {
+    console.error('❌ 별점 삭제 오류:', error);
     logger.error('Error deleting user rating:', error);
     return res.status(500).json({
       success: false,
@@ -617,10 +652,16 @@ const getUserRating = async (req, res) => {
     const { bookId } = req.params;
     const { userId } = req.query;
     
+    console.log('=== 사용자 별점 조회 ===');
+    console.log('bookId:', bookId);
+    console.log('query userId:', userId);
+    console.log('JWT user:', req.user);
+    
     // ✅ JWT에서 user_id (문자열) 가져오기
     const actualUserId = req.user?.user_id || userId;
     
     if (!actualUserId) {
+      console.log('❌ 사용자 ID 누락');
       return res.status(400).json({
         success: false,
         message: 'User ID is required'
@@ -629,20 +670,24 @@ const getUserRating = async (req, res) => {
     
     const book = await Book.findByPk(bookId);
     if (!book) {
+      console.log('❌ 책을 찾을 수 없음:', bookId);
       return res.status(404).json({
         success: false,
         message: 'Book not found'
       });
     }
     
+    console.log('🔍 별점 검색:', { bookId, actualUserId });
+    
     const like = await Like.findOne({
       where: {
-        user_id: actualUserId,  // ✅ 문자열 user_id 사용
+        user_id: actualUserId,
         book_id: bookId
       }
     });
     
     if (!like) {
+      console.log('📝 별점 없음');
       return res.status(200).json({
         success: true,
         data: null,
@@ -650,6 +695,7 @@ const getUserRating = async (req, res) => {
       });
     }
     
+    console.log('✅ 기존 별점 발견:', like.rating);
     logger.info(`🔍 사용자 별점 조회: 책 ${bookId}, 사용자 ${actualUserId}, 별점 ${like.rating}`);
     
     return res.status(200).json({
@@ -662,6 +708,7 @@ const getUserRating = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('❌ 사용자 별점 조회 오류:', error);
     logger.error('Error fetching user rating:', error);
     return res.status(500).json({
       success: false,
