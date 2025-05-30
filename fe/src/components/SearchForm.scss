@@ -114,14 +114,15 @@ form {
 .documents{
   margin-top: -1rem;
   overflow-y: scroll;
-  height: 90vh;
+  height: 85vh;
 
   &.grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 
     .box{
+      width: 100%;
       border: 1px solid #ddd;
       // margin: 5px;
       padding: 10px 5px;
@@ -138,7 +139,8 @@ form {
       #rating {
         font-size: 7px;
         text-align: right;
-        padding: 0 1px;
+        padding: 2px 0 1px 0;
+        margin-left: -0.1rem;
       }
 
       
@@ -168,11 +170,16 @@ form {
         text-align: right;
         display: flex;
         justify-content: flex-end;
+
+        #book_avg {
+          margin: -0.15rem 0 0 0.1rem;
+        }
       }
 
       #category {
         width: 50%;
         font-size: 10px;
+        font-weight: 600;
         text-align: left;
       }
       #detail {
@@ -186,27 +193,6 @@ form {
         -webkit-box-orient: vertical;
       }
     }  
-
-    .title::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 120%;
-      transform: translateX(-50%);
-      background: black;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      font-size: 13px;
-      z-index: 10;
-    }
-    .title::hover::after {
-      opacity: 1;
-    }
   }
 
   &.list {
@@ -236,7 +222,7 @@ form {
     
       .book-info-2 {
         width: 70%;
-        padding: 1rem 1rem 0rem 0rem;
+        padding: 1rem 1rem 2rem 0rem;
       }
     }
 
@@ -247,18 +233,22 @@ form {
     
     .ellipsis {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.1rem;
+      padding: 0.3rem 0.1rem;
     
       #rating {
-        font-size: 10px;
-        text-align: right;
+        font-size: 12px;
         display: flex;
-        justify-content: flex-end;
+        margin-left: auto;
+        padding-bottom: 0.5rem;
+
+        #book_avg {
+          margin: -0.15rem 0 0 0.1rem;
+        }
       }
       #category {
         font-size: 12px;
+        font-weight: 600;
       }
       #detail {
         font-size: 12px;
