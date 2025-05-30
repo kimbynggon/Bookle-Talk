@@ -7,7 +7,6 @@ import '../css/MainPage.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { Card } from 'react-bootstrap';
-import logo from '../img/logo.png'
 
 const MainSearchPage = () => {
   const location = useLocation();
@@ -154,15 +153,14 @@ const MainSearchPage = () => {
     <div className={`main-container ${isSearched ? 'searched' : 'initial'}`}>
       <main className="content px-4">
         <div className="max-w-2xl w-full text-center mb-12">
-        <div className="logo-img">
-                    <img src={logo} alt="logo" />
-                  </div>  
           {/* 검색창 */}
           <div className="w-full">
           <div className={`search-wrapper ${isSearched ? 'searched' : 'initial'}`}>
               {!isSearched && (
                 <div className="search-bar">
-
+                  <div className="logo-text">
+                    BookleTalk
+                  </div>
                   <form onSubmit={handleSearch} className="bookSearchForm">
                     <input
                       ref={inputRef}
@@ -191,7 +189,7 @@ const MainSearchPage = () => {
                     onBookSelect={handleBookSelect} 
                   />
                   </div>
-                  <div className='book-detail' style={{ flex: '1' }}>
+                  <div className='book-detail' style={{ flex: '2'}}>
                   {selectedBook && selectedBookId ? (
                     <BookReviewPage 
                       bookId={selectedBookId} 
