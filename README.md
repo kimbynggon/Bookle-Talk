@@ -71,50 +71,39 @@ Bookle-Talk/
 ### 아키텍처 구조도
 
 ```mermaid
-graph TB
-    subgraph Client
-        A[React Frontend]
-        A1[Pages]
-        A2[Components]
-        A3[Store/Zustand]
-        A --> A1
-        A --> A2
-        A --> A3
-    end
-
-    subgraph Server
-        B[Express Backend]
-        B1[Controllers]
-        B2[Services]
-        B3[Models]
-        B4[Socket.IO]
-        B --> B1
-        B --> B2
-        B --> B3
-        B --> B4
-    end
-
-    subgraph Database
-        C[(PostgreSQL)]
-        C1[Users]
-        C2[Books]
-        C3[Chats]
-        C4[Likes]
-        C --> C1
-        C --> C2
-        C --> C3
-        C --> C4
-    end
-
-    subgraph External Services
-        D[Kakao API]
-        E[Book Search API]
-    end
-
+---
+config:
+  layout: dagre
+---
+flowchart TB
+ subgraph Client["Client"]
+        A["React Frontend"]
+        A1["Pages"]
+        A2["Components"]
+  end
+ subgraph Server["Server"]
+        B["Express Backend"]
+        B1["Controllers"]
+        B2["Services"]
+        B3["Models"]
+        B4["Socket.IO"]
+  end
+ subgraph Database["Database"]
+        C[("PostgreSQL")]
+        C1["Users"]
+        C2["Books"]
+        C3["Chats"]
+        C4["Likes"]
+  end
+ subgraph subGraph3["External Services"]
+        D["Kakao API"]
+  end
+    A --> A1 & A2
+    B --> B1 & B2 & B3 & B4
+    C --> C1 & C2 & C3 & C4
     A <--> B
-    B <--> C
-    B <--> D
-    B <--> E
+    B <--> C & D
+
 ```
 
 #### 주요 컴포넌트 설명
