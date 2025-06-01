@@ -70,7 +70,7 @@ Bookle-Talk/
 ---
 ### 아키텍처 구조도
 
-```mermaid
+```
 ![image](https://github.com/user-attachments/assets/c269e327-41dd-4fcb-83ec-467e3e7d9dfb)
 ```
 
