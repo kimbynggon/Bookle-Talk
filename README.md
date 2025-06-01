@@ -70,9 +70,9 @@ Bookle-Talk/
 ---
 ### 아키텍처 구조도
 
-```
-![image](https://github.com/user-attachments/assets/c269e327-41dd-4fcb-83ec-467e3e7d9dfb)
-```
+---
+![2025](https://github.com/user-attachments/assets/52512630-c541-4630-8437-67448fd25951)
+---
 
 #### 주요 컴포넌트 설명
 
